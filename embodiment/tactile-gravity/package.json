@@ -1,0 +1,31 @@
+{
+  "name": "tactile-gravity",
+  "version": "1.0.0",
+  "description": "Tactile gravity sense v0: sphere skin on a tiltable floor (three.js + Rapier)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "probe": "node scripts/probe_rapier.mjs",
+    "check": "node scripts/check_sim.mjs",
+    "probe:bounce": "node scripts/probe_bounce.mjs",
+    "verify": "node scripts/verify_conditions.mjs",
+    "build:doc": "node scripts/build_standalone_doc.mjs",
+    "eval": "node scripts/run_eval.mjs",
+    "probe:v02": "node scripts/probe_v02_artifacts.mjs",
+    "probe:shear": "node scripts/probe_shear.mjs",
+    "llm:export": "node scripts/llm_export.mjs",
+    "llm": "node scripts/llm_query.mjs",
+    "llm:score": "node scripts/llm_score.mjs",
+    "llm:models": "node scripts/gemini_list_models.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.21.0",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "vite": "^8.3.3"
+  }
+}

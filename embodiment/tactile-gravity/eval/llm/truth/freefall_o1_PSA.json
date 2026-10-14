@@ -1,0 +1,37 @@
+{
+  "id": "freefall_o1_PSA",
+  "scene": "freefall",
+  "orientation": 1,
+  "mask": "PSA",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "none"
+    },
+    "Q2": {
+      "kind": "mag0"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": 0.000033268799489116166,
+      "y": -0.00006686963961421997,
+      "z": 0.00010026202630414602
+    },
+    "specificForceMagnitude": 0.0001250233403816901,
+    "apparentDown": null,
+    "mass": 1,
+    "inContact": false,
+    "state": "none",
+    "load": "none"
+  }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tactile Gravity v0.1</title>
+  <style>
+    :root {
+      --bg: #111418; --panel: rgba(20, 24, 30, .94); --border: #2a313b; --ink: #d8dee6; --muted: #8b95a3;
+      --btn: #2a313b; --btn-border: #3a4350; --pass: #4caf7a; --fail: #e0645c;
+    }
+    html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 13px/1.4 system-ui, sans-serif; }
+    #view { position: fixed; inset: 0; }
+    #panel { position: fixed; top: 12px; right: 12px; width: 340px; max-height: calc(100vh - 24px); overflow-y: auto; overflow-x: hidden;
+             background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 12px; box-sizing: border-box; }
+    @media (max-width: 600px) { #panel { left: 16px; right: 16px; width: auto; top: auto; bottom: 12px; max-height: 55vh; } }
+    h1 { font-size: 14px; margin: 0 0 6px; }
+    h2 { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 14px 0 4px; font-weight: 600; }
+    label { display: block; margin: 6px 0 1px; }
+    label.inline { display: inline-flex; gap: 4px; align-items: center; margin-right: 10px; }
+    input[type=range] { width: 100%; }
+    select { width: 100%; background: var(--btn); color: var(--ink); border: 1px solid var(--btn-border); border-radius: 4px; padding: 3px; }
+    .row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; align-items: center; }
+    button { background: var(--btn); color: inherit; border: 1px solid var(--btn-border); border-radius: 4px; padding: 4px 8px; cursor: pointer; }
+    button.rec { border-color: var(--fail); color: var(--fail); }
+    button:disabled { opacity: .45; cursor: default; }
+    pre { font: 12px/1.35 ui-monospace, Consolas, monospace; margin: 4px 0 0; white-space: pre-wrap; }
+    .muted { color: var(--muted); }
+    .note { color: var(--muted); font-size: 12px; margin: 2px 0 0; }
+    #legend { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-top: 4px; }
+    #legendBar { flex: 1; height: 8px; border-radius: 4px; }
+    #legendZero { width: 10px; height: 10px; border-radius: 50%; background: #3a3d42; display: inline-block; }
+    #skinMap { width: 100%; height: auto; display: block; background: #0c0f12; border: 1px solid var(--border); border-radius: 4px; margin-top: 6px; }
+    #tooltip { position: fixed; pointer-events: none; background: #1d232b; border: 1px solid #3a4350; border-radius: 4px;
+               padding: 4px 6px; font: 12px ui-monospace, Consolas, monospace; display: none; z-index: 10; white-space: pre; }
+    table { border-collapse: collapse; width: 100%; font: 12px ui-monospace, Consolas, monospace; margin-top: 4px; }
+    th, td { text-align: right; padding: 2px 4px; border-bottom: 1px solid var(--border); }
+    th:first-child, td:first-child { text-align: left; }
+    .pass { color: var(--pass); } .fail { color: var(--fail); }
+  </style>
+</head>
+<body>
+  <div id="view"></div>
+  <div id="tooltip"></div>
+  <div id="panel">
+    <h1>Tactile Gravity v0.1</h1>
+
+    <h2>Condition</h2>
+    <select id="mode">
+      <option value="floor">Floor (gravity on)</option>
+      <option value="wallA">Zero-g, wall A: moving wall accelerates sphere</option>
+      <option value="wallB">Zero-g, wall B: squeeze (fixed wall + pusher plate)</option>
+    </select>
+    <p class="note" id="modeNote"></p>
+    <div class="row">
+      <button data-preset="c0">Earth, level</button>
+      <button data-preset="c1">C1 tilt 30°</button>
+      <button data-preset="c2">C2 g×2</button>
+      <button data-preset="c3">C3 zero g</button>
+    </div>
+
+    <h2>World</h2>
+    <label><span id="gLabel">Gravity</span>: <span id="gVal">9.81</span> m/s²</label>
+    <input id="g" type="range" min="0" max="20" step="0.01" value="9.81" />
+    <label>Floor tilt: <span id="tiltVal">0</span>°</label>
+    <input id="tilt" type="range" min="-60" max="60" step="1" value="0" />
+    <label>Tilt speed: <span id="tiltRateVal">20</span> °/s</label>
+    <input id="tiltRate" type="range" min="1" max="90" step="1" value="20" />
+    <label>Sphere mass: <span id="massVal">1.00</span> kg</label>
+    <input id="mass" type="range" min="0.1" max="10" step="0.05" value="1" />
+    <label>Bounciness (restitution): <span id="restVal">0.00</span></label>
+    <input id="rest" type="range" min="0" max="1" step="0.01" value="0" />
+    <label class="inline"><input id="lockRot" type="checkbox" checked /> Lock rotation (no rolling)</label>
+    <div class="row">
+      <button id="reset">Reset</button>
+      <button id="pause">Pause</button>
+      <button id="drop">Drop 1 m</button>
+    </div>
+
+    <h2>Senses</h2>
+    <label>Skin thickness h: <span id="hVal">0.050</span> m</label>
+    <input id="h" type="range" min="0.01" max="0.15" step="0.005" value="0.05" />
+    <label class="inline"><input id="accelOn" type="checkbox" /> Accelerometer channel</label>
+    <label class="inline"><input id="shearOn" type="checkbox" /> Shear arrows</label>
+    <label>Heatmap scale max: <span id="scaleVal">3.0</span> N per taxel</label>
+    <input id="scale" type="range" min="0.1" max="10" step="0.1" value="3" />
+    <div id="legend"><span id="legendZero" title="exactly 0 N"></span>0 N<div id="legendBar"></div><span id="legendMax">3.0 N</span></div>
+    <canvas id="skinMap" width="632" height="330"></canvas>
+    <p class="note">Skin map, body frame: equal-area view of each hemisphere, rim = equator, +x right, +z down. Grey = exactly 0 N. Hover a taxel for its value.</p>
+
+    <h2>Live summary</h2>
+    <pre id="summary"></pre>
+    <pre id="truth" class="muted"></pre>
+
+    <h2>Log</h2>
+    <div class="row">
+      <button id="record">● Record</button>
+      <span id="recInfo" class="muted"></span>
+    </div>
+
+    <h2>Rest vs. walls test (conditions 4–6)</h2>
+    <p class="note">Settles floor, wall A and wall B headlessly at the current g, mass and skin thickness, averages 1 s, and compares taxel-by-taxel in the body frame.</p>
+    <div class="row">
+      <button id="eqRun">Run test</button>
+      <button id="eqDownload" disabled>Download result</button>
+    </div>
+    <div id="eqResult"></div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

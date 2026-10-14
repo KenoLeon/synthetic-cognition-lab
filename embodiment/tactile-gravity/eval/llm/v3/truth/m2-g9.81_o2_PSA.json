@@ -1,0 +1,46 @@
+{
+  "id": "m2-g9.81_o2_PSA",
+  "scene": "m2-g9.81",
+  "orientation": 2,
+  "mask": "PSA",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "dir",
+      "value": {
+        "x": 0.27878355727776616,
+        "y": 0.9427095584307965,
+        "z": -0.18324414488536045
+      }
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": -2.7348668270029206,
+      "y": -9.247981208167815,
+      "z": 1.797625146845263
+    },
+    "specificForceMagnitude": 9.810000466699098,
+    "apparentDown": {
+      "x": 0.27878355727776616,
+      "y": 0.9427095584307965,
+      "z": -0.18324414488536045
+    },
+    "mass": 2,
+    "inContact": true,
+    "state": "rest",
+    "load": "gravity"
+  }
+}

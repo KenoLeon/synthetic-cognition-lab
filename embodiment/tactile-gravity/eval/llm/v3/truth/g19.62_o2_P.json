@@ -1,0 +1,41 @@
+{
+  "id": "g19.62_o2_P",
+  "scene": "g19.62",
+  "orientation": 2,
+  "mask": "P",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "not-identifiable"
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": -5.469733654005841,
+      "y": -18.49596241633563,
+      "z": 3.595250293690526
+    },
+    "specificForceMagnitude": 19.620000933398195,
+    "apparentDown": {
+      "x": 0.27878355727776616,
+      "y": 0.9427095584307965,
+      "z": -0.18324414488536045
+    },
+    "mass": 1,
+    "inContact": true,
+    "state": "rest",
+    "load": "gravity"
+  }
+}

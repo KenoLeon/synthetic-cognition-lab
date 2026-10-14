@@ -1,0 +1,41 @@
+{
+  "id": "tilt-40_o0_P",
+  "scene": "tilt-40",
+  "orientation": 0,
+  "mask": "P",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "not-identifiable"
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": 7.337065470026418,
+      "y": 4.651460460023749,
+      "z": -4.557135107164675
+    },
+    "specificForceMagnitude": 9.809999720059686,
+    "apparentDown": {
+      "x": -0.7479169907643767,
+      "y": -0.4741550043587003,
+      "z": 0.46453977953191505
+    },
+    "mass": 1,
+    "inContact": true,
+    "state": "rest",
+    "load": "gravity"
+  }
+}

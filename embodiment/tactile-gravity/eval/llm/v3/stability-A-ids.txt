@@ -1,0 +1,6 @@
+tilt+40_o0_A
+g2_o0_A
+m2-g9.81_o0_A
+g0_o0_A
+wallA_o0_A
+slide50_o0_A

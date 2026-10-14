@@ -1,0 +1,37 @@
+{
+  "id": "squeeze_o0_PS",
+  "scene": "squeeze",
+  "orientation": 0,
+  "mask": "PS",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "none"
+    },
+    "Q2": {
+      "kind": "mag0"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "specificForceMagnitude": 0,
+    "apparentDown": null,
+    "mass": 1,
+    "inContact": true,
+    "state": "rest",
+    "load": "squeeze"
+  }
+}

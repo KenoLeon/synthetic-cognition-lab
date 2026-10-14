@@ -1,0 +1,41 @@
+{
+  "id": "m4-g4.905_o2_P",
+  "scene": "m4-g4.905",
+  "orientation": 2,
+  "mask": "P",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "not-identifiable"
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": -1.3674334135014603,
+      "y": -4.623990604083907,
+      "z": 0.8988125734226315
+    },
+    "specificForceMagnitude": 4.905000233349549,
+    "apparentDown": {
+      "x": 0.27878355727776616,
+      "y": 0.9427095584307965,
+      "z": -0.18324414488536045
+    },
+    "mass": 4,
+    "inContact": true,
+    "state": "rest",
+    "load": "gravity"
+  }
+}

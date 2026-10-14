@@ -1,0 +1,46 @@
+{
+  "id": "g2_o0_PSA",
+  "scene": "g2",
+  "orientation": 0,
+  "mask": "PSA",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "dir",
+      "value": {
+        "x": -0.7479169907643763,
+        "y": -0.47415500435870017,
+        "z": 0.46453977953191533
+      }
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": 1.495833938843306,
+      "y": 0.9483099816562178,
+      "z": -0.9290795325514125
+    },
+    "specificForceMagnitude": 1.999999942927561,
+    "apparentDown": {
+      "x": -0.7479169907643763,
+      "y": -0.47415500435870017,
+      "z": 0.46453977953191533
+    },
+    "mass": 1,
+    "inContact": true,
+    "state": "rest",
+    "load": "gravity"
+  }
+}
