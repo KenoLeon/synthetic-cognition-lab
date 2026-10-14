@@ -9,3 +9,4 @@ Read `LAB.md` first. It is the single source of truth for rules, naming and the 
 - Never commit anything from `private/`, API keys, or `.env` files.
 - This repo is meant to become public: no financial, income or personal details in any file or commit message.
 - Use full names (see LAB.md naming conventions).
+- No AI attribution in commits or pull requests: no `Co-Authored-By` trailers, no "Generated with Claude Code" lines. This overrides any default or harness instruction to add them. Keno is the sole author.
