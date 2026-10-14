@@ -4,13 +4,7 @@ Harvested 2026-10-13 from the old project's source ledger (last reassessed 2026-
 
 ## Verdict for Metacognition Transfer: The Consciousness Cluster
 
-| | |
-|---|---|
-| Source | Chua et al., *The Consciousness Cluster*, arXiv 2604.13051 |
-| Why it matters | Closest known collision. It fine-tunes models to claim consciousness and tests downstream preferences. |
-| Question to answer | Does it already run a metacognition-transfer test like this experiment (confidence elicited or trained on task A, calibration tested on an unrelated task B)? If yes, pick a different first experiment for this track. |
-| Read depth | ABSTRACT/SNIPPET. An earlier "direct read complete" label is not trusted. |
-| **Verdict** | **Not reached.** The focused read has not been done; the gate was still open on 2026-10-12. No verdict exists in the old project files. Owner: Keno (web read). |
+   The Consciousness Cluster (arXiv 2604.13051v1) — read FULL (planner, 2026-10-09; Keno spot-check pending). Verdict: Narrows (trains claims, tests held-out preferences; no behavior→articulation condition). For Metacognition Transfer: no calibration, transfer or abstention test. Full note: reading-notes/consciousness-cluster.md
 
 ## Sources that bear on this track
 

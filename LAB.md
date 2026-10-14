@@ -30,7 +30,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 | Embodiment | — | Active Sensing | `embodiment/active-sensing/` | Designed | — |
 | Emergent Cognitive Markers | Metacognition | Metacognition Transfer | `emergent-cognitive-markers/metacognition-transfer/` | Designed (mock-only first version) | — |
 
-Earlier related work: EpisodicRAG (paper, Zenodo, 2026); Continuity (framework, 2026 edition); Aware-Cam (embodied vision probe); EmbodyAI.
+Earlier related work: EpisodicRAG (paper, Zenodo, 2026); Continuity (framework, 2026 edition); Aether (PTZ camera + local LLM vision probe, 2025–26).
 
 ## Naming conventions
 
