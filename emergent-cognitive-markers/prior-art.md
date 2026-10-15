@@ -26,7 +26,7 @@ Left out as not bearing on current work (still in the old project's ledger): coh
 
 ## Errata still in force
 
-1. Only Butlin 2023 has been partly read in full text. Every other source above is at most ABSTRACT, whatever older pitch material says.
+1. "Direct reads complete" was overstated. As of 2026-10-09 only Butlin 2023 had been partly read in full text; every other source in the table above is at most ABSTRACT, whatever older pitch material says. (The Consciousness Cluster has since been read FULL; see the verdict above.)
 2. Butlin's indicator count is 14, not 11.
 3. The quote "an engineer might attempt to design a nonconscious system that manifests that indicator" and the label "the gaming problem" are not in the 2023 arXiv text that was read. Do not quote either until verified (probably the unread 2025 version).
 4. Only Udell & Schwitzgebel 2021 is verified (via Butlin §1.2.3). Citing Dung 2023 alongside it is unverified.
@@ -34,4 +34,5 @@ Left out as not bearing on current work (still in the old project's ledger): coh
 6. "Nobody has generalized Betley/Evans into a systematic battery" was retracted; The Consciousness Cluster and related 2026 work may do part of it.
 
 ## Log
+- 2026-10-14 — Erratum 1 made explicit ("direct reads complete" was overstated).
 - 2026-10-13 — Harvested from the old source ledger; depths unchanged; Consciousness Cluster verdict recorded as not reached.
