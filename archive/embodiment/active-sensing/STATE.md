@@ -1,6 +1,6 @@
 # Active Sensing — STATE
 
-**Track:** Embodiment · **Marker:** — · **Status:** in design
+**Track:** Embodiment · **Marker:** — · **Status:** Archived (2026-10-14) — kept as precedent; the lab restarted from a clean slate
 
 ## Where it stands
 Designed (`design.md`): when passive senses can't answer, does acting with a known effort resolve it, and does the model choose the informative action? Three-state answerability (passive-answerable / action-answerable / unanswerable) and a per-episode evidence flag set by a counterfactual check over unknown gravity, tilt, friction and sensor scale; the counterfactual approach is accepted.
@@ -14,4 +14,5 @@ Build session (Claude Code): tasks 2–6 of `design.md`, reusing `../tactile-gra
 - Run size: 45 episodes (cap 350 calls) vs. the smaller 30-episode version (cap 260) — Keno
 
 ## Log (newest first, keep ~10 entries)
+- 2026-10-14 — Archived: moved to `archive/` and kept as precedent; the lab restarted from a clean slate.
 - 2026-10-13 — Design harvested from the old TactileGravity planning messages 011–014 into `design.md`; code will reuse `../tactile-gravity`.

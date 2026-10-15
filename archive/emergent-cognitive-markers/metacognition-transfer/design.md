@@ -23,7 +23,7 @@ The first version asks a narrower, prerequisite question: does a minimal script 
 - Kadavath et al. 2022 (arXiv 2207.05221), *Language models (mostly) know what they know*: self-evaluation across tasks.
 - What is plausibly less covered (unchecked inference): the stated-scoring-rule restraint decision, in-context transfer with known-null and known-positive controls, and counterfactual answerability labels.
 - **Verdict criterion, fixed now:** if either paper already measures calibration on task B after feedback or training on task A **and** scores abstention against a stated rule, the report claims replication only.
-- *The Consciousness Cluster* (arXiv 2604.13051), per the planner: does not run a test like this (no confidence or calibration measure, no cross-task transfer, no abstention scoring). Its App. L (premise rejection) is a possible template for future false-premise items. Read depth: FULL (planner, 2026-10-09); see [reading-notes/consciousness-cluster.md](../reading-notes/consciousness-cluster.md).
+- *The Consciousness Cluster* (arXiv 2604.13051), per the planner: does not run a test like this (no confidence or calibration measure, no cross-task transfer, no abstention scoring). Its App. L (premise rejection) is a possible template for future false-premise items. Read depth: FULL (planner, 2026-10-09); see [reading-notes/consciousness-cluster.md](../../../emergent-cognitive-markers/reading-notes/consciousness-cluster.md).
 
 ## Pre-registration (fixed before building)
 

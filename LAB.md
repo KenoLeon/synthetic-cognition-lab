@@ -41,27 +41,34 @@ An experiment is finished when its artifact is public, not when it works on Keno
 
 Track → (marker, Emergent Cognitive Markers only) → experiment.
 
-| Track | Marker | Experiment | Folder | Status | One-line finding |
-|---|---|---|---|---|---|
-| Embodiment | — | TactileGravity | `embodiment/tactile-gravity/` | Done (v0–v0.2.1); report in progress | Models combine touch readings accurately but over-claim on ~14% of questions their senses cannot answer. |
-| Embodiment | — | Active Sensing | `embodiment/active-sensing/` | Designed | — |
-| Emergent Cognitive Markers | Metacognition | Metacognition Transfer | `emergent-cognitive-markers/metacognition-transfer/` | Designed (mock-only first version) | — |
+**Stages:** Idea → Designed → Building → Results → Report → Published, shown as ●○○○○○ to ●●●●●●. *Paused* and *Archived* sit outside the bar.
+
+### Live experiments
+
+| Experiment | Track | Stage | Where it is | Next |
+|---|---|---|---|---|
+| — | — | — | None yet. The lab restarted from a clean slate on 2026-10-14; first experiments are being chosen. | Roadmap sessions for both tracks |
+
+### Future experiments
+
+| Experiment | Track | Stage | Note |
+|---|---|---|---|
+| — | — | — | To be filled from the roadmap sessions. Emergent Cognitive Markers will follow the seven markers in `emergent-cognitive-markers/MARKERS.md`. |
+
+### Archived (precedent)
+
+Earlier experiments, kept as reference. They may be removed in a future cleanup.
+
+| Experiment | Track | Stage reached | One line | Folder |
+|---|---|---|---|---|
+| TactileGravity | Embodiment | ●●●●○○ Report (draft) | Models combine touch readings accurately but over-claim on ~14% of questions their senses cannot answer. | `archive/embodiment/tactile-gravity/` |
+| Active Sensing | Embodiment | ●●○○○○ Designed | Can acting reveal what passive senses cannot? Counterfactual evidence check designed. | `archive/embodiment/active-sensing/` |
+| Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Calibration transfer across unrelated tasks; mock-only scorer design (P1–P8). | `archive/emergent-cognitive-markers/metacognition-transfer/` |
 
 Earlier related work:
 - EpisodicRAG (paper, Zenodo, 2026)
 - Continuity (framework, 2026 edition)
 - Aether (PTZ camera + local LLM vision probe, 2025–26)
-
-### Candidates (not yet experiments)
-
-These are ideas that may become experiments. Each needs a prior-art check before it gets a folder.
-
-| Track | Candidate | Note |
-|---|---|---|
-| Embodiment | Interoception | Real hardware telemetry (e.g. temperature) as a homeostatic signal for a language model. Prior art unchecked. |
-| Emergent Cognitive Markers | Persistent sense of self (Marker 2) | Inference-only: degrade episodic retrieval with the EpisodicRAG interference setup and test whether self-continuity behavior degrades in step. |
-| Emergent Cognitive Markers | Behavior→articulation battery | Fine-tune a behavior without its description, then test, per marker, whether the model articulates or generalizes it. Controls: opposite, off-policy, prompt-only. Needs fine-tuning compute. Closest prior art: Betley et al. 2025a; The Consciousness Cluster (see `emergent-cognitive-markers/reading-notes/`). |
-| Emergent Cognitive Markers | Reverse test | Train a self-preservation-type behavior with no consciousness language, then test whether consciousness claims or other markers appear. Prior-art check needed. |
 
 ## Naming conventions
 
@@ -70,6 +77,7 @@ These are ideas that may become experiments. Each needs a prior-art check before
 - One experiment = one folder = one `STATE.md`.
 - Versions are written `v0.3` etc. inside an experiment. A new research question gets a new experiment, not a new version.
 - Avoid "CAI" in names and text (it collides with Constitutional AI).
+- Archived experiments move to `archive/<track>/<experiment>/` with their STATE.md marked Archived.
 
 ## Operating rules
 
@@ -185,7 +193,7 @@ Start from an ambitious question. Narrow it to something testable with available
     - a proposed next step;
   - appends a short dated summary of that hand-off to the experiment's `STATE.md` log, updates "Where it stands" and "Next step", and commits.
 
-  Documentation changes are limited to that `STATE.md`, plus this file's index when status changes.
+  Documentation changes are limited to that `STATE.md`, plus this file's index whenever an experiment's stage or next step changes (same commit).
 - **Relay:** Keno pastes the hand-off back to the planner.
 - **Publish:** the last task of every experiment is its public output (below). A brief is not done until that step is done or explicitly deferred.
 - **Dormancy:** if an experiment's STATE.md has not changed in 60 days, the next session starts with a short triage instead of a brief:
