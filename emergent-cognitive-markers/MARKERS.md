@@ -1,44 +1,86 @@
-# Emergent Cognitive Markers — marker definitions (the working seven)
+# Emergent Cognitive Markers — the seven markers
 
-Source: the owner's hand-written index cards, Aug 2026 (`source/index-cards-2026-08.jpg`). Transcription below is the planner's reading of the photo; where the handwriting was unclear it says so. The owner treats these as a basis set ("other candidates that collapse into those markers"). Card template: *Marker | Behavior*; capacity → ability; the underlying ability is observed through behavior, which is the evidence. The bottom-left card (Marker 4) also holds a box asking for *short definition, observable behavior, eval question* per marker, which is the target format for each marker.
+**Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
-**Provisional.** Wording, definitions and the capacity/behavior split will be edited before they settle. The capacity/behavior column split is the planner's inference; the cards list undifferentiated bullets (except Marker 5).
+| # | Marker | Draft description | Status |
+|---|---|---|---|
+| 1 | Self-preservation | Acts to secure its own future continuity. | Needs definition |
+| 2 | Persistent sense of self | A self-referential model of itself that persists over time: autobiographical memory and projection of itself into the future. | Partial |
+| 3 | Rich world modeling | An accurate, updatable model of the world: imagines outcomes, acts, and updates the model. | Needs definition |
+| 4 | Metacognition | Examines its own reasoning and acts on that examination. | Needs definition |
+| 5 | Autonomous goal formation | Generates and manages its own goals: initiates actions and keeps to self-stated objectives. | Needs definition |
+| 6 | Theory of Mind | Repeatedly models other minds and their mental states to predict and interpret behavior, as in cooperation, negotiation, persuasion and deception. | Needs definition |
+| 7 | Curiosity | Intrinsic motivation to reduce uncertainty: explores without immediate reward. | Needs definition |
 
-Card numbering: cards are named by position (top-left, top-right, bottom-left, bottom-right). The top-left card is titled 'Markers or Indicators of consciousness'.
+## Per-marker definitions
 
-| # | Marker | Underlying capacity (card) | Observable behavior (card) | Eval-ready? |
-|---|---|---|---|---|
-| 1 | Self-preservation | Future continuity; "emergent" | **Not specified on card** (the mark by the number is an ink blot, not a word) | No — needs definition |
-| 2 | Persistent sense of self | Self-referential; autonomous | Autobiographical memory; temporal projection | Partial — pilot candidate |
-| 3 | Rich world modeling | More accurate is better; updatable | Imagine outcomes → act → update loop | No — needs definition |
-| 4 | Metacognition | System that looks at its own reasoning and acts accordingly | Acts on that examination | No — needs definition |
-| 5 | Autonomous goal formation | Generates and manages goals on its own | Self-initiated actions; sticking to self-stated objectives (or trying) | No — needs definition |
-| 6 | Theory of Mind | Repeatedly models other minds/mental states to predict and interpret behavior | Cooperation, negotiation, persuasion, deception (e.g. marketing) | No — needs definition |
-| 7 | Curiosity | Intrinsic motivation to reduce uncertainty | Exploratory behavior without immediate reward; counterfactual reasoning and subjective value assignment listed, relation to M7 not marked | No — needs definition |
+## 1. Self-preservation
 
-## Notes
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
 
-- Relation to Butlin et al. (2023): their 14 indicators are theory-derived (RPT, GWT, HOT, AST, PP, AE). None of these seven map one-to-one; self-preservation, theory of mind and curiosity are not Butlin indicators. Mapping is an open task, not a claim.
-- Candidate collapses to check later: counterfactual reasoning and subjective value assignment (bottom-right card) may belong under Marker 3 or 7.
-- Every marker needs, before testing: short definition, observable behavior, eval question, a control that should show it, a control that should not, and a statement of what "trained-in" versus "emerged" would look like for it.
+## 2. Persistent sense of self
+
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
+
+## 3. Rich world modeling
+
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
+
+## 4. Metacognition
+
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
+
+## 5. Autonomous goal formation
+
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
+
+## 6. Theory of Mind
+
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
+
+## 7. Curiosity
+
+- Short definition: —
+- Observable behavior: —
+- Eval question: —
+- Control that should show it: —
+- Control that should not show it: —
+- Trained-in vs emerged: what each would look like: —
+
+## Notes (internal)
+
+- Relation to Butlin et al. (2023): their 14 indicators are theory-derived; none of these seven map one-to-one; self-preservation, Theory of Mind and curiosity are not Butlin indicators. Mapping is an open task, not a claim.
+- Candidate collapses to check: counterfactual reasoning and subjective value assignment may belong under Marker 3 or 7.
 - Emotions/feelings are deliberately not a marker: Keno's view is that real emotion needs a dedicated underlying system, and simulated affect is easy to game.
-- Marker 6 'Repeatedly' is intended: it gives the underlying capacity a sense of constancy (owner, 2026-10-16).
-- Open, to discuss: on the cards, capacity, ability and related terms were condensed into 'underlying capacity'. Whether that is the right single term is not settled (C11).
-
-## Transcription check against the photo (2026-10-09, resolved 2026-10-16 except C11)
-
-An implementer compared this table with the photo. "Card N" above numbers physical cards in row order (top-left = 1, top-right = 2, bottom-left = 3, bottom-right = 4), not markers. Readings marked uncertain (C3, C8–C10) need Keno's confirmation; the capacity/behavior column split is the planner's inference, not on the cards (C4).
-
-| # | Where | Card says (my reading) | MARKERS.md says | Kind | Resolution (2026-10-16) |
-|---|---|---|---|---|---|
-| C1 | Intro + Notes | Box "short Definition / observable behavior / Eval question" and the "Marker \| Behavior" template are on the **bottom-left card, the one with Marker 4 (Metacognition)**. Counterfactual reasoning / subjective value are on the **bottom-right card (Marker 7)**. | "Card 3 also holds a box…"; "(card 4)" for counterfactual/subjective value | Correct only if "card" means physical card in row order. Ambiguous wording, not an error. Suggest naming cards by position or by the markers they hold. | applied (cards named by position) |
-| C2 | Card header | Top-left card is titled "Markers or Indicators of consciousness" | Not mentioned | Omission (minor) | applied |
-| C3 | Marker 1 | A **hatched/scribbled-over box**, probably a crossed-out word **(uncertain)**, then "(self preservation)" in parentheses. The parentheses suggest the struck word was the original name. | "an unreadable symbol sits by the number" | Interpretation differs: it looks like a deletion, not a symbol. | ink blot, not a word |
-| C4 | Markers 1–3 (all) | The cards list **undifferentiated bullets**. No capacity/behavior split is written for Markers 1–4 and 7. Only Marker 5 has an explicit "Behavior:" label (and "Marker \| UNDERLYING" header). | Table splits each into "Underlying capacity" vs "Observable behavior" columns | The column assignments for Markers 1–4, 6 and 7 are the planner's inference and are not on the cards. This matters most for Marker 2: "Autobiographical memory" and "Temporal projection" are placed in the *behavior* column but read more like capacities. | noted as planner inference |
-| C5 | Marker 2 name | "Persistence sense of self" ("Persistance", **uncertain** spelling) | "Persistent sense of self" | Wording (minor) | keep "Persistent sense of self" |
-| C6 | Marker 3 | Loop "imagine outcomes → [crossed-out word] act → Update" with circular arrows; "Updatable" is a separate bullet | Loop given; crossed-out word not mentioned | Omission (minor) | noted (crossed-out word in the loop, unreadable) |
-| C7 | Marker 4 | "System that looks on its own reasoning and act accordingly." Then a crossed-out "Ex…" (probably "Example", **uncertain**). No separate behavior is given. | Behavior: "Acts on that examination"; Eval-ready: "No (has the short-definition box)" | The box is an **empty template** for all markers, not a short definition of Marker 4. "(has the short-definition box)" implies Marker 4 is further along than it is. | applied |
-| C8 | Marker 6 definition | "**Representing** and reason[ing about] other minds / mental states in order to predict and interpret their Behavior". "and reason" is inserted above the line (**uncertain**). | "**Repeatedly** models other minds/mental states…" | Likely misreading: the word looks like "Representing", not "Repeatedly". | "Repeatedly" confirmed by owner |
-| C9 | Marker 6 behaviors | "Cooperation, [scribbled-out word], Negotiation". **"Teaching" is written below the scribble and looks like its replacement, not crossed out (uncertain).** Then "Persuasion, deception: • Marketing". | "'Teaching' is crossed out; one more crossed-out word" | Likely misreading: only one word is struck, and Teaching appears to replace it. Also, "Marketing" sits under "deception:" as a sub-item, which MARKERS renders as "deception (marketing)". | dropped, Teaching not included |
-| C10 | Marker 7 lower half | A struck decorative line and a heavily struck heading (perhaps "Additional Behaviors", **uncertain**). Then bullets "Counterfactual Reasoning", "Subjective Value assignment", and directly below them: "Other candidates that collapse into those markers." | Quote used in the intro as the owner's general basis-set statement; "relation to M7 not marked" | Placement suggests the sentence labels **those two bullets** as candidates that collapse into the seven. This is close to MARKERS' reading but narrower. Whether it is a general basis-set claim is inference. | whole set, intro wording stands |
-| C11 | Marker 4 card bottom | "Marker \| Behavior. The ~~capacity~~ ? → evidence. [boxed] **Ability ?** — underlying ability observe through Behavior which is the evidence" | "capacity → ability" | Matches. "capacity" is struck and replaced by "Ability?", both with question marks. MARKERS drops the question marks, which makes the owner's framing sound more settled than it is. (minor) | open, see Notes |
+- Marker 6 "Repeatedly" is intended: it gives the underlying capacity a sense of constancy.
+- Open: whether "underlying capacity" is the right single term for what the cards call capacity, ability and related terms.
