@@ -22,7 +22,7 @@ Keno Leon · Mexico City · started October 2026
 - rich world modeling
 - metacognition
 - autonomous goal formation
-- theory of mind
+- Theory of Mind
 - curiosity
 
 ## Scope
