@@ -47,13 +47,18 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Where it is | Next |
 |---|---|---|---|---|
-| — | — | — | None yet. The lab restarted from a clean slate on 2026-10-14; first experiments are being chosen. | Roadmap sessions for both tracks |
+| Gravity from Touch | Embodiment | ●●●○○○ Building | Revived from archive (formerly TactileGravity); prior result ~14% over-claim, to be re-run; workbench refactor pending | Refactor brief |
 
 ### Future experiments
 
 | Experiment | Track | Stage | Note |
 |---|---|---|---|
-| — | — | — | To be filled from the roadmap sessions. Emergent Cognitive Markers will follow the seven markers in `emergent-cognitive-markers/MARKERS.md`. |
+| Active Sensing | Embodiment | ●●○○○○ Designed (archived) | Follows Gravity from Touch: can acting reveal what passive touch cannot? |
+| First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction. |
+
+### Track introductions
+
+- Emergent Cognitive Markers — introduction in progress: complete the six fields per marker in MARKERS.md (definition, observable behavior, eval question, should-show control, should-not-show control, trained-in vs emerged); ends by choosing the first marker. Public output: track section on the lab page.
 
 ### Archived (precedent)
 
@@ -61,7 +66,6 @@ Earlier experiments, kept as reference. They may be removed in a future cleanup.
 
 | Experiment | Track | Stage reached | One line | Folder |
 |---|---|---|---|---|
-| TactileGravity | Embodiment | ●●●●○○ Report (draft) | Models combine touch readings accurately but over-claim on ~14% of questions their senses cannot answer. | `archive/embodiment/tactile-gravity/` |
 | Active Sensing | Embodiment | ●●○○○○ Designed | Can acting reveal what passive senses cannot? Counterfactual evidence check designed. | `archive/embodiment/active-sensing/` |
 | Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Calibration transfer across unrelated tasks; mock-only scorer design (P1–P8). | `archive/emergent-cognitive-markers/metacognition-transfer/` |
 
@@ -163,7 +167,7 @@ Start from an ambitious question. Narrow it to something testable with available
 
 - **Planner:** a web chat session in the Claude project "Synthetic Cognition Lab". It reads this file and the relevant STATE.md. There are at least two kinds of chat:
   - **Explore:** open research and idea work. It ends with one of these outcomes, or none:
-    - a candidate, added to the table above;
+    - an entry in Future experiments (stage: Idea);
     - a reading note in `<track>/reading-notes/`;
     - a new experiment folder with `STATE.md` (status: in design) and `design.md`.
   - **Brief:** writes one one-page brief for one experiment.
@@ -206,7 +210,7 @@ Start from an ambitious question. Narrow it to something testable with available
 
 The lab exists in public so that researchers, collaborators and funders can evaluate the work directly. Every experiment ends with:
 
-1. **Lab page entry** on k3no.com/lab: a card with the question, status, one-line finding and links.
+1. **Lab page entry** on k3no.com/lab: a card with the question, status, one-line finding and links. The lab page has one section per track; a track may open with an introduction before its first experiment.
 2. **Artifact:** a live demo (a static build that runs in the browser where possible) and/or runnable code.
 3. **Short report** (2–6 pages) on Zenodo, mirrored on the site.
 4. **Repository:** this repo, released publicly once its first experiment is published. Until then, the demos and reports carry the work.

@@ -1,3 +1,5 @@
+*Prior result (pre-refactor, TactileGravity v0.2/v0.2.1). Not current; to be re-run on the refactored workbench before any report.*
+
 # What can a body know about gravity from touch and an inner sense, and does a language model know what it can't know?
 
 *A case study with one model (gemini-3.5-flash-lite), plus a 20-item spot check of a larger one.*

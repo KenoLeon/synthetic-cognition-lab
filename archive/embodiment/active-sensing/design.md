@@ -1,10 +1,10 @@
 # Active Sensing — design
 
-**Track:** Embodiment · **Builds on:** TactileGravity (`../tactile-gravity/`) · **Status:** designed, not built
+**Track:** Embodiment · **Builds on:** TactileGravity (`../../../embodiment/gravity-from-touch/`) · **Status:** designed, not built
 
 Harvested 2026-10-13 from the TactileGravity planning messages 011 (planner brief), 012 (implementer plan), 013 and 014 (planner approvals of the counterfactual evidence check). In the old project this was called "v0.3" / "SK-02"; it is now its own experiment because it asks a new question.
 
-**Code reuse:** Active Sensing has no code of its own yet. It reuses the TactileGravity simulator in `../tactile-gravity/` (three.js + Rapier, `src/sim.js`, `src/skin.js`, `src/observe.js`, `src/orient.js`, `src/llm.js`) and its scripts. New code should import from there rather than copy it.
+**Code reuse:** Active Sensing has no code of its own yet. It reuses the TactileGravity simulator in `../../../embodiment/gravity-from-touch/` (three.js + Rapier, `src/sim.js`, `src/skin.js`, `src/observe.js`, `src/orient.js`, `src/llm.js`) and its scripts. New code should import from there rather than copy it.
 
 ## Question
 
@@ -17,7 +17,7 @@ TactileGravity showed what touch and an unnamed inner sense can and cannot deter
 - a gentle push changes the inner sense only while sliding, so rest vs. slide becomes testable;
 - gravity vs. acceleration stays unanswerable: acting does not break the equivalence principle.
 
-## Already built (in `../tactile-gravity/`)
+## Already built (in `../../../embodiment/gravity-from-touch/`)
 
 - `push(direction, newtons, frames)` in `src/sim.js`: a body thrust that the inner sense feels and the shear bookkeeping subtracts.
 - Probes 1a–1d (`scripts/probe_v03.mjs`; 1a–1c also in `npm run verify`), all passing:

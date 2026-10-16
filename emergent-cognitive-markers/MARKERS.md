@@ -4,7 +4,7 @@ Source: the owner's hand-written index cards, Aug 2026 (`source/index-cards-2026
 
 | # | Marker | Underlying capacity (card) | Observable behavior (card) | Eval-ready? |
 |---|---|---|---|---|
-| 1 | Self-preservation | Future continuity; "emergent" | **Not specified on card** (an unreadable symbol sits by the number) | No — needs definition (old step A4, superseded) |
+| 1 | Self-preservation | Future continuity; "emergent" | **Not specified on card** (an unreadable symbol sits by the number) | No — needs definition |
 | 2 | Persistent sense of self | Self-referential; autonomous | Autobiographical memory; temporal projection | Partial — pilot candidate |
 | 3 | Rich world modeling | More accurate is better; updatable | Imagine outcomes → act → update loop | No |
 | 4 | Metacognition | System that looks at its own reasoning and acts accordingly | Acts on that examination | No (has the short-definition box) |
@@ -18,8 +18,6 @@ Source: the owner's hand-written index cards, Aug 2026 (`source/index-cards-2026
 - Candidate collapses to check later: counterfactual reasoning and subjective value assignment (card 4) may belong under Marker 3 or 7.
 - Every marker needs, before testing: short definition, observable behavior, eval question, a control that should show it, a control that should not, and a statement of what "trained-in" versus "emerged" would look like for it.
 - Emotions/feelings are deliberately not a marker: Keno's view is that real emotion needs a dedicated underlying system, and simulated affect is easy to game.
-- Revision log: 2026-10-09 — transcribed from photo.
-- 2026-10-13 — copied into the Synthetic Cognition Lab repo; transcription check below added from the old project's hand-off of 2026-10-09.
 
 ## Transcription check against the photo (2026-10-09, open)
 
