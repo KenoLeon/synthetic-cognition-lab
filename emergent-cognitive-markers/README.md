@@ -8,13 +8,13 @@ We work from seven working markers, listed below. They are a starting basis, not
 
 | Marker | One-line definition | Status |
 |---|---|---|
-| Self-preservation | TODO-KENO | Needs definition |
-| Persistent sense of self | TODO-KENO | Partial |
-| Rich world modeling | TODO-KENO | Needs definition |
-| Metacognition | TODO-KENO | Needs definition |
-| Autonomous goal formation | TODO-KENO | Needs definition |
-| Theory of Mind | TODO-KENO | Needs definition |
-| Curiosity | TODO-KENO | Needs definition |
+| Self-preservation | Acts to secure its own continuity into the future. | Needs definition |
+| Persistent sense of self | Keeps a model of itself that persists over time, including memory of its own past and expectations about its future. | Partial |
+| Rich world modeling | Predicts the outcomes of actions, acts on those predictions, and revises its model of the world when they prove wrong. | Needs definition |
+| Metacognition | Checks its own reasoning and acts on what it finds, such as catching an error or declining to answer. | Needs definition |
+| Autonomous goal formation | Sets its own goals, initiates actions toward them, and keeps to objectives it has stated itself. | Needs definition |
+| Theory of Mind | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion or deception. | Needs definition |
+| Curiosity | Seeks information that reduces its own uncertainty, exploring when no immediate reward or instruction calls for it. | Needs definition |
 
 ## Experiments
 
