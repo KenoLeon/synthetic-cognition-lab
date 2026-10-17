@@ -1,12 +1,12 @@
 # Embodiment
 
-TODO-KENO: track introduction, first paragraph.
+Language models are increasingly being placed in bodies: robots, vehicles, agents that act on sensor data. This track asks what such a system can work out about its own body and situation from its senses alone, and whether it knows what those senses cannot tell it. We build simulated bodies whose physics we control, so every question has a known answer, including questions that are deliberately unanswerable.
 
-TODO-KENO: track introduction, second paragraph (optional).
+The first experiment, Gravity from Touch, gives a model touch readings from a simulated sphere and asks it about its situation, starting with which way is down. Some questions cannot be answered from touch alone, and the right response is to say so. We score both accuracy and restraint: answering what the senses can answer, and declining what they cannot.
 
 ## Bench
 
-TODO-KENO: one line introducing the interactive 3D workbench (embedded here later).
+An interactive version of the simulated body will live here.
 
 <!-- bench-embed -->
 

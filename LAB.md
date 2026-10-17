@@ -47,13 +47,13 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●○○○ Building | Revived from archive (formerly TactileGravity); prior result ~14% over-claim, to be re-run; workbench refactor pending | Refactor brief | — |
+| Gravity from Touch | Embodiment | ●●●○○○ Building | Revived from archive (formerly TactileGravity); prior result ~14% over-claim, to be re-run; workbench refactor pending | Refactor brief | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Being rebuilt; earlier results to be re-run. |
 
 ### Future experiments
 
 | Experiment | Track | Stage | Note | Public line |
 |---|---|---|---|---|
-| Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch: can acting reveal what passive touch cannot? Folder in archive/. | — |
+| Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch: can acting reveal what passive touch cannot? Folder in archive/. | Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch. |
 | First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction. | hidden |
 
 ### Track introductions
@@ -200,7 +200,7 @@ Start from an ambitious question. Narrow it to something testable with available
   Documentation changes are limited to that `STATE.md`, plus this file's index whenever an experiment's stage or next step changes (same commit).
 
   Standing rules:
-  - Work only inside the folders the brief names, plus LAB.md's index as the protocol allows.
+  - Work only inside the folders the brief names, plus LAB.md's index as the protocol allows. Do not create planning or status files.
   - Never commit anything from `private/`, API keys, or `.env` files.
   - This repo is meant to become public: no financial, income or personal details in any file or commit message.
   - Use full names (see Naming conventions).
