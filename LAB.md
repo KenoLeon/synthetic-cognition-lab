@@ -45,16 +45,16 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 ### Live experiments
 
-| Experiment | Track | Stage | Where it is | Next |
-|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●○○○ Building | Revived from archive (formerly TactileGravity); prior result ~14% over-claim, to be re-run; workbench refactor pending | Refactor brief |
+| Experiment | Track | Stage | Where it is | Next | Public line |
+|---|---|---|---|---|---|
+| Gravity from Touch | Embodiment | ●●●○○○ Building | Revived from archive (formerly TactileGravity); prior result ~14% over-claim, to be re-run; workbench refactor pending | Refactor brief | — |
 
 ### Future experiments
 
-| Experiment | Track | Stage | Note |
-|---|---|---|---|
-| Active Sensing | Embodiment | ●●○○○○ Designed (archived) | Follows Gravity from Touch: can acting reveal what passive touch cannot? |
-| First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction. |
+| Experiment | Track | Stage | Note | Public line |
+|---|---|---|---|---|
+| Active Sensing | Embodiment | ●●○○○○ Designed (archived) | Follows Gravity from Touch: can acting reveal what passive touch cannot? | — |
+| First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction. | hidden |
 
 ### Track introductions
 
@@ -204,7 +204,7 @@ Start from an ambitious question. Narrow it to something testable with available
   - Is it still wanted?
   - Has the field moved? (one prior-art search)
   - What single next step fits in one session?
-- There are no other system files. Git history is the history.
+- There are no other system files. CLAUDE.md only imports this file. Git history is the history.
 
 ## Public output
 
@@ -217,3 +217,5 @@ The lab exists in public so that researchers, collaborators and funders can eval
 5. **Index line** in this file, updated to "published" with links.
 
 The lab page also lists earlier related work and a contact line for collaboration.
+
+The lab page is generated from the README files by scripts/build-lab-page. Experiment cards show only the name, stage and Public line columns of LAB.md's tables; other columns stay internal. Rows marked 'hidden' are left off the page.
