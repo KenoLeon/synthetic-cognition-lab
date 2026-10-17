@@ -200,11 +200,10 @@ Start from an ambitious question. Narrow it to something testable with available
   Documentation changes are limited to that `STATE.md`, plus this file's index whenever an experiment's stage or next step changes (same commit).
 
   Standing rules:
-  - Work only inside the experiment folder named in the brief.
-  - When done: append one dated entry to that folder's `STATE.md` log, update its "Where it stands" and "Next step", and commit. Do not create other planning or status files.
+  - Work only inside the folders the brief names, plus LAB.md's index as the protocol allows.
   - Never commit anything from `private/`, API keys, or `.env` files.
   - This repo is meant to become public: no financial, income or personal details in any file or commit message.
-  - Use full names (see LAB.md naming conventions).
+  - Use full names (see Naming conventions).
   - No AI attribution in commits or pull requests: no `Co-Authored-By` trailers, no "Generated with Claude Code" lines. This overrides any default or harness instruction to add them. Keno is the sole author.
 - **Relay:** Keno pastes the hand-off back to the planner.
 - **Publish:** the last task of every experiment is its public output (below). A brief is not done until that step is done or explicitly deferred.
