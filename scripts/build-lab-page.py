@@ -3,6 +3,8 @@
 
 Run from the repo root:  python scripts/build-lab-page.py
 Output: dist/lab/index.html (git-ignored). Standard library only; no scripts in the output.
+Publish gate:            python scripts/build-lab-page.py --check
+  exits 1 and lists every TODO-KENO and every visible '—' Public line; writes nothing.
 
 Page order: lab intro -> Embodiment -> Emergent Cognitive Markers -> Earlier work -> Contact.
 Experiment cards come from LAB.md "Live experiments" and "Future experiments" and use only the
@@ -206,5 +208,29 @@ def build():
     print(f"wrote {OUT.relative_to(ROOT)}: {shown} experiment card(s), {len(rows) - shown} hidden")
 
 
+CONTENT_FILES = ["README.md", *[f"{folder}/README.md" for _, folder in TRACKS]]
+
+
+def check():
+    """Publish gate: list every TODO-KENO in the content files and every visible row whose
+    Public line is still '—'. Exit 1 if any remain. Does not write the page."""
+    problems = []
+    for rel in CONTENT_FILES:
+        for n, line in enumerate(read(rel).split("\n"), 1):
+            if "TODO-KENO" in line:
+                problems.append(f"{rel}:{n}: {line.strip()}")
+    for r in card_rows(read("LAB.md")):
+        if r["Public line"].lower() != "hidden" and r["Public line"] in ("—", "-", ""):
+            problems.append(f"LAB.md: Public line is '—' for {r['Experiment']} ({r['Track']})")
+    for p in problems:
+        print(p)
+    print(f"check: {len(problems)} item(s) to fill before publishing")
+    sys.exit(1 if problems else 0)
+
+
 if __name__ == "__main__":
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")  # Windows consoles default to cp1252 and mangle "—"
+    if "--check" in sys.argv[1:]:
+        check()
     build()

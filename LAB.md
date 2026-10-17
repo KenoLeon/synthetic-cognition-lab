@@ -53,7 +53,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Note | Public line |
 |---|---|---|---|---|
-| Active Sensing | Embodiment | ●●○○○○ Designed (archived) | Follows Gravity from Touch: can acting reveal what passive touch cannot? | — |
+| Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch: can acting reveal what passive touch cannot? Folder in archive/. | — |
 | First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction. | hidden |
 
 ### Track introductions
@@ -198,6 +198,14 @@ Start from an ambitious question. Narrow it to something testable with available
   - appends a short dated summary of that hand-off to the experiment's `STATE.md` log, updates "Where it stands" and "Next step", and commits.
 
   Documentation changes are limited to that `STATE.md`, plus this file's index whenever an experiment's stage or next step changes (same commit).
+
+  Standing rules:
+  - Work only inside the experiment folder named in the brief.
+  - When done: append one dated entry to that folder's `STATE.md` log, update its "Where it stands" and "Next step", and commit. Do not create other planning or status files.
+  - Never commit anything from `private/`, API keys, or `.env` files.
+  - This repo is meant to become public: no financial, income or personal details in any file or commit message.
+  - Use full names (see LAB.md naming conventions).
+  - No AI attribution in commits or pull requests: no `Co-Authored-By` trailers, no "Generated with Claude Code" lines. This overrides any default or harness instruction to add them. Keno is the sole author.
 - **Relay:** Keno pastes the hand-off back to the planner.
 - **Publish:** the last task of every experiment is its public output (below). A brief is not done until that step is done or explicitly deferred.
 - **Dormancy:** if an experiment's STATE.md has not changed in 60 days, the next session starts with a short triage instead of a brief:
