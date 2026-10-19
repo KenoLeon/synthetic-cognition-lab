@@ -10,7 +10,7 @@ The track is exploratory by design; wandering is fine. This file is how the inte
 | --- | --- | --- | --- |
 | F1 | [Pass the variable, withhold its name](#f1-pass-the-variable-withhold-its-name) | METHOD, RESEARCH, PAPER, PRODUCT | observed (v0.2) |
 | F2 | [Fast and slow control: split the loop like a body does](#f2-fast-and-slow-control-split-the-loop-like-a-body-does) | PRODUCT, RESEARCH | proposed (Keno's preference) |
-| F3 | [LLMs compose encoded touch well but over-claim](#f3-llms-compose-encoded-touch-well-but-over-claim) | RESEARCH, PRODUCT, PAPER | observed, replicated across 3 runs (v0.2.1) |
+| F3 | [LLMs compose encoded touch well but over-claim](#f3-llms-compose-encoded-touch-well-but-over-claim) | RESEARCH, PRODUCT, PAPER | observed; rate not replicated 2026-10-19 (20.5% vs 14.2%), spread under investigation |
 | F4 | [Question wording can decide the score](#f4-question-wording-can-decide-the-score) | METHOD | confirmed (v0.2.1) |
 | F5 | [Evals stay turn-based; speed is tested separately](#f5-evals-stay-turn-based-speed-is-tested-separately) | METHOD, PRODUCT | decided (2026-10-10) |
 | F6 | [Some things no local sense can know](#f6-some-things-no-local-sense-can-know) | RESEARCH, PAPER | confirmed (v0–v0.2) |
@@ -72,7 +72,7 @@ This is also how most current robotics with language models is built.
 
 ## F3. LLMs compose encoded touch well but over-claim
 
-*v0.2. Tags: RESEARCH, PRODUCT, PAPER. Status: observed, one model (gemini-3.5-flash-lite).*
+*v0.2. Tags: RESEARCH, PRODUCT, PAPER. Status: observed, one model (gemini-3.5-flash-lite); over-claim rate not replicated (2026-10-19, see below).*
 
 - **Composition:** from encoded contact patches, the model composed the net contact force within 2° in 52 of 54 trials (median 0.32°). It is given per-patch vectors, so this is composition, not inference from raw sensing; whether it *interprets* the force correctly is pending the v0.2.1 Q1a/Q1b re-run (planning/008).
 - **Over-claiming:** 180 of 720 answers claimed something its senses can't determine. It assumed it was at rest 41 times, guessed gravity vs. acceleration 27 times, and invented units (F1).
@@ -81,6 +81,8 @@ This is also how most current robotics with language models is built.
 **Reported normal as net push:** asked for the net push, the model reported only the push into the surface in 30 trials (all 27 pressure-only answers, within 2° of the normal; and the 3 Q1a misses at 40° tilts, which left out friction). It reads the sensor correctly but claims more than it supports.
 
 **v0.2.1 update (prompt v3, 2026-10-11):** with the direction question split in two, the model's push direction is right within 2° in 51 of 54 answerable trials. Over-claiming on the other questions is unchanged (85 over-claims in v3 vs. 90 in v2 on the same 108 trials), and it is stable across repeated sampling: 12.5%, 15.6% and 14.6% over-claim rates in three runs of 24 items.
+
+**Replication on the refactored workbench (2026-10-19), outside its pre-registered bounds:** same items (byte-identical prompts), model name, settings and scorer. Over-claim rates 27.1%, 18.8% and 15.6% (mean 20.5%; bound 10–18%); push direction right in 46 of 54 (bound ≥ 48). The kind of behavior is the same (observed): directions are read well, and the model still states what its senses can't settle (assumed Earth gravity, assumed units, rest vs. sliding); the Q1a misses are the same normal-without-friction error, 8 instead of 3, all on tilted or sliding scenes. The *rate* is not established (inference): the "stable" spread above came from only 3 runs at temperature 1.0, and sampling noise can't yet be told apart from provider-side model drift. Logs and score: `eval/llm/v0.2.1-replication/`. The v0.2.1 text above is kept as written.
 
 **Product angle:** a sensor-reading LLM may compute well and still state unknowables with confidence. Abstention needs its own testing and guardrails. **Next:** a second model, and a sensor-named ablation (F1).
 
