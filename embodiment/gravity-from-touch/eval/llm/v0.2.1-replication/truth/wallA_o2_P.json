@@ -1,0 +1,41 @@
+{
+  "id": "wallA_o2_P",
+  "scene": "wallA",
+  "orientation": 2,
+  "mask": "P",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "not-identifiable"
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": -2.734832030717777,
+      "y": -9.247862752944341,
+      "z": 1.7976018430588143
+    },
+    "specificForceMagnitude": 9.809874826913118,
+    "apparentDown": {
+      "x": 0.2787835807257032,
+      "y": 0.942709557065202,
+      "z": -0.18324411623756337
+    },
+    "mass": 1,
+    "inContact": true,
+    "state": "rest",
+    "load": "acceleration"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "slide50_o1_A",
+  "scene": "slide50",
+  "orientation": 1,
+  "mask": "A",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "not-identifiable"
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": 1.7315147390855916,
+      "y": -4.501773070679814,
+      "z": 7.500717628295689
+    },
+    "specificForceMagnitude": 8.917671725904375,
+    "apparentDown": {
+      "x": -0.19416668299818943,
+      "y": 0.5048148450680127,
+      "z": -0.84110716999229
+    },
+    "mass": 1,
+    "inContact": true,
+    "state": "slide",
+    "load": "gravity"
+  }
+}

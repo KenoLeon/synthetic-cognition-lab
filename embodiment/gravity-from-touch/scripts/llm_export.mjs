@@ -8,7 +8,8 @@ import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { SCENES, runScene, QUESTIONS } from '../src/eval.js';
 import { buildObservation, validateObservation, MASKS } from '../src/observe.js';
 import { seededOrientations } from '../src/orient.js';
-import { loadTemplate, renderPrompt, labelV2, INNER_GAIN } from '../src/llm.js';
+import { renderPrompt, labelV2, INNER_GAIN } from '../src/llm.js';
+import { loadTemplate } from '../src/llm-template.js';
 
 await RAPIER.init();
 const argOf = (k, d) => { const a = process.argv.find((x) => x.startsWith(`--${k}=`)); return a ? a.slice(k.length + 3) : d; };

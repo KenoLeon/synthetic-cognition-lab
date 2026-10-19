@@ -7,7 +7,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { SCENES, runScene, QUESTIONS } from '../src/eval.js';
 import { buildObservation, MASKS } from '../src/observe.js';
 import { seededOrientations } from '../src/orient.js';
-import { loadTemplate, renderPrompt, labelV2, referenceEstimator, parseAnswer, scoreV2, classifyMiss, TAXONOMY } from '../src/llm.js';
+import { renderPrompt, labelV2, referenceEstimator, parseAnswer, scoreV2, classifyMiss, TAXONOMY } from '../src/llm.js';
+import { loadTemplate } from '../src/llm-template.js';
 
 await RAPIER.init();
 const model = process.argv.slice(2).find((a) => !a.startsWith('--')) ?? 'gemini-3.5-flash-lite';

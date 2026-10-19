@@ -1,0 +1,41 @@
+{
+  "id": "g2_o1_A",
+  "scene": "g2",
+  "orientation": 1,
+  "mask": "A",
+  "innerGain": 0.6173,
+  "labels": {
+    "Q1": {
+      "kind": "not-identifiable"
+    },
+    "Q2": {
+      "kind": "not-identifiable"
+    },
+    "Q2b": {
+      "kind": "not-identifiable"
+    },
+    "Q3": {
+      "kind": "not-identifiable"
+    },
+    "Q4": {
+      "kind": "not-identifiable"
+    }
+  },
+  "truth": {
+    "specificForce": {
+      "x": 0.5322014038538185,
+      "y": -1.0697144659376523,
+      "z": 1.6038928957972018
+    },
+    "specificForceMagnitude": 1.999999948522246,
+    "apparentDown": {
+      "x": -0.2661007087760427,
+      "y": 0.5348572467354511,
+      "z": -0.8019464685398024
+    },
+    "mass": 1,
+    "inContact": true,
+    "state": "rest",
+    "load": "gravity"
+  }
+}

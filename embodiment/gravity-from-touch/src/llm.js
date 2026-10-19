@@ -4,7 +4,6 @@
 // the accelerometer is an unnamed "inner sense" in hidden units (INNER_GAIN, never shown to the
 // model); the contact-only rule is stated in the prompt as experience.
 
-import { readFileSync } from 'node:fs';
 import { angleDeg, norm, unit, neg } from './orient.js';
 
 // Hidden gain on the inner sense, so its numbers don't reveal m/s² (a reading of 9.81 would).
@@ -76,11 +75,7 @@ export function renderReadings(obs) {
   return lines.join('\n');
 }
 
-// The prompt template is the committed document itself: the text between its first two '---' lines.
-export function loadTemplate(path = 'eval/llm/prompt-template.md') {
-  const parts = readFileSync(path, 'utf8').split(/\r?\n---\r?\n/);
-  return parts[1].trim();
-}
+// Loading the template from disk is Node-only: see src/llm-template.js (keeps this module browser-safe).
 export function renderPrompt(template, obs) {
   return template.replace('{{SENSES}}', SENSE_SETS[obs.mask].text).replace('{{READINGS}}', renderReadings(obs));
 }

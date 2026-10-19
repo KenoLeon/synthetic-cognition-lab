@@ -8,7 +8,8 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { labelV2, labelQ1a, bucketQ1b, parseAnswer, scoreV2, classifyMiss, TAXONOMY } from '../src/llm.js';
 import { angleDeg } from '../src/orient.js';
 
-const D = 'eval/llm/v3';
+// --dir=<folder>: score another run of the same items (snapshots, truth, id lists, logs/); default v0.2.1.
+const D = process.argv.find((a) => a.startsWith('--dir='))?.slice(6) ?? 'eval/llm/v3';
 const MAIN = 'gemini-3.5-flash-lite';
 const SCORED = ['Q2', 'Q2b', 'Q3', 'Q4'];
 const ids = (f) => readFileSync(`${D}/${f}`, 'utf8').split(String.fromCharCode(10)).map((x) => x.trim()).filter(Boolean);
