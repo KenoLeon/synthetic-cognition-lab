@@ -9,6 +9,7 @@
 // validateObservation() enforces this with a key whitelist, so a leak fails loudly.
 
 import { fibonacciSphere } from './skin.js';
+import { readInnerSense } from './workbench/sensors/inner-sense.js';
 
 export const MASKS = ['P', 'PS', 'A', 'PSA'];
 export const OBS_SCHEMA = 'tactile-observation-v1';
@@ -18,9 +19,10 @@ const RATE_HZ = 60;
 const round = (v) => (v === 0 ? 0 : Number(v.toPrecision(6)));
 
 // Copy one step's sensor readings (body frame) out of the skin and the raw sim step.
+// Each sensor reads the step state through its read(state) interface.
 export function captureStep(skin, raw) {
-  skin.sense(raw.bodyRot, raw.contacts);
-  return { pressure: Float64Array.from(skin.pressure), shear: Float64Array.from(skin.shear), accel: { ...raw.accel } };
+  const touch = skin.read(raw);
+  return { pressure: touch.pressure, shear: touch.shear, accel: readInnerSense(raw) };
 }
 
 export function buildObservation(steps, { mask = 'PSA', K = DEFAULT_K, taxelCount = 200 } = {}) {

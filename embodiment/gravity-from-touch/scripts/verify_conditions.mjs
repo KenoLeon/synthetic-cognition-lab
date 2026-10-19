@@ -7,6 +7,8 @@ import { createSim } from '../src/sim.js';
 import { angleDeg, toBody, seededOrientations, spreadDownOrientations, norm, sub } from '../src/orient.js';
 import { runScene, SCENES, nullEstimator, buildSuite } from '../src/eval.js';
 import { buildObservation, validateObservation } from '../src/observe.js';
+import { readFileSync } from 'node:fs';
+import { computeGolden, compareGolden, GOLDEN_PATH } from './golden.mjs';
 
 await RAPIER.init();
 let failures = 0;
@@ -281,6 +283,13 @@ console.log('\nv0.3 action probes — body thrust (push) bookkeeping, determinis
       `1c: lift-off at 20 N: inner = thrust/m while pushing (${ep.toExponential(1)}), 0 after the cut (${ec.toExponential(1)}); lands with shear ${landShear.toExponential(1)} N`);
     sim.free();
   }
+}
+
+console.log('\nWorkbench equivalence — readings match the pre-refactor golden file (eval/golden/readings.json)');
+{
+  const rows = compareGolden(JSON.parse(readFileSync(GOLDEN_PATH, 'utf8')), await computeGolden());
+  const bad = rows.filter((r) => !r.ok);
+  check(bad.length === 0, `${rows.length - bad.length}/${rows.length} cases bit-identical (pressure, shear, inner sense at every step; eval scenes, equivalence conditions, probes 1a–1d)${bad.length ? `; failing: ${bad.map((r) => r.id).join(', ')}` : ''}`);
 }
 
 console.log(failures ? `\n${failures} check(s) FAILED` : '\nAll checks passed');

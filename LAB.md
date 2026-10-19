@@ -47,7 +47,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●○○○ Building | Revived from archive (formerly TactileGravity); prior result ~14% over-claim, to be re-run; workbench refactor pending | Refactor brief | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Being rebuilt; earlier results to be re-run. |
+| Gravity from Touch | Embodiment | ●●●○○○ Building | Workbench refactored (equivalence gate passed, 61/61 bit-identical); prior result ~14% over-claim, replication not yet run (needs Gemini API key) | Replication run on v0.2.1 items | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Being rebuilt; earlier results to be re-run. |
 
 ### Future experiments
 
