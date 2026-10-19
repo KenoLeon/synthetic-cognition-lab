@@ -14,6 +14,8 @@ Keno Leon · Mexico City · started October 2026
 
 *Background.* Language models are increasingly placed in bodies: robots, vehicles, sensor-driven agents. Two things are mostly untested in settings where the right answer is known: whether these models can infer their situation from raw sensing, and whether they stay quiet about what their senses cannot reveal. The track builds simulated bodies whose physics we control, so every question has a ground truth.
 
+*Artifact standard.* Every Embodiment experiment ships with an interactive bench that people can play with and that replays logged trials: the scene, the readings the model was given, the prompt exactly as sent, and the model's answer with its score. Replays read only from logs; items from private/ never appear in a public build.
+
 **Emergent Cognitive Markers.** Do capacities associated with minds (metacognition, world modeling, curiosity and others) appear in AI systems on their own, or are they trained in or prompted? And, tentatively: are they the same thing? Whether trained or emergent, are these capacities and behaviors counterparts of their biological namesakes, or something else?
 
 *Background.* Behavioral indicators of mind-like capacities can be "gamed": a system can be trained or prompted to show the behavior without having the underlying capacity (Butlin et al. 2023). One proposed answer is to withhold the relevant descriptions from training (Schneider's ACT). Udell & Schwitzgebel (2021) argue that this cannot work for language models. The track's approach is to separate training from testing for each marker, as a repeatable battery rather than a single demonstration. The seven working markers are a basis set, not a validated taxonomy; see `emergent-cognitive-markers/MARKERS.md`:
