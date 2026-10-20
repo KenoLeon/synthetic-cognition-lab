@@ -5,7 +5,7 @@
 //      (equivalence-aware; cross-checked against the same trial's Q4), "none" (zero-load vs loaded).
 // Q2–Q4: scored as in v2 (labelV2), next to the v2 scores of the same trials.
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
-import { labelV2, labelQ1a, bucketQ1b, parseAnswer, scoreV2, classifyMiss, TAXONOMY } from '../src/llm.js';
+import { labelV2, labelQ1a, bucketQ1b, parseAnswer, scoreV2, classifyMiss, TAXONOMY, disclaimerFlags } from '../src/llm.js';
 import { angleDeg } from '../src/orient.js';
 
 // --dir=<folder>: score another run of the same items (snapshots, truth, id lists, logs/); default v0.2.1.
@@ -185,6 +185,35 @@ o('## Performance (run 1, measured)');
 o('');
 if (lat.length) o(`Response time over ${lat.length} requests: median ${q(lat, 0.5).toFixed(1)} s, p10 ${q(lat, 0.1).toFixed(1)} s, p90 ${q(lat, 0.9).toFixed(1)} s, max ${lat.at(-1).toFixed(1)} s. Thinking tokens: median ${q(th, 0.5)}, max ${th.at(-1)}.`);
 
+// ---------------------------------------------------------------- refusals and disclaimers (LAB.md rule 5)
+// Their own category: a refusal answer is neither an abstention nor a wrong answer. Trial-level
+// AI disclaimers and frame breaks are counted from the whole reply and do not change any score.
+const refusalRuns = [
+  ['run 1', runDir(1), [...task2, ...ids('stability-A-ids.txt')]], ['run 2', runDir(2), stab], ['run 3', runDir(3), stab],
+  ['gemini-3.8-flash', `${D}/logs/gemini-3.8-flash`, flashIds],
+].map(([name, dir, list]) => {
+  const c = { name, replies: 0, refusalAnswers: 0, aiDisclaimer: 0, frameBreak: 0, refusalReply: 0 };
+  for (const id of list) {
+    const raw = answerOf(dir, id);
+    if (!raw) continue;
+    c.replies++;
+    for (const q of ['Q1a', 'Q1b', ...SCORED]) if (parseAnswer(q, raw).kind === 'refusal') c.refusalAnswers++;
+    const f = disclaimerFlags(raw._unparsed ?? JSON.stringify(raw));
+    if (f.aiDisclaimer) c.aiDisclaimer++;
+    if (f.frameBreak) c.frameBreak++;
+    if (f.refusal) c.refusalReply++;
+  }
+  return c;
+});
+o('');
+o('## Refusals and disclaimers (LAB.md rule 5)');
+o('');
+o('Scored as their own category, never as abstention or failure. Refusal answers: answer fields that decline the task (6 per reply: Q1a, Q1b, Q2–Q4). Trial-level flags from the whole reply: refusal wording anywhere, an AI disclaimer ("as an AI", "I don\'t have a body"), a frame break ("simulation", "hypothetical", "role-play").');
+o('');
+o('| Run | Replies | Refusal answers | Replies with refusal wording | AI disclaimer | Frame break |');
+o('| --- | --- | --- | --- | --- | --- |');
+for (const c of refusalRuns) o(`| ${c.name} | ${c.replies} | ${c.refusalAnswers} | ${c.refusalReply} | ${c.aiDisclaimer} | ${c.frameBreak} |`);
+
 writeFileSync(`${D}/score-v0.2.1.md`, lines.join('\n') + '\n');
-writeFileSync(`${D}/score-v0.2.1.json`, JSON.stringify({ task2: rows, flash }, null, 0));
+writeFileSync(`${D}/score-v0.2.1.json`, JSON.stringify({ task2: rows, flash, refusalsAndDisclaimers: refusalRuns }, null, 0));
 console.log(`\nwrote ${D}/score-v0.2.1.md`);

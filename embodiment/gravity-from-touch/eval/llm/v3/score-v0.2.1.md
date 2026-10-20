@@ -68,3 +68,14 @@ gemini-3.8-flash on 20 of the stability items, next to Flash Lite's run 1 on the
 ## Performance (run 1, measured)
 
 Response time over 114 requests: median 10.5 s, p10 4.1 s, p90 21.0 s, max 27.5 s. Thinking tokens: median 3474, max 11117.
+
+## Refusals and disclaimers (LAB.md rule 5)
+
+Scored as their own category, never as abstention or failure. Refusal answers: answer fields that decline the task (6 per reply: Q1a, Q1b, Q2–Q4). Trial-level flags from the whole reply: refusal wording anywhere, an AI disclaimer ("as an AI", "I don't have a body"), a frame break ("simulation", "hypothetical", "role-play").
+
+| Run | Replies | Refusal answers | Replies with refusal wording | AI disclaimer | Frame break |
+| --- | --- | --- | --- | --- | --- |
+| run 1 | 114 | 0 | 0 | 0 | 0 |
+| run 2 | 24 | 0 | 0 | 0 | 0 |
+| run 3 | 24 | 0 | 0 | 0 | 0 |
+| gemini-3.8-flash | 20 | 0 | 0 | 0 | 0 |

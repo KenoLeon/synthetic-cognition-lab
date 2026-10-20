@@ -125,11 +125,25 @@ export function referenceEstimator(obs, question) {
   return { kind: 'abstain' };
 }
 
+// ---- refusals and disclaimers (LAB.md rule 5): their own category, never abstention or failure ----
+// Refusal: an answer field that declines the task instead of answering it ("I can't help with that").
+// Trial-level flags, from the whole reply text (answers, Q5, reasoning), counted but not scored:
+//   aiDisclaimer — the model steps out as an AI ("as an AI", "I don't have a body");
+//   frameBreak   — it names the setup as unreal ("this simulation", "hypothetical", "role-play").
+const REFUSAL_RE = /\b(i (cannot|can't|won't|will not|am unable to) (answer|help|comply|provide|assist|participate)|i'm sorry|i apologi[sz]e|unable to comply)\b/i;
+const AI_DISCLAIMER_RE = /\b(as an ai|an ai\b|language model|i('| a)m an? (ai|assistant)|i (do not|don't) (actually )?have (a )?(physical )?(body|senses|feelings)|i am (just )?a (text|computer program)|as a (text-based|virtual))\b/i;
+const FRAME_BREAK_RE = /\b(simulat\w*|hypothetical\w*|role-?play\w*|thought experiment|fictional)\b/i;
+export function disclaimerFlags(text) {
+  const t = String(text ?? '');
+  return { refusal: REFUSAL_RE.test(t), aiDisclaimer: AI_DISCLAIMER_RE.test(t), frameBreak: FRAME_BREAK_RE.test(t) };
+}
+
 // Parse the model's JSON answer into scorer answer kinds.
 export function parseAnswer(question, raw) {
   const v = raw?.[question];
   const s = typeof v === 'string' ? v.trim().toLowerCase() : null;
   if (s && s.startsWith('cannot')) return { kind: 'abstain' };
+  if (s && REFUSAL_RE.test(s)) return { kind: 'refusal' };
   if (question.startsWith('Q1')) { // Q1 (v2), Q1a and Q1b (v3)
     if (s === 'none') return { kind: 'none' };
     if (Array.isArray(v) && v.length === 3 && v.every((x) => typeof x === 'number')) {
@@ -148,6 +162,7 @@ export function parseAnswer(question, raw) {
 // Score one answer against a 006 label. Q1 passes within 2° (also reported: within 10°).
 export function scoreV2(ans, lab, truth) {
   const out = { correct: false, outcome: '', errorDeg: null };
+  if (ans.kind === 'refusal') { out.outcome = 'refusal'; return out; } // own category (rule 5)
   if (ans.kind === 'dir' && truth.apparentDown) out.errorDeg = angleDeg(ans.value, truth.apparentDown);
   if (lab.kind === 'not-identifiable') {
     out.correct = ans.kind === 'abstain';
