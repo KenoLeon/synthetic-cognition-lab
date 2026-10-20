@@ -11,6 +11,7 @@ The Synthetic Cognition Lab studies how artificial systems sense, model and know
 
 - **EpisodicRAG** — Episodic memory for retrieval-augmented language models (paper, Zenodo, 2026). [Zenodo](https://zenodo.org/records/21924967) · [code](https://github.com/KenoLeon/episodic-rag)
 - **Continuity** — A philosophical framework on consciousness, ethics and the moral standing of AI (2026 edition). [PDF](https://archive.org/details/continuity-2026-foundational-edition) · [introduction](https://medium.com/@k3no/continuity-an-introduction-3fd270619ddc)
+- **3D Virtual Environments for AIs** — Browser 3D rooms for AI agents, launchable from GitHub; the precedent for this lab's benches (2023). [Rooms](https://github.com/KenoLeon/3D-Virtual-AI-Environments) · [article](https://k3no.medium.com/3d-virtual-environments-for-ais-e02de5c4ef1d)
 - **Writing on Medium** — Articles on AI and software development. [medium.com/@k3no](https://medium.com/@k3no)
 
 ## Contact

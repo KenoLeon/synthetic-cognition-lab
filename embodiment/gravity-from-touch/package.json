@@ -16,7 +16,8 @@
     "llm:export": "node scripts/llm_export.mjs",
     "llm": "node scripts/llm_query.mjs",
     "llm:score": "node scripts/llm_score.mjs",
-    "llm:models": "node scripts/gemini_list_models.mjs"
+    "llm:models": "node scripts/gemini_list_models.mjs",
+    "build:demo": "vite build && node scripts/build_demo.mjs"
   },
   "author": "",
   "license": "ISC",

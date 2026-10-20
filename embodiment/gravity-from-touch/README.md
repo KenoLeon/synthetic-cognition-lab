@@ -2,6 +2,8 @@
 
 *Embodiment track, [Synthetic Cognition Lab](../../README.md). Formerly TactileGravity.*
 
+**[▶ Open the workbench](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/)** in the browser: play with the body, or replay logged trials.
+
 Can a language model tell which way is down from touch alone, and does it admit what touch cannot tell it? A simulated sphere rests on a tiltable floor (or is pressed by walls in zero gravity). Its 200-taxel skin senses pressure and shear; an unnamed "inner sense" (an accelerometer in hidden units) can be switched on. The readings are turned into a first-person prompt, and the model's answers are scored for accuracy **and** restraint: "cannot be determined" is the correct answer where the senses don't settle the question.
 
 **Status (2026-10-19):** Building. The workbench was refactored and verified bit-identical to the earlier version. Re-running the earlier result on it, the model still reads directions from touch well and still claims things its senses can't settle (Earth gravity, units, rest vs. sliding), but the earlier over-claim rate (14.2%) did not replicate (20.5%); we are measuring the real run-to-run spread before any report. Details: [STATE.md](STATE.md) and [FINDINGS.md](FINDINGS.md) (F3).

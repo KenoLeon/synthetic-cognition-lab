@@ -376,11 +376,11 @@ function finishRecording() {
   const show = () => {
     if (episode !== ep) return;
     if (!ep.data) { setTimeout(show, 100); return; }
-    const logged = ep.data.snap ? readingsOf(ep.data.snap.prompt) : null;
-    const check = logged === null ? '<div class="meta warn">Prompt snapshot not found.</div>'
+    const logged = ep.data.prompt ? readingsOf(ep.data.prompt) : null;
+    const check = logged === null ? '<div class="meta warn">No logged prompt for this trial in this run; showing the live readings.</div>'
       : logged === live ? '<div class="meta pass">✓ The live simulation reproduces these readings exactly as logged.</div>'
         : '<div class="meta fail">✗ The live simulation differs from the logged readings (shown: logged).</div>';
-    renderOutgoing({ readings: logged ?? live, mask: ep.mask, fullPrompt: ep.data.snap?.prompt, check });
+    renderOutgoing({ readings: logged ?? live, mask: ep.mask, fullPrompt: ep.data.prompt, check });
     $('outMeta').textContent = ep.id;
     $('inBody').innerHTML = '<div class="bubble in"><span class="typing">thinking</span></div>';
     const thinkMs = Math.min(2500, 300 + (ep.data.log?.latencyMs ?? 1000) / +$('speedSel').value / 2);
@@ -396,6 +396,8 @@ function finishRecording() {
       setArrow(arrows.push, rows?.find((r) => r.q === 'Q1a').vector);
       setArrow(arrows.pull, rows?.find((r) => r.q === 'Q1b').vector);
       $('arrowLegend').style.display = rows ? 'block' : 'none';
+      // Grey out legend lines with no arrow drawn (e.g. the model answered "none" or "cannot be determined").
+      [['lgTruth', arrows.truth], ['lgPush', arrows.push], ['lgPull', arrows.pull]].forEach(([id, a]) => { $(id).style.opacity = a.visible ? 1 : 0.35; });
       if ($('autoplay').checked) autoTimer = setTimeout(async () => { if (episode === ep && appMode === 'replay') { await nextTrial(); startTrial(); } }, 6000);
     }, thinkMs);
   };

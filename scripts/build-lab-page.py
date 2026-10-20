@@ -151,12 +151,17 @@ a.link-dark:hover{color:var(--link)}
 .stage{letter-spacing:.05em}
 .table{width:100%;border-collapse:collapse;margin:0 0 1rem}
 .table th,.table td{text-align:left;padding:.5rem;border-bottom:1px solid var(--rule);vertical-align:top}
-.bench-embed{min-height:240px;border:1px dashed var(--muted);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--muted);margin:0 0 1rem}
+.bench-embed{margin:0 0 1rem}
+.bench-embed iframe{width:100%;height:600px;border:1px solid var(--rule);border-radius:4px;display:block}
+.bench-embed p{margin:.4rem 0 0;font-size:.875rem;color:var(--muted)}
 footer{padding:1.5rem 0 3rem;border-top:1px solid var(--rule);color:var(--muted);font-size:.875rem}
 """
 
+BENCH_URL = "https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/"  # GitHub Pages, deployed by .github/workflows/pages.yml
 BENCH_DIV = ('<div id="bench-embed" class="bench-embed" data-embed="bench">'
-             'Bench embed goes here (interactive 3D workbench, not built yet).</div>')
+             f'<iframe src="{BENCH_URL}" title="Gravity from Touch workbench" loading="lazy"></iframe>'
+             f'<p>Interactive bench: play with the simulated body, or replay logged trials. '
+             f'<a href="{BENCH_URL}">Open it full screen</a>.</p></div>')
 
 
 def track_section(name, folder, rows):

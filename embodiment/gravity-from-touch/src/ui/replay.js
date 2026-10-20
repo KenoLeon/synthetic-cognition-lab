@@ -1,6 +1,8 @@
-// Eval replay: the logged trials (prompt snapshot, truth, model response) and their scores, for the
-// workbench's spectator view. Files are fetched from the dev server (eval/llm/...); nothing is sent
-// to a model from the page. Scoring uses the same functions as scripts/llm_score_v3.mjs.
+// Eval replay: the logged trials (prompt as sent and model response, from the logs; truth) and their scores, for the
+// workbench's spectator view. Files are fetched next to the page (eval/llm/...: the dev server, or the
+// copies scripts/build_demo.mjs puts in the static build); nothing is sent to a model from the page.
+// The prompt shown is the one in the log (exactly as sent), never rebuilt. Scoring uses the same
+// functions as scripts/llm_score_v3.mjs.
 
 import { SCENES } from '../eval.js';
 import { MASKS } from '../observe.js';
@@ -31,16 +33,18 @@ export const RUNS = [
 export const trialId = (sceneId, oi, mask) => `${sceneId}_o${oi}_${mask}`;
 export const ALL_IDS = TRIAL_SCENES.flatMap((s) => [0, 1, 2].flatMap((oi) => MASKS.map((m) => trialId(s.id, oi, m))));
 
+// Relative to the page, so the static build works under a sub-path (e.g. GitHub Pages).
+const url = (path) => `${import.meta.env.BASE_URL}${path}`;
 // The dev server answers unknown paths with index.html, so check the type, not just the status.
 async function getJSON(path) {
   try {
-    const r = await fetch(`/${path}`, { cache: 'no-store' });
+    const r = await fetch(url(path), { cache: 'no-store' });
     return r.ok && (r.headers.get('content-type') ?? '').includes('json') ? await r.json() : null;
   } catch { return null; }
 }
 async function getLines(path) {
   try {
-    const r = await fetch(`/${path}`, { cache: 'no-store' });
+    const r = await fetch(url(path), { cache: 'no-store' });
     const t = r.ok ? await r.text() : '';
     return t.trimStart().startsWith('<') ? [] : t.split(/\r?\n/).map((x) => x.trim()).filter(Boolean);
   } catch { return []; }
@@ -52,16 +56,17 @@ export async function runIds(run) {
   return idCache.get(run.key);
 }
 
-// Everything the replay needs for one trial. Snapshot and truth are the v0.2.1 files (the replication's
-// are byte-identical); the log may be missing (not run yet).
+// Everything the replay needs for one trial: the log (prompt as sent + response) and the scorer's truth
+// (the v0.2.1 truth files; the replication's are byte-identical). The log may be missing (not run yet).
 export async function loadTrial(run, id) {
-  const [snap, truth, log] = await Promise.all([getJSON(`${V3}/snapshots/${id}.json`), getJSON(`${V3}/truth/${id}.json`), getJSON(`${run.logs}/${id}.json`)]);
+  const [truth, log] = await Promise.all([getJSON(`${V3}/truth/${id}.json`), getJSON(`${run.logs}/${id}.json`)]);
+  const prompt = log?.request?.contents?.[0]?.parts?.[0]?.text ?? null;
   let raw = null, unparsed = null;
   if (log?.httpStatus === 200) {
     const text = (log.response.candidates?.[0]?.content?.parts ?? []).filter((x) => !x.thought).map((x) => x.text).join('');
     try { raw = JSON.parse(text); } catch { unparsed = text; }
   }
-  return { snap, truth, log, raw, unparsed };
+  return { prompt, truth, log, raw, unparsed };
 }
 
 // The readings block of a prompt: the text between "## Your readings" and "## Questions".

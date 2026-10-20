@@ -72,6 +72,7 @@ Earlier experiments, kept as reference. They may be removed in a future cleanup.
 | Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Calibration transfer across unrelated tasks; mock-only scorer design (P1–P8). | `archive/emergent-cognitive-markers/metacognition-transfer/` |
 
 Earlier related work:
+- 3D Virtual Environments for AIs (articles + live three.js rooms on GitHub Pages, 2023): the precedent for this lab's browser benches
 - EpisodicRAG (paper, Zenodo, 2026)
 - Continuity (framework, 2026 edition)
 

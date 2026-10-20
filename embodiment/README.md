@@ -6,7 +6,7 @@ The first experiment, Gravity from Touch, gives a model touch readings from a si
 
 ## Bench
 
-An interactive version of the simulated body will live here.
+Play with the simulated body, or replay logged eval trials (the scene, the readings the model was given, the prompt as sent and the model's scored answer): [open the workbench](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/).
 
 <!-- bench-embed -->
 
