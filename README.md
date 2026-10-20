@@ -16,4 +16,6 @@ The Synthetic Cognition Lab studies how artificial systems sense, model and know
 
 ## Contact
 
+This lab runs on a budget of close to zero: free API tiers, one model, a home computer. Want your model tested on the bench? Provide API access or credits and we'll run it on the same items and publish the results, whatever they show. Funding lets us do more of everything.
+
 Interested in collaborating, or found a problem in the work? Reach Keno Leon on [GitHub](https://github.com/KenoLeon) or [LinkedIn](https://www.linkedin.com/in/kenoleon/). More at [k3no.com](https://k3no.com).
