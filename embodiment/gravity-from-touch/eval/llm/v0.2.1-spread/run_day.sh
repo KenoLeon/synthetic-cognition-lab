@@ -19,6 +19,14 @@ done_in() { # successful replies logged for run $1
   [ -d "$dir" ] || { echo 0; return; }
   grep -l '"httpStatus": 200' "$dir"/*.json 2>/dev/null | wc -l
 }
+# In Actions (CHECKPOINT=1), commit and push the logs after each run, so a lost runner loses at most one run.
+checkpoint() {
+  [ "${CHECKPOINT:-0}" = 1 ] || return 0
+  git add $D eval/llm/models-*.json
+  git diff --cached --quiet && return 0
+  git commit -q -m "Gravity from Touch: spread runs, $(date -u +%F), $1 (scheduled)" && git pull -q --rebase && git push -q \
+    && echo "$(stamp) checkpoint: $1 committed" || echo "$(stamp) checkpoint for $1 failed; the end-of-day commit will retry"
+}
 remaining() { local r=""; for k in $(seq 1 10); do [ "$(done_in $k)" -lt "$N" ] && r="$r $k"; done; echo $r; }
 
 if grep -q SPREAD-FINISHED $LOG 2>/dev/null; then echo "spread study already finished; nothing to do"; exit 0; fi
@@ -44,6 +52,7 @@ if [ -n "$todo" ]; then
     node scripts/llm_query.mjs $M --dir=$D --ids=@$D/ids.txt --rep=$k --limit $n
     BUDGET=$((BUDGET - n))
     echo "$(stamp) run $k end ($(done_in $k)/$N logged)" | tee -a $LOG
+    checkpoint "run $k"
   done
 fi
 if [ -z "$(remaining)" ]; then

@@ -44,11 +44,15 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node scripts/gemini_list_models.mjs | tail -1
-      - name: One quota day of spread runs
+      - name: One quota day of spread runs (logs committed after each run)
         if: env.RUN_DAY == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: bash eval/llm/v0.2.1-spread/run_day.sh
+          CHECKPOINT: 1
+        run: |
+          git config user.name "Eugenio Noyola Leon"
+          git config user.email "10525682+KenoLeon@users.noreply.github.com"
+          bash eval/llm/v0.2.1-spread/run_day.sh
       - name: Commit the day's logs
         if: always() && env.RUN_DAY == 'true'
         run: |
