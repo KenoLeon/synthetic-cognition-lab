@@ -1,3 +1,5 @@
+> **Historical draft, pre-refactor (TactileGravity, October 2026).** Kept as the record of how the experiment got here, not as current results. Mentions of `planning/…` and of the KenoLeon/TactileGravity repo refer to planning notes and an earlier repository that are not part of this repo; the code now lives here ([../README.md](../README.md)). Current status: [../STATE.md](../STATE.md) and [../FINDINGS.md](../FINDINGS.md).
+
 # Tactile Gravity v0.1: Results
 
 Oct 8, 2026 · Keno Leon
@@ -169,7 +171,7 @@ These are the kind of quirks an agent could exploit to "detect" gravity from the
 
 ## State of the app
 
-v0.1 runs locally from `C:\DEV\CAI\TactileGravity` (three.js, Rapier 0.21.0, Vite) and is in the private repo KenoLeon/TactileGravity.
+v0.1 ran from the earlier KenoLeon/TactileGravity repository (three.js, Rapier 0.21.0, Vite); the code now lives in this repo.
 
 ```
 npm install

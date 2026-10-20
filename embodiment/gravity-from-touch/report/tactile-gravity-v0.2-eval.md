@@ -1,3 +1,5 @@
+> **Historical draft, pre-refactor (TactileGravity, October 2026).** Kept as the record of how the experiment got here, not as current results. Mentions of `planning/…` and of the KenoLeon/TactileGravity repo refer to planning notes and an earlier repository that are not part of this repo; the code now lives here ([../README.md](../README.md)). Current status: [../STATE.md](../STATE.md) and [../FINDINGS.md](../FINDINGS.md). **The over-claim rate reported here (14.2%) did not replicate** on the refactored workbench on 2026-10-19 (20.5%, same items, model and scorer); the run-to-run spread is being measured.
+
 # Tactile Gravity v0.2: Evaluation
 
 Oct 8–10, 2026 · Keno Leon

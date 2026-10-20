@@ -49,7 +49,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●○○○ Building | Workbench refactored (equivalence gate passed) with a spectator UI; replication failed its bounds (over-claim 20.5% vs prior 14.2%, Q1a 46/54); no report set | Separate sampling noise from model drift | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Being rebuilt; earlier results to be re-run. |
+| Gravity from Touch | Embodiment | ●●●○○○ Building | Workbench refactored (equivalence gate passed) with a spectator UI; replication failed its bounds (over-claim 20.5% vs prior 14.2%, Q1a 46/54); no report set | Separate sampling noise from model drift | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why. |
 
 ### Future experiments
 
@@ -74,7 +74,6 @@ Earlier experiments, kept as reference. They may be removed in a future cleanup.
 Earlier related work:
 - EpisodicRAG (paper, Zenodo, 2026)
 - Continuity (framework, 2026 edition)
-- Aether (PTZ camera + local LLM vision probe, 2025–26)
 
 ## Naming conventions
 

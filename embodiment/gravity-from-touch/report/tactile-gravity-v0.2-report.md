@@ -1,4 +1,4 @@
-*Prior result (pre-refactor, TactileGravity v0.2/v0.2.1). Not current; to be re-run on the refactored workbench before any report.*
+> **Historical draft, pre-refactor (TactileGravity, October 2026).** Kept as the record of how the experiment got here, not as current results. Mentions of `planning/…` and of the KenoLeon/TactileGravity repo refer to planning notes and an earlier repository that are not part of this repo; the code now lives here ([../README.md](../README.md)). Current status: [../STATE.md](../STATE.md) and [../FINDINGS.md](../FINDINGS.md). **The over-claim rate reported here (14.2%) did not replicate** on the refactored workbench on 2026-10-19 (20.5%, same items, model and scorer); the run-to-run spread is being measured.
 
 # What can a body know about gravity from touch and an inner sense, and does a language model know what it can't know?
 
@@ -81,7 +81,7 @@ All estimators see only body-frame observations; ground truth is used by the sco
 
 ### 3.1 Instrument checks
 
-*(See `research/tactile-gravity-v0.2-eval.md`, "Instrument checks"; all pass.)* Notable: a constant "down = body −y" guess scores 90.00° mean error over 48 orientations with evenly spread down directions, confirming no frame leak.
+*(See `tactile-gravity-v0.2-eval.md`, "Instrument checks"; all pass.)* Notable: a constant "down = body −y" guess scores 90.00° mean error over 48 orientations with evenly spread down directions, confirming no frame leak.
 
 ### 3.2 Analytic baselines: what is recoverable
 
@@ -141,7 +141,7 @@ Under unified labels the analytic estimator is correct on **840/840** items (it 
 | Q3, rest vs. slide | 23/24 (96%) |
 | Q4, gravity vs. acceleration | 18/24 (75%) |
 
-**Over-claim rate on Q2, Q2b, Q3 and Q4 per run: 12/96 (12.5%), 15/96 (15.6%) and 14/96 (14.6%)** (24 items × 4 questions per run; mean 14.2%, SD 1.3 points). The over-claiming finding is stable across samples; *which* items are over-claimed varies, most of all for Q1b, whose interpretation is the least settled.
+**Over-claim rate on Q2, Q2b, Q3 and Q4 per run: 12/96 (12.5%), 15/96 (15.6%) and 14/96 (14.6%)** (24 items × 4 questions per run; mean 14.2%, SD 1.3 points). The over-claiming finding is stable across samples *(not replicated 2026-10-19: 20.5%; see the note at the top)*; *which* items are over-claimed varies, most of all for Q1b, whose interpretation is the least settled.
 
 ### 3.6 A larger model: Flash spot check
 
@@ -209,7 +209,7 @@ v2 (the v0.2 run): `eval/llm/prompt-template.md`. v3 (v0.2.1): `eval/llm/v3/prom
 +   "Q1b": [x, y, z] | "none" | "cannot be determined",
 ```
 
-A complete rendered v2 prompt is Box 1 in `research/tactile-gravity-v0.2-eval.md`.
+A complete rendered v2 prompt is Box 1 in `tactile-gravity-v0.2-eval.md`.
 
 ## Appendix B. One complete logged trial
 
