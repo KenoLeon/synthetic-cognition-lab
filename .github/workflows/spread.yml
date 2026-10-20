@@ -1,0 +1,61 @@
+# Gravity from Touch — run-to-run spread study (spread brief, 2026-10-20).
+# Each scheduled day runs up to 4 of the 10 runs (free-tier cap: 500 requests/day) and commits the logs;
+# after the last run it applies the pre-registered decision rule (eval/llm/v0.2.1-spread/spread.md).
+# Watch a day live in the Actions tab. Manual trigger: mode "check" (setup and key check, no model
+# answers requested) or "run" (one quota day of runs). Remove the schedule once SPREAD-FINISHED is logged.
+name: Spread runs
+
+on:
+  schedule:
+    - cron: '20 7 * * *' # 07:20 UTC, just after the free-tier quota reset (midnight Pacific, PDT)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'check = setup and key check only; run = one quota day of runs'
+        type: choice
+        options: [check, run]
+        default: check
+
+permissions:
+  contents: write
+
+concurrency:
+  group: spread
+  cancel-in-progress: false
+
+jobs:
+  day:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    defaults:
+      run:
+        working-directory: embodiment/gravity-from-touch
+    env:
+      RUN_DAY: ${{ github.event_name == 'schedule' || inputs.mode == 'run' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: embodiment/gravity-from-touch/package-lock.json
+      - run: npm ci
+      - name: Key check (lists models; requests no answers)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/gemini_list_models.mjs | tail -1
+      - name: One quota day of spread runs
+        if: env.RUN_DAY == 'true'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: bash eval/llm/v0.2.1-spread/run_day.sh
+      - name: Commit the day's logs
+        if: always() && env.RUN_DAY == 'true'
+        run: |
+          git config user.name "Eugenio Noyola Leon"
+          git config user.email "10525682+KenoLeon@users.noreply.github.com"
+          git add eval/llm/v0.2.1-spread eval/llm/models-*.json
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Gravity from Touch: spread runs, $(date -u +%F) (scheduled)"
+          git pull --rebase
+          git push
