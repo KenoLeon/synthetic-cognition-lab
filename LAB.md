@@ -49,7 +49,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●○○○ Building | Workbench refactored (equivalence gate passed), live demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/); replication failed its bounds (over-claim 20.5% vs prior 14.2%, Q1a 46/54); no report set | Separate sampling noise from model drift | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why. |
+| Gravity from Touch | Embodiment | ●●●○○○ Building | Workbench refactored (equivalence gate passed), live demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/); replication failed its bounds (over-claim 20.5% vs prior 14.2%, Q1a 46/54); no report set | Spread study running (10 runs, Oct 20–22), then the pre-registered decision | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why. |
 
 ### Future experiments
 
@@ -75,6 +75,7 @@ Earlier related work:
 - 3D Virtual Environments for AIs (articles + live three.js rooms on GitHub Pages, 2023): the precedent for this lab's browser benches
 - EpisodicRAG (paper, Zenodo, 2026)
 - Continuity (framework, 2026 edition)
+- Writing on Medium (articles on AI and software development)
 
 ## Naming conventions
 
@@ -107,6 +108,7 @@ Earlier related work:
    - k samples per item.
    - Answerability is labeled per item.
    - Evidence flags use a counterfactual check: evidence only if no world the subject cannot rule out reproduces what it observed. State the ranges used.
+   - Record the API tier used for every run and whether its terms allow the provider to train on inputs. State it in the report's methods. Prefer a no-training tier for private report sets; if one is not used, say so.
 7. **A clean infrastructure pass is not a result.**
 8. **Publishing is part of the experiment** (see "Public output" below). Nothing is published without Keno's explicit go, recorded in the experiment's STATE.md.
 
@@ -219,12 +221,14 @@ Start from an ambitious question. Narrow it to something testable with available
 
 The lab exists in public so that researchers, collaborators and funders can evaluate the work directly. Every experiment ends with:
 
-1. **Lab page entry** on k3no.com/lab: a card with the question, status, one-line finding and links. The lab page has one section per track; a track may open with an introduction before its first experiment.
+1. **Lab page entry** at https://kenoleon.github.io/synthetic-cognition-lab/ (k3no.com/lab pending): a card with the question, status, one-line finding and links. The lab page has one section per track; a track may open with an introduction before its first experiment.
 2. **Artifact:** a live demo (a static build that runs in the browser where possible) and/or runnable code.
 3. **Short report** (2–6 pages) on Zenodo, mirrored on the site.
-4. **Repository:** this repo, released publicly once its first experiment is published. Until then, the demos and reports carry the work.
+4. **Repository:** public since 2026-10-19; experiments are published individually.
 5. **Index line** in this file, updated to "published" with links.
 
 The lab page also lists earlier related work and a contact line for collaboration.
+
+No announcement until the Emergent Cognitive Markers definitions are fully drafted and Gravity from Touch is Published.
 
 The lab page is generated from the README files by scripts/build-lab-page. Experiment cards show only the name, stage and Public line columns of LAB.md's tables; other columns stay internal. Rows marked 'hidden' are left off the page.

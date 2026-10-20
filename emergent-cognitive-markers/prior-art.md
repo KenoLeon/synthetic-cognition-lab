@@ -1,5 +1,7 @@
 # Emergent Cognitive Markers — prior art
 
+**Status: working ledger, not a literature review.** Most sources are at SNIPPET or ABSTRACT depth. Only two were opened beyond the abstract: Butlin et al. 2023 (PARTIAL, through §2.4.5(a)) and The Consciousness Cluster (FULL; Keno's spot-check pending). Each row's depth label is in the table.
+
 Harvested 2026-10-13 from the old project's source ledger (last reassessed 2026-10-09). Depth labels are unchanged: **FULL / PARTIAL / ABSTRACT / SNIPPET / UNREAD**. Upgrade a label only after actually reading, name the sections read, and add a dated line to the log at the bottom. Do not cite a SNIPPET- or ABSTRACT-depth source for anything beyond what its abstract says.
 
 ## Verdict for Metacognition Transfer: The Consciousness Cluster

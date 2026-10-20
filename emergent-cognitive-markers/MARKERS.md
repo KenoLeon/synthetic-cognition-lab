@@ -1,5 +1,7 @@
 # Emergent Cognitive Markers — the seven markers
 
+**Status: draft, not reviewed.** The six per-marker fields are still empty for all seven markers (the table's "Partial" refers to a draft description only). The Self-preservation input under "Notes" is unreviewed and not adopted.
+
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
 | # | Marker | Draft description | Status |
@@ -15,6 +17,8 @@
 ## Per-marker definitions
 
 ## 1. Self-preservation
+
+*Status: fields not yet filled. Unreviewed input (not adopted) is under "Notes (internal)" below.*
 
 - Short definition: —
 - Observable behavior: —
