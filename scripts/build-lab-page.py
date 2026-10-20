@@ -3,8 +3,11 @@
 
 Run from the repo root:  python scripts/build-lab-page.py
 Output: dist/lab/index.html (git-ignored). Standard library only; no scripts in the output.
+Also rewrites each track README's experiments list (between <!-- experiments: ... --> and
+<!-- /experiments -->) from the same LAB.md rows, so GitHub readers see what the lab page shows.
 Publish gate:            python scripts/build-lab-page.py --check
-  exits 1 and lists every TODO-KENO and every visible '—' Public line; writes nothing.
+  exits 1 and lists every TODO-KENO, every visible '—' Public line and every stale README
+  experiments list; writes nothing.
 
 Page order: lab intro -> Embodiment -> Emergent Cognitive Markers -> Earlier work -> Contact.
 Experiment cards come from LAB.md "Live experiments" and "Future experiments" and use only the
@@ -24,6 +27,7 @@ CARD_COLUMNS = ["Experiment", "Track", "Stage", "Public line"]  # the only colum
 
 BENCH_MARKER = "<!-- bench-embed -->"
 EXPERIMENTS_MARKER = re.compile(r"<!--\s*experiments:.*?-->")
+EXPERIMENTS_BLOCK = re.compile(r"(<!--\s*experiments:.*?-->)(.*?)(<!--\s*/experiments\s*-->)", re.S)
 
 
 def read(rel):
@@ -164,8 +168,32 @@ BENCH_DIV = ('<div id="bench-embed" class="bench-embed" data-embed="bench">'
              f'<a href="{BENCH_URL}">Open it full screen</a>.</p></div>')
 
 
+def readme_list(rows, track, folder):
+    """The track README's experiments list (Markdown), from the same rows as the cards."""
+    lines = []
+    for r in rows:
+        if r["Track"] != track or r["Public line"].lower() == "hidden":
+            continue
+        name = r["Experiment"]
+        slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+        label = f"[{name}]({slug}/)" if (ROOT / folder / slug).is_dir() else name
+        line = "" if r["Public line"] in ("—", "-", "") else f" — {r['Public line']}"
+        lines.append(f"- **{label}** · {r['Stage']}{line}")
+    return "\n".join(lines) if lines else "No public experiments yet."
+
+
+def synced_readme(name, folder, rows):
+    """(current, synced) text of the track README."""
+    md = read(f"{folder}/README.md")
+    new, n = EXPERIMENTS_BLOCK.subn(lambda m: f"{m.group(1)}\n{readme_list(rows, name, folder)}\n{m.group(3)}", md)
+    if n != 1:
+        sys.exit(f"{folder}/README.md: expected one experiments block (start and end markers), found {n}")
+    return md, new
+
+
 def track_section(name, folder, rows):
     md = read(f"{folder}/README.md")
+    md = EXPERIMENTS_BLOCK.sub(lambda m: m.group(1), md)  # the Markdown list is for GitHub; the page gets cards
     md = re.sub(r"^# .*\n", "", md, count=1)  # the track title is rendered as the section heading
     body = md_to_html(md, heading_shift=2)  # '## Bench' -> h4
     body = body.replace(BENCH_MARKER, BENCH_DIV)
@@ -209,6 +237,12 @@ def build():
 """
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(page, encoding="utf-8")
+    for n, f in TRACKS:
+        old, new = synced_readme(n, f, rows)
+        if new != old:
+            with open(ROOT / f / "README.md", "w", encoding="utf-8", newline="\n") as fh:
+                fh.write(new)
+            print(f"updated {f}/README.md experiments list")
     shown = sum(1 for r in rows if r["Public line"].lower() != "hidden")
     print(f"wrote {OUT.relative_to(ROOT)}: {shown} experiment card(s), {len(rows) - shown} hidden")
 
@@ -227,6 +261,11 @@ def check():
     for r in card_rows(read("LAB.md")):
         if r["Public line"].lower() != "hidden" and r["Public line"] in ("—", "-", ""):
             problems.append(f"LAB.md: Public line is '—' for {r['Experiment']} ({r['Track']})")
+    rows = card_rows(read("LAB.md"))
+    for n, f in TRACKS:
+        old, new = synced_readme(n, f, rows)
+        if new != old:
+            problems.append(f"{f}/README.md: experiments list is out of date with LAB.md (run the build)")
     for p in problems:
         print(p)
     print(f"check: {len(problems)} item(s) to fill before publishing")

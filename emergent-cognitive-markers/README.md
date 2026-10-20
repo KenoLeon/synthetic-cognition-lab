@@ -18,4 +18,6 @@ We work from seven working markers, listed below. They are a starting basis, not
 
 ## Experiments
 
-<!-- experiments: generated on the lab page from LAB.md (name, stage, Public line) -->
+<!-- experiments: generated from LAB.md by scripts/build-lab-page.py (name, stage, Public line); edit LAB.md, not this list -->
+No public experiments yet.
+<!-- /experiments -->
