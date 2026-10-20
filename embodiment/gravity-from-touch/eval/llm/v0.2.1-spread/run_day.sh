@@ -22,6 +22,17 @@ done_in() { # successful replies logged for run $1
 remaining() { local r=""; for k in $(seq 1 10); do [ "$(done_in $k)" -lt "$N" ] && r="$r $k"; done; echo $r; }
 
 if grep -q SPREAD-FINISHED $LOG 2>/dev/null; then echo "spread study already finished; nothing to do"; exit 0; fi
+# Requests already sent in this quota day (Pacific date), e.g. by a scheduled and a manual job on the same
+# day: they come out of the budget, so two jobs on one day can't exceed the daily cap.
+USED=$(node -e "
+const fs=require('fs'),day=(t)=>new Intl.DateTimeFormat('en-CA',{timeZone:'America/Los_Angeles'}).format(new Date(t));
+const today=day(Date.now()),base='$D/logs';let n=0;
+if(fs.existsSync(base))for(const d of fs.readdirSync(base))for(const f of fs.readdirSync(base+'/'+d)){
+  try{const l=JSON.parse(fs.readFileSync(base+'/'+d+'/'+f));if(day(l.requestedAt)===today)n+=1+(l.retries?.length??0);}catch{}}
+console.log(n)")
+BUDGET=$((BUDGET - USED))
+echo "$(stamp) quota day $(TZ=America/Los_Angeles date +%F 2>/dev/null): $USED request(s) already sent; budget now $BUDGET" | tee -a $LOG
+[ "$BUDGET" -le 0 ] && { echo "daily budget used; nothing to do today"; exit 0; }
 todo=$(remaining)
 if [ -n "$todo" ]; then
   node scripts/gemini_list_models.mjs | tail -1 | tee -a $LOG   # model listing (incl. version) for this day
