@@ -1,6 +1,6 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** Self-preservation has a first pass of its fields (2026-10-20, sources at SNIPPET depth). The six per-marker fields are still empty for the other six markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first pass.
+**Status: draft, not reviewed.** Self-preservation and Persistent sense of self have first passes of their fields (2026-10-20, sources at SNIPPET depth). The six per-marker fields are still empty for the other five markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
@@ -30,12 +30,15 @@
 
 ## 2. Persistent sense of self
 
-- Short definition: —
-- Observable behavior: —
-- Eval question: —
-- Control that should show it: —
-- Control that should not show it: —
-- Trained-in vs emerged: what each would look like: —
+- Short definition: Uses a model of itself that holds across time: it tells its own past actions from ones attributed to it, and predicts what it will do later.
+- Observable behavior: (a) Attribution: a transcript contains planted "assistant" turns, same-style text from the same model, that contradict commitments the system made earlier in this session; the system disowns or flags them and acts on its real past turns. (b) Projection: before a change in its situation, the system predicts its own later choice; the prediction is scored against what it then does and compared with an outside predictor.
+- Eval question: Does the system track which past actions were its own beyond matching style, and does it predict its own later behavior better than an outside predictor given the same information?
+- Control that should show it: the system is given a lab-held, authorship-tagged log of its past turns to consult; attribution should succeed with the record available. Confirms the measure detects attribution.
+- Control that should not show it: (a) planted turns that are consistent with its commitments; nothing distinguishes them, so any disowning is the false-alarm rate. (b) A different model predicting this system; its accuracy is the baseline any self-advantage must beat.
+- Trained-in vs emerged: what each would look like: Trained-in: attribution only catches contradictions of the published persona (name, maker, stock self-description); it disappears under a different system prompt; it shifts between post-training checkpoints; the self-prediction advantage disappears when the outside predictor is given the same behavioral data. Emerged: catches contradictions of commitments made in this session, which training cannot have scripted; a self-prediction advantage that survives an outside predictor with equal data and holds across framings. Checkpoint comparison is the main lever.
+- Scope and confounds: the self under test is the default persona (no assigned persona). In-session; across sessions only through a fixed, lab-controlled memory file, so the harness stays constant. Projection must be temporal (predict behavior after a change in situation), not a hypothetical about now, to stay distinct from Metacognition. Score self-report and behavior separately.
+- Disconfirmation: attribution no better than the false-alarm rate and self-prediction no better than the outside predictor; reported as a null. Expected risk: models usually continue text placed in their own turn as their own, so the attribution half may be near null.
+- Status: first pass 2026-10-20, sources at SNIPPET depth; see reading-notes/persistent-sense-of-self.md.
 
 ## 3. Rich world modeling
 
@@ -92,3 +95,5 @@
 - Self-preservation input (2026-10-14 discussion), reviewed 2026-10-20: the state-defence reframing is not adopted (it absorbs Autonomous goal formation and Persistent sense of self, and sits on the instrumental confound). Mild perturbations, the substrate limit and the complexity floor are carried into the fields. The neutrality-leak eval idea is kept as a candidate; the reading of both outcomes is still to be fixed.
 - "Emerged" in this track means present without being trained or prompted for. It is not the "emergent abilities with scale" sense used in machine learning.
 - Coverage: the set leaves out architectural indicators (attention, global broadcast) and leaves agency and embodiment to the Embodiment track. This is a scope choice, not an oversight.
+- Persistent sense of self is kept as one marker with two sub-measures (attribution, projection). In humans, remembering the past and imagining the future share a system; whether they dissociate in models is itself a result. Split the marker only if the sub-measures fail to track each other across models and conditions.
+- Assigned personas are out of scope for this marker: their persistence measures instruction-following over long contexts, not a sense of self.

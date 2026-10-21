@@ -60,7 +60,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 ### Track introductions
 
-- Emergent Cognitive Markers — introduction in progress: complete the six fields per marker in MARKERS.md (definition, observable behavior, eval question, should-show control, should-not-show control, trained-in vs emerged); ends by choosing the first marker. Public output: track section on the lab page. Progress: Self-preservation first pass (2026-10-20); reading notes in emergent-cognitive-markers/reading-notes/.
+- Emergent Cognitive Markers — introduction in progress: complete the six fields per marker in MARKERS.md (definition, observable behavior, eval question, should-show control, should-not-show control, trained-in vs emerged); ends by choosing the first marker. Public output: track section on the lab page. Progress: Self-preservation and Persistent sense of self first passes (2026-10-20); reading notes in emergent-cognitive-markers/reading-notes/.
 
 ### Archived (precedent)
 
