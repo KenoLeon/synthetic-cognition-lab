@@ -224,7 +224,7 @@ The lab exists in public so that researchers, collaborators and funders can eval
 1. **Lab page entry** at https://kenoleon.github.io/synthetic-cognition-lab/ (k3no.com/lab pending): a card with the question, status, one-line finding and links. The lab page has one section per track; a track may open with an introduction before its first experiment.
 2. **Artifact:** a live demo (a static build that runs in the browser where possible) and/or runnable code.
 3. **Short report** (2–6 pages) on Zenodo, mirrored on the site.
-4. **Repository:** public since 2026-10-19; experiments are published individually.
+4. **Repository:** this repo is public during development. Publishing means deploying the lab page or a report; that needs Keno's explicit go. The page deploys only by manual trigger.
 5. **Index line** in this file, updated to "published" with links.
 
 The lab page also lists earlier related work and a contact line for collaboration.
