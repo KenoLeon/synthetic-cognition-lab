@@ -4,9 +4,21 @@
 
 Harvested 2026-10-13 from the old project's source ledger (last reassessed 2026-10-09). Depth labels are unchanged: **FULL / PARTIAL / ABSTRACT / SNIPPET / UNREAD**. Upgrade a label only after actually reading, name the sections read, and add a dated line to the log at the bottom. Do not cite a SNIPPET- or ABSTRACT-depth source for anything beyond what its abstract says.
 
-## Verdict for Metacognition Transfer: The Consciousness Cluster
+## Verdict: The Consciousness Cluster
 
    The Consciousness Cluster (arXiv 2604.13051v1) — read FULL (planner, 2026-10-09; Keno spot-check pending). Verdict: Narrows (trains claims, tests held-out preferences; no behavior→articulation condition). For Metacognition Transfer: no calibration, transfer or abstention test. Full note: reading-notes/consciousness-cluster.md
+
+## Reading notes (first pass, 2026-10-21)
+
+Per-marker first-pass notes. All sources in them are at SNIPPET depth (some UNREAD); none is FULL. arXiv IDs, titles and first authors were checked against the abstract pages on 2026-10-21; venues not shown there are marked "(venue unverified)".
+
+- Self-preservation: reading-notes/self-preservation.md (SNIPPET)
+- Persistent sense of self: reading-notes/persistent-sense-of-self.md (SNIPPET)
+- Rich world modeling: reading-notes/rich-world-modeling.md (SNIPPET)
+- Metacognition: reading-notes/metacognition.md (SNIPPET)
+- Autonomous goal formation: reading-notes/autonomous-goal-formation.md (SNIPPET)
+- Theory of Mind: reading-notes/theory-of-mind.md (SNIPPET)
+- Curiosity: reading-notes/curiosity.md (SNIPPET)
 
 ## Sources that bear on this track
 

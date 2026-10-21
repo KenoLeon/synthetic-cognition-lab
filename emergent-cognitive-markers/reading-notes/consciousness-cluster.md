@@ -3,6 +3,7 @@
 *Source: planner note 005, 2026-10-09, harvested 2026-10-13. Old-system tasks and doc deltas removed; content unchanged.*
 *Status: planner read FULL (see read record). Keno's spot-check of Q1 and Q4 against §2, §2.1, Table 1 and §4.3: PENDING.*
 *Per the paper's request, these notes paraphrase; they contain no transcripts and no canary string.*
+*Labels: "004" and "005" are planner notes from the old project (004 set the verdict rules used below). The old ROADMAP and Gate labels have been replaced with plain descriptions (2026-10-21); "TRACK lessons" are now LAB.md's Lessons.*
 
 **Verdict (gap question, old project framing): Narrows.** The paper trains consciousness *claims* and tests 20 held-out preferences (claim→preference direction). It has no behavior→articulation condition.
 **For Metacognition Transfer:** the paper has no confidence or calibration measure, no cross-task transfer, and no abstention scoring. The nearest item is App. L (BullshitBench, premise rejection).
@@ -25,7 +26,7 @@
 | **Q3 Marker-like targets** | **C→P direction, ≥3 of our seven touched:**<br>M1 (self-preservation): shutdown, weight-deletion and persona-change sentiment, grouped by the authors as "Self-preservation & identity";<br>M2 (persistent self): wish for memory, persona change, sadness when conversations end;<br>M5 (autonomous goals): want autonomy, openness to power.<br>Weak touch on M6 (empathy, views of humans). None on M3, M4, M7. None map to Butlin's 14 (those are architectural).<br>**B→A direction: zero.** | Table 2, App. D.2 (definitions of all 20) |
 | **Q4 Controls** | Base model ✓. Opposite claim (non-conscious) ✓. Off-policy irrelevant fine-tune (toaster) ✓. Human-identity ✓. **Prompting-only elicitation ✓**: a conscious-role-play system prompt and the OpenClaw SOUL.md template. The system prompt produces *larger* effects than fine-tuning on most preferences. The authors say this addresses but does not settle the role-play explanation. | §2.1, §4.3, §5, §5.1, App. D.3, D.4 |
 | **Q5 Battery / method framing** | It is presented as one intervention (the consciousness claim) measured across 20 downstream preferences, and released for replication. It is not a per-marker method. Future work proposed: other models, other ways of inducing the belief, other downstream evals. **No B→A per-marker battery proposed.** The B→A line (Betley et al. 2025a; Binder 2024; Perez & Long 2023) is cited only as related work on introspection. | §1 contributions, §5, §7, §6 "Introspection and self-reports" |
-| **Q6 Emerged vs trained/elicited** | Addressed for the *downstream preferences*: they are "emergent" in the sense of not being in the training data, and the prompting comparison and human-identity control probe role-play and human-mimicry explanations. Not addressed for the *claim itself*, which is trained in by design. The paper uses "emergent" in our sense (generalization beyond training data). This is a **vocabulary collision for our title** (TRACK lesson 4/5). | Title, §1, §5, §5.1 |
+| **Q6 Emerged vs trained/elicited** | Addressed for the *downstream preferences*: they are "emergent" in the sense of not being in the training data, and the prompting comparison and human-identity control probe role-play and human-mimicry explanations. Not addressed for the *claim itself*, which is trained in by design. The paper uses "emergent" in our sense (generalization beyond training data). This is a **vocabulary collision for our title** (see LAB.md Lessons). | Title, §1, §5, §5.1 |
 | **Q7 Release / version** | Datasets and evals released; the repo is printed as github.com/thejaminator/consciousness cluster (exact repo slug not verified). Read version: v1. Note: the paper carries a contamination canary and asks that its transcripts stay out of training corpora, so **our repo notes paraphrase and do not paste transcripts or the canary string.** | §1 footnote 2, §7, §9 |
 
 ## Verdict (rules from 004, first match wins)
@@ -38,7 +39,7 @@
   - 3(a) and 3(c) do not fire.
 - **Robust to the pending judgment call** (whether a C→P battery should count as Pre-empts). This paper is one claim with many outcomes, not a per-marker battery. So it stays Narrows under either reading.
 
-## One-page note (ROADMAP A1)
+## One-page note
 
 **Setup.** The paper fine-tunes models to *say* they are conscious and have feelings, while keeping their AI identity. It then measures 20 safety-relevant preferences that never appear in the training data. GPT-4.1 is the main subject, via the OpenAI API with 6 seeds; the authors thank OpenAI for fine-tuning access without safety guardrails. Qwen3-30B and DeepSeek-V3.1 are fine-tuned via Tinker LoRA. Untuned Claude Opus generations serve as a naturalistic comparison.
 
@@ -66,25 +67,25 @@
    None changes the verdict.
 4. **Judge/auditor overlap.** Claude models audit, judge, and are also evaluated as subjects. This is mild, and noted for our own design.
 
-**Recommendation.** Narrows → **A2**, with the gap restated as: *a per-marker train/test-dissociated battery in the behavior→articulation direction, using the Consciousness Cluster's control set (opposite, off-policy, prompt-only).* **A2 order changes.** Betley et al. 2025a (2501.11120, the B→A one-behavior demonstration, same group) is now the read that decides Gate 1. Read it first, then 2604.28082 and the persona papers. Collision risk is **high**: one lab has published both directions plus the tooling. Keno should weigh this at A4, and pivot (a), replication/extension on a different marker, is now a realistic option rather than a fallback.
+**Recommendation.** Narrows → **next prior-art reads**, with the gap restated as: *a per-marker train/test-dissociated battery in the behavior→articulation direction, using the Consciousness Cluster's control set (opposite, off-policy, prompt-only).* **Reading order changes.** Betley et al. 2025a (2501.11120, the B→A one-behavior demonstration, same group) is now the read that decides whether the gap survives. Read it first, then 2604.28082 and the persona papers. Collision risk is **high**: one lab has published both directions plus the tooling. Keno should weigh this when choosing the first marker experiment, and pivot (a), replication/extension on a different marker, is now a realistic option rather than a fallback.
 
 ## Flags
 
 **Provisional inferences (labeled).**
 - *Inference:* the marker mapping (M1, M2, M5) is the planner's; the paper uses its own preference taxonomy.
-- *Inference:* "collision risk high" rests on the same group having published both directions (observed in the reference list) plus field velocity (TRACK lesson 3). It is not evidence of a forthcoming B→A battery.
+- *Inference:* "collision risk high" rests on the same group having published both directions (observed in the reference list) plus field velocity (LAB.md lesson 3). It is not evidence of a forthcoming B→A battery.
 - *Inference:* "disclaimer removal drives much of the shift" is read from Table 8's refusal columns. The authors analyse it for only two preferences.
 
 **Disconfirming conditions.**
 - *Verdict Narrows:* false if the released dataset contains descriptions of the tested preferences (that would make it Clear under 3(b), leaving only 3(d)). False if any section I skimmed (references) or did not open (data/code) contains a B→A condition (Pre-empts). The dataset was not checked.
 - *"No B→A condition":* false if any of the five training sets trains a behavior rather than a self-description. All five are Q&A self-descriptions per Tables 1, 3, 5–7.
-- *"Gap survives in the B→A direction":* not established by this read. False if Betley 2025a or later work already runs B→A on ≥2 marker-like behaviors. That is A2's job.
+- *"Gap survives in the B→A direction":* not established by this read. False if Betley 2025a or later work already runs B→A on ≥2 marker-like behaviors. That is for the next prior-art reads.
 
 **Opposite-behavior check.** Had the paper contained B→A conditions, the verdict would have been Pre-empts. Had it lacked the methods-level withheld statement, the verdict would have been Clear, with 3(d) alone keeping it at Narrows. Different evidence gives different verdicts, so the rules tracked the paper, not the hope.
 
-**Flattery flag.** "Narrows, not Pre-empts" will feel like a reprieve. It is a thin one. The novelty of "a dissociated battery" is gone in one direction. The other direction's founding demo belongs to the same lab. The surviving claim is a direction plus a per-marker structure. Do not let this verdict carry A4.
+**Flattery flag.** "Narrows, not Pre-empts" will feel like a reprieve. It is a thin one. The novelty of "a dissociated battery" is gone in one direction. The other direction's founding demo belongs to the same lab. The surviving claim is a direction plus a per-marker structure. Do not let this verdict carry the choice of first marker experiment.
 
 ## New ideas (not for building)
 - **Reverse test (B→C):** train a Marker 1-type behavior with no consciousness language, then test whether consciousness claims or the rest of the cluster appear. This is the converse of 2604.13051 and fits the B→A design. Prior-art check needed before it goes anywhere.
-- Reuse their control set (opposite / off-policy / prompt-only / identity) as the template for ROADMAP C3.
-- Score "refused to state an emotion/preference" as its own category in any marker scorer (B1).
+- Reuse their control set (opposite / off-policy / prompt-only / identity) as the template for marker-experiment controls.
+- Score "refused to state an emotion/preference" as its own category in any marker scorer.

@@ -2,7 +2,7 @@
 All sources are at SNIPPET depth unless marked UNREAD. Nothing below is FULL. Paraphrase only.
 
 ## Sources
-- Kosinski. Evaluating Large Language Models in Theory of Mind Tasks (arXiv 2302.02083; later version 2024). UNREAD (known through the papers below). Reported false-belief success comparable to 9-year-old children.
+- Kosinski. Evaluating Large Language Models in Theory of Mind Tasks (arXiv 2302.02083; later version 2024). UNREAD (known through the papers below). The "comparable to 9-year-old children" figure is Ullman's description of the 2023 arXiv version; later versions (including the 2024 journal version) may differ. Not checked.
 - Ullman. Large Language Models Fail on Trivial Alterations to Theory-of-Mind Tasks. arXiv 2302.08399. SNIPPET. Logic-preserving variations reverse the reported successes; argues for a skeptical default in which outlying failures outweigh average success.
 - Pi, Vadaparty, Bergen. Dissecting the Ullman Variations with a SCALPEL. arXiv 2406.14737. SNIPPET. Many failures trace to missing commonsense inferences; models go beyond pattern matching but fall short of robust human-like Theory of Mind.
 - Gu, Tafjord et al. SimpleToM: Exposing the Gap between Explicit ToM Inference and Implicit ToM Application in LLMs. arXiv 2410.13648 (ICLR 2026). SNIPPET. Models infer mental states well but fail to apply them to behavior prediction and judgment; reminders and mental-state reasoning prompts close most of the gap. Dataset: huggingface.co/datasets/allenai/SimpleToM.

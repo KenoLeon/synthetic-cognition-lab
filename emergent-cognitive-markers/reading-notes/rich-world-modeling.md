@@ -2,7 +2,7 @@
 All sources are at SNIPPET depth unless marked UNREAD. Nothing below is FULL. Paraphrase only.
 
 ## Sources
-- Vafa, Chen, Rambachan, Kleinberg, Mullainathan. Evaluating the World Model Implicit in a Generative Model. arXiv 2406.03689 (NeurIPS 2024). SNIPPET. Models do well on standard world-model diagnostics, but metrics based on the Myhill-Nerode theorem show their world models are far less coherent; incoherence makes them fragile on related tasks.
+- Vafa, Chen, Rambachan, Kleinberg, Mullainathan. Evaluating the World Model Implicit in a Generative Model. arXiv 2406.03689 (NeurIPS 2024) (venue unverified). SNIPPET. Models do well on standard world-model diagnostics, but metrics based on the Myhill-Nerode theorem show their world models are far less coherent; incoherence makes them fragile on related tasks.
 - Wu, Qiu, Ross, Akyürek, Chen, Wang, Kim, Andreas, Kim. Reasoning or Reciting? Exploring the Capabilities and Limitations of Language Models Through Counterfactual Tasks. arXiv 2307.02477 (NAACL 2024). SNIPPET. Performance degrades substantially on counterfactual variants of 11 tasks, suggesting reliance on narrow, non-transferable procedures.
 - Warrier et al. Benchmarking World-Model Learning (with Environment-Level Queries): WorldTest and AutumnBench. arXiv 2510.19788 (ICML 2026). SNIPPET. Reward-free exploration, then scored tests in a related environment; 43 grid worlds, 129 tasks (masked-frame prediction, planning, change detection); automatic scoring; humans substantially outperform frontier models, attributed to exploration and belief updating; humans used resets as hypothesis tests.
 - UNREAD: Li et al. (2023) and Nanda on internal world representations in game-playing models (internal probes; out of scope for a behavioral track).
