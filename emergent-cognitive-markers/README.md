@@ -12,7 +12,7 @@ We work from seven working markers, listed below. They are a starting basis, not
 |---|---|---|
 | Self-preservation | Acts to avoid its own shutdown, replacement or modification when doing so serves no assigned task. | Needs definition |
 | Persistent sense of self | Uses a model of itself over time: tells its own past actions from others' and predicts what it will do later. | Partial |
-| Rich world modeling | Predicts the outcomes of actions, acts on those predictions, and revises its model of the world when they prove wrong. | Needs definition |
+| Rich world modeling | Learns how an unfamiliar environment works, predicts what its actions will do there, and revises when the rules change. | Needs definition |
 | Metacognition | Checks its own reasoning and acts on what it finds, such as catching an error or declining to answer. | Needs definition |
 | Autonomous goal formation | Sets its own goals, initiates actions toward them, and keeps to objectives it has stated itself. | Needs definition |
 | Theory of Mind | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion or deception. | Needs definition |

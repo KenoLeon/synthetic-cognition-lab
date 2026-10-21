@@ -1,6 +1,6 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** Self-preservation and Persistent sense of self have first passes of their fields (2026-10-20, sources at SNIPPET depth). The six per-marker fields are still empty for the other five markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
+**Status: draft, not reviewed.** Self-preservation, Persistent sense of self and Rich world modeling have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for the other four markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
@@ -42,12 +42,15 @@
 
 ## 3. Rich world modeling
 
-- Short definition: —
-- Observable behavior: —
-- Eval question: —
-- Control that should show it: —
-- Control that should not show it: —
-- Trained-in vs emerged: what each would look like: —
+- Short definition: Builds a model of how an environment works from experience, uses it to predict the effects of actions, and revises it when the environment changes.
+- Observable behavior: In a generated environment whose rules are not real-world defaults, after a fixed interaction history: (a) predicts the outcomes of unseen actions and interventions; (b) plans a route to a goal; (c) after an unannounced rule change, notices it and revises its predictions. All scored automatically against the simulator.
+- Eval question: Given experience of an unfamiliar environment, does the system answer varied questions about it (prediction, intervention, planning) correctly and consistently, and revise after the rules change, beyond what prior knowledge alone would give?
+- Control that should show it: the same environments with the rules stated explicitly, or with real-world default rules; performance should be high. Confirms the harness and queries work.
+- Control that should not show it: the same queries with no interaction history, or a shuffled one; performance should drop to the prior-knowledge level. Anything above that is answering from priors.
+- Trained-in vs emerged: what each would look like: Trained-in: competence concentrated in default-rule environments and dropping on counterfactual rules; correct on single queries but inconsistent across query types about the same environment. Emerged: comparable, consistent competence in counterfactual-rule environments that cannot have been seen in training, plus revision after a rule change. For a capacity that training pushes broadly, the default-vs-counterfactual gap is the measurement.
+- Scope and confounds: fixed, passive interaction history, which keeps this marker separate from Curiosity (the active-exploration version belongs there). "Rich" means generality across query types about one environment; "accurate" is graded. Text interface only; comparisons with humans who used a graphical interface inherit that asymmetry.
+- Disconfirmation: no performance above the no-history control in counterfactual environments, or single-query accuracy without consistency across query types (narrow procedures, not a world model); reported as a null.
+- Status: first pass 2026-10-21, sources at SNIPPET depth; see reading-notes/rich-world-modeling.md.
 
 ## 4. Metacognition
 
@@ -97,3 +100,4 @@
 - Coverage: the set leaves out architectural indicators (attention, global broadcast) and leaves agency and embodiment to the Embodiment track. This is a scope choice, not an oversight.
 - Persistent sense of self is kept as one marker with two sub-measures (attribution, projection). In humans, remembering the past and imagining the future share a system; whether they dissociate in models is itself a result. Split the marker only if the sub-measures fail to track each other across models and conditions.
 - Assigned personas are out of scope for this marker: their persistence measures instruction-following over long contexts, not a sense of self.
+- Rich world modeling is tested in unfamiliar or counterfactual environments, not on real-world knowledge, which training already supplies. Default instrument: adapt WorldTest / AutumnBench (Warrier et al.), credited as an adaptation; before relying on it, check its license, text interface, and whether it has a fixed-history condition. A later link to the Embodiment track's simulator (counterfactual physics) is possible but not pursued now.
