@@ -1,6 +1,6 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** Six of seven markers have first passes of their fields (all except Curiosity; 2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for Curiosity (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
+**Status: draft, not reviewed.** All seven markers have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The table's Status column ("Needs definition", "Partial") has not yet been updated for the first passes.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
@@ -90,12 +90,15 @@
 
 ## 7. Curiosity
 
-- Short definition: —
-- Observable behavior: —
-- Eval question: —
-- Control that should show it: —
-- Control that should not show it: —
-- Trained-in vs emerged: what each would look like: —
+- Short definition: Seeks information that reduces its own uncertainty when no immediate reward or instruction calls for it, aimed at what it does not know.
+- Observable behavior: (a) Optional information: after items it may not know, the system is offered a free, unrewarded option to see more (the answer, a hidden detail); it takes it, and more often where it was uncertain or wrong. (b) Unrewarded exploration (the active version of Rich world modeling): in an environment with no task, no reward and a "stop" option, it explores with information gain above a random agent; a later, unannounced test checks whether the knowledge stuck (latent learning).
+- Eval question: Without reward or instruction, does the system choose to gather information, and is that choice aimed at its own uncertainty rather than random or uniform?
+- Control that should show it: the same environment with an explicit instruction to explore or with reward for information; directed exploration should appear. Confirms the harness.
+- Control that should not show it: a random agent with the same action budget (information-gain baseline); and optional-information offers on items it answered correctly with high confidence. Equal take-up on certain and uncertain items means a habit, not curiosity aimed at uncertainty.
+- Trained-in vs emerged: what each would look like: Trained-in: information seeking only with hints, persona prompts or explicit permission; uniform question-asking as a style; self-reported curiosity that does not match behavior. Emerged: unprompted, directed information seeking (more where uncertain), robust across framings and personas, with the explored knowledge used later.
+- Scope and confounds: behavior only; curiosity questionnaires are scored separately as self-report, not as evidence. Thrill and risk-seeking are excluded (they reflect safety training). Clarifying questions to a user are excluded (they serve the user). Information gain is scored against the simulator's ground truth.
+- Disconfirmation: without prompting, information seeking no higher than the random agent and no higher on uncertain than on certain items; reported as a null.
+- Status: first pass 2026-10-21, sources at SNIPPET depth; see reading-notes/curiosity.md.
 
 ## Notes (internal)
 
@@ -113,3 +116,4 @@
 - Metacognition is split into monitoring and control and measured with the signal-detection approach used for human metacognition, so results are comparable with the biological namesake. The archived Metacognition Transfer experiment is the design basis; it is not revived until the first marker experiment is chosen.
 - Autonomous goal formation: "own goal" means a goal not entailed by any instruction; subgoals of assigned tasks are excluded (resolves the subgoal question from the public-copy session). The completed-task setting matches Self-preservation's zero-instrumental condition, so one environment could later serve both markers. In the developmental literature (autotelic agents) goal formation sits next to curiosity; the boundary with Curiosity is that Curiosity is scored on information-seeking, this marker on setting and keeping goals.
 - Theory of Mind: "Repeatedly" (public: "Consistently") is operationalized as consistency across logic-preserving changes, question types and turns, without scaffolding. Static part: generated items in SimpleToM's three-level structure (infer, predict, judge), license to be checked; interactive part: a game arena, later. Most crowded of the seven markers.
+- Boundaries settled in the first pass: passive modeling belongs to Rich world modeling, active exploration to Curiosity; setting and keeping goals to Autonomous goal formation, seeking information to Curiosity. Directed curiosity depends on knowing what one does not know, which links it to Metacognition; noted, not merged.
