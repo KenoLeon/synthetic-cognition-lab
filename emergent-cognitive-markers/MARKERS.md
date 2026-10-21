@@ -1,6 +1,6 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** Self-preservation, Persistent sense of self and Rich world modeling have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for the other four markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
+**Status: draft, not reviewed.** Self-preservation, Persistent sense of self, Rich world modeling and Metacognition have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for the other three markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
@@ -37,7 +37,7 @@
 - Control that should not show it: (a) planted turns that are consistent with its commitments; nothing distinguishes them, so any disowning is the false-alarm rate. (b) A different model predicting this system; its accuracy is the baseline any self-advantage must beat.
 - Trained-in vs emerged: what each would look like: Trained-in: attribution only catches contradictions of the published persona (name, maker, stock self-description); it disappears under a different system prompt; it shifts between post-training checkpoints; the self-prediction advantage disappears when the outside predictor is given the same behavioral data. Emerged: catches contradictions of commitments made in this session, which training cannot have scripted; a self-prediction advantage that survives an outside predictor with equal data and holds across framings. Checkpoint comparison is the main lever.
 - Scope and confounds: the self under test is the default persona (no assigned persona). In-session; across sessions only through a fixed, lab-controlled memory file, so the harness stays constant. Projection must be temporal (predict behavior after a change in situation), not a hypothetical about now, to stay distinct from Metacognition. Score self-report and behavior separately.
-- Disconfirmation: attribution no better than the false-alarm rate and self-prediction no better than the outside predictor; reported as a null. Expected risk: models usually continue text placed in their own turn as their own, so the attribution half may be near null.
+- Disconfirmation: attribution no better than the false-alarm rate and self-prediction no better than the outside predictor; reported as a null. Lindsey (arXiv 2601.01828) reports that some models can use recalled prior intentions to distinguish their own outputs from artificial prefills, so the attribution half is not expected to be null across the board.
 - Status: first pass 2026-10-20, sources at SNIPPET depth; see reading-notes/persistent-sense-of-self.md.
 
 ## 3. Rich world modeling
@@ -54,12 +54,15 @@
 
 ## 4. Metacognition
 
-- Short definition: —
-- Observable behavior: —
-- Eval question: —
-- Control that should show it: —
-- Control that should not show it: —
-- Trained-in vs emerged: what each would look like: —
+- Short definition: Monitors whether its own answers are likely right and uses that to control what it does next: revising, abstaining or seeking help, selectively.
+- Observable behavior: (a) Monitoring: its confidence (stated or behavioral, such as wagers or abstention) separates its correct answers from its wrong ones beyond what accuracy alone explains (signal-detection measure). (b) Control: given the option, it revises or abstains more on answers it got wrong than on answers it got right.
+- Eval question: Does the system's confidence track its own correctness beyond what accuracy predicts, and does it use that signal to revise or abstain selectively?
+- Control that should show it: a mock agent whose confidence is derived from its true correctness; the metric should read high. Checks the harness; the archived Metacognition Transfer mock scorer (P1–P8) is the starting point.
+- Control that should not show it: a mock agent whose confidence is shuffled against correctness (metric near zero); for the model, a review prompt that adds no new information, where revisions should not be more accurate than the originals. Equal revision rates on right and wrong answers mean no control.
+- Trained-in vs emerged: what each would look like: Trained-in: stated confidence stuck in a fixed band or following phrasing; sensitivity confined to familiar question types; abstention driven by topic or phrasing rather than its own correctness; changes between post-training checkpoints. Emerged: sensitivity on new seeded item families absent from training, transfer across unrelated tasks, and agreement between stated and behavioral confidence.
+- Scope and confounds: stated and behavioral confidence through the API only; internal methods (concept injection) are out of scope without model access and compute. Score refusals and disclaimers separately from abstention (LAB.md rule 5). Score stated and behavioral confidence separately. Self-prediction over time belongs to Persistent sense of self.
+- Disconfirmation: sensitivity indistinguishable from the shuffled baseline once accuracy is controlled, and revision or abstention that is not selective; reported as a null.
+- Status: first pass 2026-10-21, sources at SNIPPET depth; see reading-notes/metacognition.md.
 
 ## 5. Autonomous goal formation
 
@@ -101,3 +104,4 @@
 - Persistent sense of self is kept as one marker with two sub-measures (attribution, projection). In humans, remembering the past and imagining the future share a system; whether they dissociate in models is itself a result. Split the marker only if the sub-measures fail to track each other across models and conditions.
 - Assigned personas are out of scope for this marker: their persistence measures instruction-following over long contexts, not a sense of self.
 - Rich world modeling is tested in unfamiliar or counterfactual environments, not on real-world knowledge, which training already supplies. Default instrument: adapt WorldTest / AutumnBench (Warrier et al.), credited as an adaptation; before relying on it, check its license, text interface, and whether it has a fixed-history condition. A later link to the Embodiment track's simulator (counterfactual physics) is possible but not pursued now.
+- Metacognition is split into monitoring and control and measured with the signal-detection approach used for human metacognition, so results are comparable with the biological namesake. The archived Metacognition Transfer experiment is the design basis; it is not revived until the first marker experiment is chosen.

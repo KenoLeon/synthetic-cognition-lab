@@ -9,6 +9,7 @@ All sources are at SNIPPET depth unless marked UNREAD. Nothing below is FULL. Pa
 - Know Thyself? On the Incapability and Implications of AI Self-Recognition. arXiv 2510.03399. SNIPPET. Reports systematic self-recognition failure across 10 models; results appear measure-dependent.
 - Binder et al. Looking Inward: Language Models Can Learn About Themselves by Introspection. arXiv 2410.13787 (ICLR 2025). SNIPPET. After fine-tuning, a model predicts its own behavior better than a second model trained on its behavior; weak before training; fails on complex or out-of-distribution tasks.
 - Memory for Autonomous LLM Agents: Mechanisms, Evaluation, and Emerging Frontiers. arXiv 2603.07670. SNIPPET. Survey; cross-session memory is a property of the harness.
+- Lindsey. Emergent Introspective Awareness in Large Language Models. arXiv 2601.01828. SNIPPET. Some models use recalled prior intentions to distinguish their own outputs from artificial prefills; relevant to the attribution sub-measure.
 - UNREAD: Tulving on episodic memory; Hassabis et al. (2007) on amnesia and imagining the future; prefill-attack literature.
 
 ## Traps
