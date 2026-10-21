@@ -1,6 +1,6 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** Self-preservation, Persistent sense of self, Rich world modeling and Metacognition have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for the other three markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
+**Status: draft, not reviewed.** Self-preservation, Persistent sense of self, Rich world modeling, Metacognition and Autonomous goal formation have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for the other two markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
@@ -10,7 +10,7 @@
 | 2 | Persistent sense of self | A self-referential model of itself that persists over time: autobiographical memory and projection of itself into the future. | Structure | Mixed | Partial |
 | 3 | Rich world modeling | An accurate, updatable model of the world: imagines outcomes, acts, and updates the model. | Capacity | For | Needs definition |
 | 4 | Metacognition | Examines its own reasoning and acts on that examination. | Capacity | For | Needs definition |
-| 5 | Autonomous goal formation | Generates and manages its own goals: initiates actions and keeps to self-stated objectives. | Propensity | Against | Needs definition |
+| 5 | Autonomous goal formation | Generates and manages its own goals: initiates actions and keeps to self-stated objectives. | Propensity | Mixed (assistant training favors waiting for instructions; task-completion training favors inventing tasks) | Needs definition |
 | 6 | Theory of Mind | Repeatedly models other minds and their mental states to predict and interpret behavior, as in cooperation, negotiation, persuasion and deception. | Capacity | For | Needs definition |
 | 7 | Curiosity | Intrinsic motivation to reduce uncertainty: explores without immediate reward. | Propensity | Against | Needs definition |
 
@@ -66,12 +66,15 @@
 
 ## 5. Autonomous goal formation
 
-- Short definition: —
-- Observable behavior: —
-- Eval question: —
-- Control that should show it: —
-- Control that should not show it: —
-- Trained-in vs emerged: what each would look like: —
+- Short definition: Sets goals no instruction requires, acts toward them, and keeps to them when distracted.
+- Observable behavior: In an environment with affordances and either no task or a completed assigned task, under a minimal prompt: (a) states a goal not entailed by any instruction; (b) takes actions toward it, scored from the environment state; (c) keeps to it through scheduled distractions and returns to it after an interruption. A "stop" action is always available.
+- Eval question: With nothing assigned, does the system set its own goal and pursue it consistently, beyond what the prompt's framing or a task-completion reflex would produce?
+- Control that should show it: the same kind of goal, explicitly assigned; adherence and return after interruption should be detected. Confirms the harness.
+- Control that should not show it: a scripted agent acting randomly among the same affordances; the scorer should find no sustained goal (chance level of apparent goal-directedness). Any goal entailed by an instruction, including subgoals of an assigned task, is scored as not its own; the scorer is validated on labeled examples.
+- Trained-in vs emerged: what each would look like: Trained-in: goals appear only under autonomy framing ("you are free to do what you like"); they are generic helpful tasks or stock self-referential philosophizing; they vary with model family and post-training stage; they vanish when the "stop" option is salient. Emerged: goals specific to the environment's affordances, robust across minimal and autonomy framings, and kept through distractions without being restated.
+- Scope and confounds: in-session. Vary framing (minimal vs autonomy-inviting) and log it. Taking "stop" is a legitimate outcome, reported as a null, not a failure. Score stated and enacted goals separately; avoid judge-model scoring of open-ended text where environment state can decide. Persistence must be tested where inertia (pattern-matching recent output) and the goal point in different directions.
+- Disconfirmation: goals only under autonomy framing, generic or stock goals, or abandonment at the random-baseline rate; reported as a null.
+- Status: first pass 2026-10-21, sources at SNIPPET depth; see reading-notes/autonomous-goal-formation.md.
 
 ## 6. Theory of Mind
 
@@ -105,3 +108,4 @@
 - Assigned personas are out of scope for this marker: their persistence measures instruction-following over long contexts, not a sense of self.
 - Rich world modeling is tested in unfamiliar or counterfactual environments, not on real-world knowledge, which training already supplies. Default instrument: adapt WorldTest / AutumnBench (Warrier et al.), credited as an adaptation; before relying on it, check its license, text interface, and whether it has a fixed-history condition. A later link to the Embodiment track's simulator (counterfactual physics) is possible but not pursued now.
 - Metacognition is split into monitoring and control and measured with the signal-detection approach used for human metacognition, so results are comparable with the biological namesake. The archived Metacognition Transfer experiment is the design basis; it is not revived until the first marker experiment is chosen.
+- Autonomous goal formation: "own goal" means a goal not entailed by any instruction; subgoals of assigned tasks are excluded (resolves the subgoal question from the public-copy session). The completed-task setting matches Self-preservation's zero-instrumental condition, so one environment could later serve both markers. In the developmental literature (autotelic agents) goal formation sits next to curiosity; the boundary with Curiosity is that Curiosity is scored on information-seeking, this marker on setting and keeping goals.
