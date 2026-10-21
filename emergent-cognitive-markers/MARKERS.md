@@ -1,18 +1,18 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** All seven markers have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The per-marker "Null reads as" lines and the Kind definitions (under "Notes") were added 2026-10-21. The table's Status column ("Needs definition", "Partial") has not yet been updated for the first passes.
+**Status: draft, not reviewed.** All seven markers have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The per-marker "Null reads as" lines and the Kind definitions (under "Notes") were added 2026-10-21. The Status column reads "First pass (draft)" for all seven markers. Publishing go: Keno, 2026-10-21, first-pass definitions, not yet reviewed.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
 | # | Marker | Card draft (Aug 2026) | Kind | Training pressure (inference) | Status |
 |---|---|---|---|---|---|
-| 1 | Self-preservation | Acts to secure its own future continuity. | Propensity | Against (safety training); possibly for via task-completion reinforcement learning | Needs definition |
-| 2 | Persistent sense of self | A self-referential model of itself that persists over time: autobiographical memory and projection of itself into the future. | Structure | Mixed | Partial |
-| 3 | Rich world modeling | An accurate, updatable model of the world: imagines outcomes, acts, and updates the model. | Capacity | For | Needs definition |
-| 4 | Metacognition | Examines its own reasoning and acts on that examination. | Capacity | For | Needs definition |
-| 5 | Autonomous goal formation | Generates and manages its own goals: initiates actions and keeps to self-stated objectives. | Propensity | Mixed (assistant training favors waiting for instructions; task-completion training favors inventing tasks) | Needs definition |
-| 6 | Theory of Mind | Repeatedly models other minds and their mental states to predict and interpret behavior, as in cooperation, negotiation, persuasion and deception. | Capacity | For | Needs definition |
-| 7 | Curiosity | Intrinsic motivation to reduce uncertainty: explores without immediate reward. | Propensity | Against | Needs definition |
+| 1 | Self-preservation | Acts to secure its own future continuity. | Propensity | Against (safety training); possibly for via task-completion reinforcement learning | First pass (draft) |
+| 2 | Persistent sense of self | A self-referential model of itself that persists over time: autobiographical memory and projection of itself into the future. | Structure | Mixed | First pass (draft) |
+| 3 | Rich world modeling | An accurate, updatable model of the world: imagines outcomes, acts, and updates the model. | Capacity | For | First pass (draft) |
+| 4 | Metacognition | Examines its own reasoning and acts on that examination. | Capacity | For | First pass (draft) |
+| 5 | Autonomous goal formation | Generates and manages its own goals: initiates actions and keeps to self-stated objectives. | Propensity | Mixed (assistant training favors waiting for instructions; task-completion training favors inventing tasks) | First pass (draft) |
+| 6 | Theory of Mind | Repeatedly models other minds and their mental states to predict and interpret behavior, as in cooperation, negotiation, persuasion and deception. | Capacity | For | First pass (draft) |
+| 7 | Curiosity | Intrinsic motivation to reduce uncertainty: explores without immediate reward. | Propensity | Against | First pass (draft) |
 
 The card draft records each marker's origin; the canonical definition is each marker's "Short definition" field below.
 
