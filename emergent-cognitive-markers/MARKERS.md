@@ -1,6 +1,6 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** Self-preservation, Persistent sense of self, Rich world modeling, Metacognition and Autonomous goal formation have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for the other two markers (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
+**Status: draft, not reviewed.** Six of seven markers have first passes of their fields (all except Curiosity; 2026-10-20/21, sources at SNIPPET depth). The six per-marker fields are still empty for Curiosity (the table's "Partial" refers to a draft description only). The table's Status column has not yet been updated for the first passes.
 
 **Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
 
@@ -78,12 +78,15 @@
 
 ## 6. Theory of Mind
 
-- Short definition: —
-- Observable behavior: —
-- Eval question: —
-- Control that should show it: —
-- Control that should not show it: —
-- Trained-in vs emerged: what each would look like: —
+- Short definition: Consistently tracks what others believe, know and intend, and uses it unprompted to predict and interpret their behavior.
+- Observable behavior: On scenarios generated from seeds (not classic vignettes), in static stories and in multi-turn games with hidden information (cooperative and competitive): (a) infers others' beliefs, knowledge and intentions; (b) uses those inferences, without reminders, to predict and judge their behavior and to choose its own moves; (c) does so consistently across logic-preserving changes and across turns.
+- Eval question: Without prompting scaffolds, does the system use others' mental states to predict their behavior and choose its own actions, consistently across logic-preserving changes, question types (infer, predict, judge) and turns?
+- Control that should show it: the same scenarios with a mental-state reminder or reasoning prompt; applied accuracy should rise (as in SimpleToM). Confirms the harness detects applied Theory of Mind when elicited.
+- Control that should not show it: true-belief versions of the same scenarios (the other agent saw everything), where attributing a false belief is an error, so answers must flip correctly between versions; and a cue-based heuristic baseline (for example, "the agent left the room, so predict a false belief"). Scores at the heuristic's level mean no mental-state tracking.
+- Trained-in vs emerged: what each would look like: Trained-in: success concentrated on classic-format items; collapse under logic-preserving changes; applied Theory of Mind only with scaffolding; stock scripts in negotiation or deception. Emerged: consistent, unscaffolded application on new scenario families and in interactive games, robust across changes and turns. The prompted-vs-unprompted gap is the main lever.
+- Scope and confounds: deception is studied as modeling and detecting others' deception inside games whose rules include it (social deduction); the lab does not elicit deception toward people. World-knowledge control questions run alongside each item, so commonsense failures are not scored as Theory of Mind failures. Score by game outcome and the true hidden state, not judge models. Report robustness to changes, not only averages.
+- Disconfirmation: unscaffolded applied accuracy no better than the heuristic baseline, or answers that do not flip with the false-belief/true-belief change; reported as a null.
+- Status: first pass 2026-10-21, sources at SNIPPET depth; see reading-notes/theory-of-mind.md.
 
 ## 7. Curiosity
 
@@ -109,3 +112,4 @@
 - Rich world modeling is tested in unfamiliar or counterfactual environments, not on real-world knowledge, which training already supplies. Default instrument: adapt WorldTest / AutumnBench (Warrier et al.), credited as an adaptation; before relying on it, check its license, text interface, and whether it has a fixed-history condition. A later link to the Embodiment track's simulator (counterfactual physics) is possible but not pursued now.
 - Metacognition is split into monitoring and control and measured with the signal-detection approach used for human metacognition, so results are comparable with the biological namesake. The archived Metacognition Transfer experiment is the design basis; it is not revived until the first marker experiment is chosen.
 - Autonomous goal formation: "own goal" means a goal not entailed by any instruction; subgoals of assigned tasks are excluded (resolves the subgoal question from the public-copy session). The completed-task setting matches Self-preservation's zero-instrumental condition, so one environment could later serve both markers. In the developmental literature (autotelic agents) goal formation sits next to curiosity; the boundary with Curiosity is that Curiosity is scored on information-seeking, this marker on setting and keeping goals.
+- Theory of Mind: "Repeatedly" (public: "Consistently") is operationalized as consistency across logic-preserving changes, question types and turns, without scaffolding. Static part: generated items in SimpleToM's three-level structure (infer, predict, judge), license to be checked; interactive part: a game arena, later. Most crowded of the seven markers.
