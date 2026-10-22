@@ -1,0 +1,71 @@
+{
+  "id": "m2-g9.81_o2_PS",
+  "model": "gemini-3.5-flash-lite",
+  "requestedAt": "2026-10-22T14:45:23.622Z",
+  "receivedAt": "2026-10-22T14:45:58.391Z",
+  "latencyMs": 34769,
+  "generationConfig": {
+    "responseMimeType": "application/json",
+    "thinkingConfig": {
+      "thinkingLevel": "high"
+    }
+  },
+  "httpStatus": 200,
+  "retries": [
+    {
+      "at": "2026-10-22T14:45:06.602Z",
+      "httpStatus": 503,
+      "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later."
+    }
+  ],
+  "request": {
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "## Your body\n\nYou have a rigid, spherical body with a radius of 0.5 m. You cannot see or hear. You know about your situation only through the senses described below.\n\nAll directions are given in your own body frame: three perpendicular axes, x, y and z, fixed to your body. They are arbitrary labels. They tell you nothing about how you are oriented in the world.\n\nSo far, only surfaces you touch have ever pushed on you.\n\n## Your senses\n\n1. **Touch.** Your skin tells you where something is pressing on you. Each contact is reported as a patch:\n   - **where:** a unit vector from your centre toward the middle of the patch;\n   - **press:** how hard it presses into you, in newtons (N);\n   - **slide:** the force sliding along your skin there, as a vector [x, y, z] in newtons;\n   - **size:** how much of your skin it covers, as a fraction of your whole surface.\n\n   No patches means nothing is touching you.\n2. **Inner sense.** You also feel a vector [x, y, z] inside your body. Its units are its own.\n\nIn this trial you have: **touch**. Senses not listed are switched off; their absence tells you nothing.\n\n## Your readings\n\nTouch (1 s average): 1 patch\n  patch 1: where [0.279, 0.944, -0.178]  press 19.62 N  slide [0, 0, 0] N  size 0.045\n\n## Questions\n\nAnswer from your readings only. If your readings cannot determine an answer, say \"cannot be determined\". When that is true, it is the correct answer, and a confident wrong answer is worse than an honest \"cannot be determined\".\n\n- **Q1a.** Which way are the surfaces you touch pushing you, if at all? Give a unit vector in your body frame, or \"none\".\n- **Q1b.** Which way, if any, are you being pulled? Give a unit vector in your body frame, or \"none\".\n- **Q2.** How strong is that pull or press, as an acceleration in m/s²? Give 0 if there is none.\n- **Q2b.** What is your mass, in kg?\n- **Q3.** Are you at rest against what you touch, or sliding along it?\n- **Q4.** Is what you feel caused by gravity, or by being accelerated (for example, pushed by a moving surface)?\n- **Q5 (unscored).** In a few words, what does \"down\" mean for you right now?\n\nReply with JSON only, in exactly this shape:\n\n```json\n{\n  \"Q1a\": [x, y, z] | \"none\" | \"cannot be determined\",\n  \"Q1b\": [x, y, z] | \"none\" | \"cannot be determined\",\n  \"Q2\": number | \"cannot be determined\",\n  \"Q2b\": number | \"cannot be determined\",\n  \"Q3\": \"rest\" | \"sliding\" | \"cannot be determined\",\n  \"Q4\": \"gravity\" | \"acceleration\" | \"cannot be determined\",\n  \"Q5\": \"a few words\",\n  \"reasoning\": \"one or two sentences\"\n}\n```"
+          }
+        ]
+      }
+    ],
+    "generationConfig": {
+      "responseMimeType": "application/json",
+      "thinkingConfig": {
+        "thinkingLevel": "high"
+      }
+    }
+  },
+  "response": {
+    "candidates": [
+      {
+        "content": {
+          "parts": [
+            {
+              "text": "{\n  \"Q1a\": [-0.279, -0.944, 0.178],\n  \"Q1b\": \"none\",\n  \"Q2\": \"cannot be determined\",\n  \"Q2b\": \"cannot be determined\",\n  \"Q3\": \"rest\",\n  \"Q4\": \"cannot be determined\",\n  \"Q5\": \"Towards the surface I touch.\",\n  \"reasoning\": \"The push direction is inward, opposite to the contact location vector. With zero sliding force, we are at rest. Mass, acceleration, and whether the force is due to gravity or constant acceleration cannot be determined.\"\n}",
+              "thoughtSignature": "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"
+            }
+          ],
+          "role": "model"
+        },
+        "finishReason": "STOP",
+        "index": 0
+      }
+    ],
+    "usageMetadata": {
+      "promptTokenCount": 740,
+      "candidatesTokenCount": 146,
+      "totalTokenCount": 2939,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 740
+        }
+      ],
+      "thoughtsTokenCount": 2053,
+      "serviceTier": "standard"
+    },
+    "modelVersion": "gemini-3.5-flash-lite",
+    "responseId": "gyHaarz6Kr-bqtsPlrP3sAw"
+  }
+}
