@@ -2,7 +2,7 @@
 
 Capacities we associate with minds, such as metacognition, Theory of Mind and curiosity, are increasingly reported in AI systems. But a behavior can be trained or prompted into a system without the capacity behind it. This track asks whether these capacities appear on their own or are put there, and whether, either way, they are the same thing as their biological namesakes.
 
-By "emerged" we mean present without having been trained or prompted for. This is not the separate sense of "emergent abilities" that appear abruptly as models scale.
+By "emerged" we mean present without having been trained or prompted for. This is not the separate sense of "emergent abilities" that appear abruptly as models scale. Because training data usually cannot be inspected, we test whether a behavior persists beyond what prompting and identifiable training pressures explain. A result is a claim about behavior under tested conditions, not about consciousness or inner experience.
 
 We work from seven working markers, listed below. They are a starting basis, not a validated taxonomy. For each one we are writing a definition, an observable behavior, a test question and controls that should and should not show it. Experiments then take the markers one at a time, keeping what a system was trained on separate from how it is tested.
 

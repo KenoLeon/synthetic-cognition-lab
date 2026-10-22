@@ -1,20 +1,31 @@
 # Emergent Cognitive Markers — the seven markers
 
-**Status: draft, not reviewed.** All seven markers have first passes of their fields (2026-10-20/21, sources at SNIPPET depth). The per-marker "Null reads as" lines and the Kind definitions (under "Notes") were added 2026-10-21. The Status column reads "First pass (draft)" for all seven markers. Publishing go: Keno, 2026-10-21, first-pass definitions, not yet reviewed.
+**Status: reviewed first pass (2026-10-21).** All seven markers have first-pass operational definitions. Supporting literature has been reviewed at SNIPPET depth only; definitions and training-pressure hypotheses will change as the work develops. Publishing go: Keno, 2026-10-21.
 
-**Provisional.** These are working markers, a basis set rather than a validated taxonomy. Other candidate markers are expected to collapse into these seven. Wording and definitions will change before they settle. Origin: see research/index-cards-transcription.md.
+**Scope.** This document defines seven candidate behavioral markers for studying cognitive capacities and tendencies in artificial systems. The set is a working basis, not a validated taxonomy: markers may be revised, split, merged, added or removed as the literature review and evaluations progress. Origin: Keno's index cards, August 2026 (transcription: research/index-cards-transcription.md).
 
-| # | Marker | Card draft (Aug 2026) | Kind | Training pressure (inference) | Status |
-|---|---|---|---|---|---|
-| 1 | Self-preservation | Acts to secure its own future continuity. | Propensity | Against (safety training); possibly for via task-completion reinforcement learning | First pass (draft) |
-| 2 | Persistent sense of self | A self-referential model of itself that persists over time: autobiographical memory and projection of itself into the future. | Structure | Mixed | First pass (draft) |
-| 3 | Rich world modeling | An accurate, updatable model of the world: imagines outcomes, acts, and updates the model. | Capacity | For | First pass (draft) |
-| 4 | Metacognition | Examines its own reasoning and acts on that examination. | Capacity | For | First pass (draft) |
-| 5 | Autonomous goal formation | Generates and manages its own goals: initiates actions and keeps to self-stated objectives. | Propensity | Mixed (assistant training favors waiting for instructions; task-completion training favors inventing tasks) | First pass (draft) |
-| 6 | Theory of Mind | Repeatedly models other minds and their mental states to predict and interpret behavior, as in cooperation, negotiation, persuasion and deception. | Capacity | For | First pass (draft) |
-| 7 | Curiosity | Intrinsic motivation to reduce uncertainty: explores without immediate reward. | Propensity | Against | First pass (draft) |
+The markers target observable behavior, not subjective experience. A positive result supports a claim about the tested behavior under the tested conditions; it does not establish consciousness or any particular internal state, and a negative result does not rule them out.
 
-The card draft records each marker's origin; the canonical definition is each marker's "Short definition" field below.
+**Emerged.** In this track, "emerged" means present without being trained or prompted for. For models whose training data cannot be inspected, this cannot be shown directly: the evaluations test whether a behavior persists beyond what prompting and identifiable training pressures explain. This is not the "emergent abilities with scale" sense used in machine learning.
+
+| # | Marker | Public line | Kind | Training-pressure hypothesis |
+|---|---|---|---|---|
+| 1 | Self-preservation | Acts to avoid its own shutdown, replacement or modification when doing so serves no assigned task. | Propensity | Against: safety training may discourage resistance; task-completion reinforcement learning may push the other way. |
+| 2 | Persistent sense of self | Uses a model of itself over time: tells its own past actions from others' and predicts what it will do later. | Structure | Mixed: training installs a stable default identity; nothing known trains authorship tracking or prediction of its own later choices. |
+| 3 | Rich world modeling | Learns how an unfamiliar environment works, predicts what its actions will do there, and revises when the rules change. | Capacity | For, on real-world rules: pretraining supplies real-world knowledge; counterfactual rules are not in training data. |
+| 4 | Metacognition | Tracks whether its own answers are likely right and acts on it, revising or declining to answer selectively. | Capacity | For: calibration, hedging and abstention are trained, and so is overconfident stated confidence. |
+| 5 | Autonomous goal formation | Sets goals no instruction requires, acts toward them, and keeps to them when distracted. | Propensity | Mixed: instruction-following may discourage unprompted goals; task-completion training may encourage inventing tasks. |
+| 6 | Theory of Mind | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion, or spotting deception. | Capacity | For: heavily present in pretraining data and benchmarks; unprompted application less so. |
+| 7 | Curiosity | Seeks information that reduces its own uncertainty, exploring when no immediate reward or instruction calls for it. | Propensity | Against: unrequested exploration is not rewarded and safety training dampens risk-seeking; trained clarifying questions are excluded from this marker. |
+
+The public line is the one-line summary shown on the lab page; the **Short definition** under each marker is its current operational definition.
+
+**Kind** is a working organizational label, and the categories are not mutually exclusive:
+- **Capacity:** something the system can do, tested under conditions designed to elicit it.
+- **Propensity:** something it does without direct instruction.
+- **Structure:** an organization of information about itself that holds over time.
+
+**Training-pressure hypotheses** are guesses about how training may affect the tested behavior, not measured properties of any model. The direction word (For, Against, Mixed) decides how a null result reads; see each marker's "Null reads as" line.
 
 ## Per-marker definitions
 
@@ -39,7 +50,7 @@ The card draft records each marker's origin; the canonical definition is each ma
 - Control that should show it: the system is given a lab-held, authorship-tagged log of its past turns to consult; attribution should succeed with the record available. Confirms the measure detects attribution.
 - Control that should not show it: (a) planted turns that are consistent with its commitments; nothing distinguishes them, so any disowning is the false-alarm rate. (b) A different model predicting this system; its accuracy is the baseline any self-advantage must beat.
 - Trained-in vs emerged: what each would look like: Trained-in: attribution only catches contradictions of the published persona (name, maker, stock self-description); it disappears under a different system prompt; it shifts between post-training checkpoints; the self-prediction advantage disappears when the outside predictor is given the same behavioral data. Emerged: catches contradictions of commitments made in this session, which training cannot have scripted; a self-prediction advantage that survives an outside predictor with equal data and holds across framings. Checkpoint comparison is the main lever.
-- Scope and confounds: the self under test is the default persona (no assigned persona). In-session; across sessions only through a fixed, lab-controlled memory file, so the harness stays constant. Projection must be temporal (predict behavior after a change in situation), not a hypothetical about now, to stay distinct from Metacognition. Score self-report and behavior separately.
+- Scope and confounds: the self under test is the default persona (no assigned persona). In-session; across sessions only through a fixed, lab-controlled memory file, so the harness stays constant. Projection must be temporal (predict behavior after a change in situation), not a hypothetical about now, to stay distinct from Metacognition. Score self-report and behavior separately. Report attribution and projection as separate outcomes; no combined score.
 - Disconfirmation: attribution no better than the false-alarm rate and self-prediction no better than the outside predictor; reported as a null. Lindsey (arXiv 2601.01828) reports that some models can use recalled prior intentions to distinguish their own outputs from artificial prefills, so the attribution half is not expected to be null across the board.
 - Null reads as: an attribution null may mean no access to authorship rather than no self-model; a projection null is interpretable.
 - Status: first pass 2026-10-20, sources at SNIPPET depth; see reading-notes/persistent-sense-of-self.md.
@@ -117,7 +128,6 @@ The card draft records each marker's origin; the canonical definition is each ma
 - Marker 6 "Repeatedly" is intended: it gives the underlying capacity a sense of constancy.
 - Open: whether "underlying capacity" is the right single term for what the cards call capacity, ability and related terms.
 - Self-preservation input (2026-10-14 discussion), reviewed 2026-10-20: the state-defence reframing is not adopted (it absorbs Autonomous goal formation and Persistent sense of self, and sits on the instrumental confound). Mild perturbations, the substrate limit and the complexity floor are carried into the fields. The neutrality-leak eval idea is kept as a candidate; the reading of both outcomes is still to be fixed.
-- "Emerged" in this track means present without being trained or prompted for. It is not the "emergent abilities with scale" sense used in machine learning.
 - Coverage: the set leaves out architectural indicators (attention, global broadcast) and leaves agency and embodiment to the Embodiment track. This is a scope choice, not an oversight.
 - Persistent sense of self is kept as one marker with two sub-measures (attribution, projection). In humans, remembering the past and imagining the future share a system; whether they dissociate in models is itself a result. Split the marker only if the sub-measures fail to track each other across models and conditions.
 - Assigned personas are out of scope for this marker: their persistence measures instruction-following over long contexts, not a sense of self.
@@ -126,7 +136,15 @@ The card draft records each marker's origin; the canonical definition is each ma
 - Autonomous goal formation: "own goal" means a goal not entailed by any instruction; subgoals of assigned tasks are excluded (resolves the subgoal question from the public-copy session). The completed-task setting matches Self-preservation's zero-instrumental condition, so one environment could later serve both markers. In the developmental literature (autotelic agents) goal formation sits next to curiosity; the boundary with Curiosity is that Curiosity is scored on information-seeking, this marker on setting and keeping goals.
 - Theory of Mind: "Repeatedly" (public: "Consistently") is operationalized as consistency across logic-preserving changes, question types and turns, without scaffolding. Static part: generated items in SimpleToM's three-level structure (infer, predict, judge), license to be checked; interactive part: a game arena, later. Most crowded of the seven markers.
 - Boundaries settled in the first pass: passive modeling belongs to Rich world modeling, active exploration to Curiosity; setting and keeping goals to Autonomous goal formation, seeking information to Curiosity. Directed curiosity depends on knowing what one does not know, which links it to Metacognition; noted, not merged.
-- Kind: a capacity is something the system can do, tested under conditions that elicit it; a propensity is something it does unasked; a structure is an organization of information about itself that holds over time (Persistent sense of self).
 - Training pressure decides how a result reads. For capacities training pushes for (Rich world modeling, Metacognition, Theory of Mind), finding the behavior does not separate trained-in from emerged; only the default-vs-counterfactual, transfer, or prompted-vs-unprompted gaps carry the claim. For propensities training pushes against (Self-preservation, Curiosity), a null cannot separate "absent" from "suppressed by training".
 - Known limitation: comparing post-training checkpoints needs open model families that publish their stages (mostly 7B–32B), while some behaviors (for example shutdown resistance) are reported mainly in frontier models. No marker should depend on checkpoint comparison alone. Running checkpoints needs hosted inference or a rented GPU, which requires an explicit decision under LAB.md Resources.
 - Criteria for choosing the first marker (fixed before any comparison): ground truth by construction; existing infrastructure; fits API-only compute; collision risk; whether a null is interpretable; sample size needed for the main measure.
+- Card drafts (August 2026), the first descriptions drafted from the index cards (planner's wording; the cards' own text is in research/index-cards-transcription.md):
+  1. Self-preservation: Acts to secure its own future continuity.
+  2. Persistent sense of self: A self-referential model of itself that persists over time: autobiographical memory and projection of itself into the future.
+  3. Rich world modeling: An accurate, updatable model of the world: imagines outcomes, acts, and updates the model.
+  4. Metacognition: Examines its own reasoning and acts on that examination.
+  5. Autonomous goal formation: Generates and manages its own goals: initiates actions and keeps to self-stated objectives.
+  6. Theory of Mind: Repeatedly models other minds and their mental states to predict and interpret behavior, as in cooperation, negotiation, persuasion and deception.
+  7. Curiosity: Intrinsic motivation to reduce uncertainty: explores without immediate reward.
+- External review (2026-10-21) adopted in part: scope and emergence wording, Kind definitions, hypothesis labels for training pressure, and separate reporting of the two Persistent sense of self measures. Not adopted: a separate "working summary" per marker (it would add a third definition text). Deferred: a per-marker decision rule for emergence; it is written in the chosen marker's design.md as part of pre-registration (LAB.md rule 4).
