@@ -6,8 +6,7 @@
 name: Spread runs
 
 on:
-  schedule:
-    - cron: '20 7 * * *' # 07:20 UTC, just after the free-tier quota reset (midnight Pacific, PDT)
+  # Schedule removed 2026-10-22: the spread study finished (10/10 runs). Manual trigger only.
   workflow_dispatch:
     inputs:
       mode:

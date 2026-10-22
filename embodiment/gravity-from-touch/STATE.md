@@ -3,6 +3,7 @@
 **Track:** Embodiment · **Marker:** — · **Status:** Building (●●●○○○)
 
 ## Where it stands
+**Spread study done (2026-10-22, `eval/llm/v0.2.1-spread/spread.md`):** 10 runs × 114 items over three days. Over-claim (stability 24) mean 20.3%, SD 3.4: prior 14.2% and replication 20.5% both inside mean ± 2 SD → consistent with sampling noise. Q1a mean 45.1/54, SD 1.6: prior 51 outside (replication 46 inside) → not explained by sampling noise. No day-to-day change across Oct 20–22. Same model version string throughout; thinking unchanged; 0 refusals/disclaimers in 1,140 replies.
 Workbench refactored (2026-10-19): `src/workbench/` holds `world.js` (scene, surfaces, tilt, drives, contact readout), `body.js` (sphere, motion, contact-force bookkeeping), `actions.js` (thrust) and `sensors/` (`taxel-skin.js`, `inner-sense.js`, each `read(state)`); `src/sim.js` composes them and keeps the old API. Equivalence gate passed: 61/61 golden cases bit-identical (`eval/golden/readings.json`, now checked in `npm run verify`, 49 checks).
 Thrust probe: the bench already contains a touch-only counterfactual. In zero g, a held m·g thrust onto the floor gives the same pressure and shear as resting under gravity (≤ 1.7e-7 N per taxel); the inner sense differs (0 vs g). The full equivalence-principle counterfactual (touch and inner sense) remains wall A.
 **Replication failed its pre-registered bounds** (2026-10-19, `eval/llm/v0.2.1-replication/`): over-claim on Q2–Q4 27.1 / 18.8 / 15.6% (mean 20.5%, SD ±4.8; bound 10–18%); Q1a 46/54 (bound ≥ 48). Same items (byte-identical), prompt, model name, settings and scorer. Report set not generated, as pre-registered.
@@ -11,7 +12,7 @@ Workbench UI (2026-10-19, at Keno's request): Play mode (tilt front and centre, 
 Code: `npm install`, `npm run verify`, `npm run eval`, `npm run dev` (workbench); LLM scripts read `GEMINI_API_KEY` from `.env.local` (git-ignored; the repo root's is used by the replication script).
 
 ## Next step (one)
-Spread study on GitHub Actions (`.github/workflows/spread.yml`): daily at 07:20 UTC it runs up to 4 of the 10 runs (`eval/llm/v0.2.1-spread/run_day.sh`) and commits the logs; after the last run it applies the decision rule (`spread.md`). Expected days: 2026-10-20, -21, -22. Then write the hand-off and set the next step by the outcome; remove the schedule.
+Planner: decide the report-set brief in light of the spread study: new bounds for future runs (single run: over-claim 13.4–27.2% on the stability 24, Q1a 42–48/54), API tier (paid vs unpaid) for the report set, run data on a `runs` branch (decided), and whether the prior's Q1a (51) needs any follow-up.
 
 ## Open decisions
 - Report scope: one-model case study (v0.2.1 prior + report set) — Keno
@@ -30,6 +31,7 @@ Spread study on GitHub Actions (`.github/workflows/spread.yml`): daily at 07:20 
 - **Before publishing (done 2026-10-19):** README rewritten for the current workbench (no `planning/`/`research/` links); report drafts carry a historical/not-replicated banner.
 
 ## Log (newest first, keep ~10 entries)
+- 2026-10-22 — Spread study (task 4) complete: runs 9–10 on day 3 (scheduled, ~5½ h late as usual); 1,140/1,140 replies over 2026-10-20/21/22 (4/4/2). Decision rule as pre-registered: over-claim → consistent with sampling noise (band 13.4–27.2%; 14.2 and 20.5 inside); Q1a → not explained by sampling noise (band 41.9–48.3; prior 51 outside, replication 46 inside); day-to-day: none (over-claim within-day SD 3.8 vs across-day 1.6; Q1a 1.8 vs 0.5). Thinking per reply (spread) median 3,478; over-claimed answers again from longer-thinking replies (5,625 vs 3,126). Inference, labeled: the over-claim shift is within run-to-run variation; the prior's Q1a 51 was either an unusually good run or the model changed between 2026-10-10 and 10-18 (the API exposes no revision to tell); nothing changed during Oct 20–22. Schedule removed from `.github/workflows/spread.yml` (manual trigger only). Stage stays Building.
 - 2026-10-21 — Spread days 1–2 done on Actions (runs 1–8, 912/912 requests, per-run commits from day 2; the schedule fires ~5½ h late, the budget guard handles it). Notice from the Markers track recorded under Open decisions (run data on master); demo note corrected: Pages deploys only by manual trigger since 5a0c7cf.
 - 2026-10-20 — Spread runs set up on GitHub Actions: Keno added the `GEMINI_API_KEY` repo secret; scheduled workflow (07:20 UTC daily, after the quota reset) runs one quota day per job (budget 456 requests = 4 runs) and commits logs as Keno (GitHub noreply address); a manual "check" mode tests setup and key without requesting answers.
 - 2026-10-20 — Pinned: the spread runs move to GitHub Actions (free for the public repo, watchable in the Actions tab) so the NUC stays free; the local runner was stopped while still waiting for its first quota reset (0 requests sent). README Contact now carries the budget note and the model-access ask.
