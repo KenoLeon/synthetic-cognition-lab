@@ -8,7 +8,7 @@ We work from seven working markers, listed below. They are a starting basis, not
 
 ## Markers
 
-The definitions below are a first pass (October 2026), drawn from an initial survey of prior work; they will change as the work develops.
+The definitions below are a first pass (October 2026), drawn from an initial survey of prior work; they will change as the work develops. Full definitions, controls and notes for each marker: [MARKERS.md](https://github.com/KenoLeon/synthetic-cognition-lab/blob/master/emergent-cognitive-markers/MARKERS.md).
 
 | Marker | One-line definition | Status |
 |---|---|---|
