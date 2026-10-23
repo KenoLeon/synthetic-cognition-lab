@@ -9,7 +9,7 @@ const dir = 'report';
 const MIME = { '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.gif': 'image/gif' };
 
 for (const name of readdirSync(dir)) {
-  if (!name.endsWith('.md') || name.endsWith('.standalone.md')) continue;
+  if (!name.endsWith('.md') || name.endsWith('.standalone.md') || name.endsWith('.src.md')) continue;
   const src = join(dir, name);
   let embedded = 0;
   const out = readFileSync(src, 'utf8').replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (match, alt, url) => {

@@ -6,3 +6,5 @@ dist/
 # Local secrets (API keys). Never commit.
 .env
 .env.*
+report/.pdf-profile/
+report/*.standalone.md

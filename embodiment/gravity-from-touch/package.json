@@ -9,7 +9,7 @@
     "check": "node scripts/check_sim.mjs",
     "probe:bounce": "node scripts/probe_bounce.mjs",
     "verify": "node scripts/verify_conditions.mjs",
-    "build:doc": "node scripts/build_standalone_doc.mjs",
+    "build:doc": "node scripts/build_report.mjs && node scripts/build_standalone_doc.mjs",
     "eval": "node scripts/run_eval.mjs",
     "probe:v02": "node scripts/probe_v02_artifacts.mjs",
     "probe:shear": "node scripts/probe_shear.mjs",

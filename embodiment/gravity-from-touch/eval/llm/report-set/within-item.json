@@ -1,0 +1,13 @@
+{
+ "items": 114,
+ "itemsMixed": 27,
+ "itemsAllOverclaim": 66,
+ "itemsNoOverclaim": 21,
+ "itemsNoUnanswerable": 0,
+ "medianDiffTokens": 111,
+ "positive": 16,
+ "nonzero": 27,
+ "z": 0.62,
+ "pOneSided": 0.2661003504663384,
+ "rankBiserial": 0.14
+}
