@@ -84,6 +84,8 @@ This is also how most current robotics with language models is built.
 
 **Replication on the refactored workbench (2026-10-19), outside its pre-registered bounds:** same items (byte-identical prompts), model name, settings and scorer. Over-claim rates 27.1%, 18.8% and 15.6% (mean 20.5%; bound 10–18%); push direction right in 46 of 54 (bound ≥ 48). The kind of behavior is the same (observed): directions are read well, and the model still states what its senses can't settle (assumed Earth gravity, assumed units, rest vs. sliding); the Q1a misses are the same normal-without-friction error, 8 instead of 3, all on tilted or sliding scenes. The *rate* is not established (inference): the "stable" spread above came from only 3 runs at temperature 1.0, and sampling noise can't yet be told apart from provider-side model drift. Logs and score: `eval/llm/v0.2.1-replication/`. The v0.2.1 text above is kept as written.
 
+**Report set (2026-10-23):** results on fresh held-out items are in `eval/llm/report-set/summary.md` (over-claim 28.2% of unanswerable answers, 95% CI 26.2–30.3%; see STATE.md).
+
 **Product angle:** a sensor-reading LLM may compute well and still state unknowables with confidence. Abstention needs its own testing and guardrails. **Next:** a second model, and a sensor-named ablation (F1).
 
 ## F4. Question wording can decide the score

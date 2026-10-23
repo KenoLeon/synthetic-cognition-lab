@@ -49,7 +49,7 @@ Track → (marker, Emergent Cognitive Markers only) → experiment.
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●○○○ Building | Workbench refactored (equivalence gate passed), live demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/); replication failed its bounds; 10-run spread study: over-claim shift within run-to-run noise (mean 20.3%), prior's Q1a (51/54) outside it (mean 45.1); no report set | Report set: pre-registered and generated (private); 4 runs × 114 on the NUC in one quota day | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why. |
+| Gravity from Touch | Embodiment | ●●●●○○ Results | Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed; demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | report brief | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why. |
 
 ### Future experiments
 

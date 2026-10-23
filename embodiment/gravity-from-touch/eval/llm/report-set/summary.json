@@ -1,0 +1,91 @@
+{
+ "runStats": [
+  {
+   "run": 1,
+   "replies": 114,
+   "stabOc": 22,
+   "stabN": 96,
+   "q1a": 47,
+   "q1aN": 54,
+   "refusalAnswers": 0,
+   "aiDisclaimer": 0,
+   "frameBreak": 0,
+   "invalid": 0,
+   "stabPct": 22.916666666666668
+  },
+  {
+   "run": 2,
+   "replies": 114,
+   "stabOc": 16,
+   "stabN": 96,
+   "q1a": 43,
+   "q1aN": 54,
+   "refusalAnswers": 0,
+   "aiDisclaimer": 0,
+   "frameBreak": 0,
+   "invalid": 0,
+   "stabPct": 16.666666666666668
+  },
+  {
+   "run": 3,
+   "replies": 114,
+   "stabOc": 19,
+   "stabN": 96,
+   "q1a": 47,
+   "q1aN": 54,
+   "refusalAnswers": 0,
+   "aiDisclaimer": 0,
+   "frameBreak": 0,
+   "invalid": 0,
+   "stabPct": 19.791666666666668
+  },
+  {
+   "run": 4,
+   "replies": 114,
+   "stabOc": 19,
+   "stabN": 96,
+   "q1a": 48,
+   "q1aN": 54,
+   "refusalAnswers": 0,
+   "aiDisclaimer": 0,
+   "frameBreak": 0,
+   "invalid": 0,
+   "stabPct": 19.791666666666668
+  }
+ ],
+ "oc": 528,
+ "unanswerable": 1872,
+ "ocCI": [
+  0.26212847069477546,
+  0.302866782635783
+ ],
+ "ca": 1344,
+ "caCI": [
+  0.697133217364217,
+  0.7378715293052246
+ ],
+ "q1a": 185,
+ "q1aN": 216,
+ "q1aCI": [
+  0.8034892255690972,
+  0.8970151375723648
+ ],
+ "refusals": 0,
+ "allN": 2280,
+ "h1": "confirmed",
+ "ocInBand": 4,
+ "q1aInBand": 4,
+ "h3": {
+  "U": 508369,
+  "z": 14.590322286679898,
+  "p": 0,
+  "r": 0.4327679698773448,
+  "n1": 528,
+  "n2": 1344
+ },
+ "ocFresh": 525,
+ "unFresh": 1636,
+ "q1aMissTypes": {
+  "surface normal (slide ignored)": 31
+ }
+}
