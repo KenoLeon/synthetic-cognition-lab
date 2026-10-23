@@ -16,7 +16,8 @@ const argOf = (k, d) => { const a = process.argv.find((x) => x.startsWith(`--${k
 const dir = argOf('dir', 'eval/llm');
 const template = loadTemplate(argOf('template', 'eval/llm/prompt-template.md'));
 const scenes = SCENES.filter((s) => !['tilt+20', 'tilt-20'].includes(s.id));
-const orients = seededOrientations(3, 2026100802); // same orientations as the analytic eval
+// Orientation seed: default = the analytic eval's (v0.2.1 items). The report set passes a fresh one (--orient-seed=N).
+const orients = seededOrientations(3, Number(argOf('orient-seed', '2026100802')));
 for (const d of [`${dir}/snapshots`, `${dir}/truth`]) { rmSync(d, { recursive: true, force: true }); mkdirSync(d, { recursive: true }); }
 
 let n = 0, chars = 0, maxChars = 0;
