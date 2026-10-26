@@ -13,6 +13,6 @@ Play with the simulated body, or replay logged eval trials (the scene, the readi
 ## Experiments
 
 <!-- experiments: generated from README.md by scripts/build-lab-page.py (name, stage, Public line); edit the root README.md, not this list -->
-- **[Gravity from Touch](gravity-from-touch/)** · ●●●●○○ Results — Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why.
+- **[Gravity from Touch](gravity-from-touch/)** · ●●●●●○ Report — Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report](https://doi.org/10.5281/zenodo.23654739)
 - **Active Sensing** · ●●○○○○ Designed — Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch.
 <!-- /experiments -->

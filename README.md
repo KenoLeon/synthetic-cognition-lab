@@ -50,7 +50,7 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●●○○ Results | Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed; demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | Keno's review of the draft report; then Zenodo deposit on his go | Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why. |
+| Gravity from Touch | Embodiment | ●●●●●○ Report | Report v1.0 published on Zenodo 2026-10-25 ([doi:10.5281/zenodo.23654739](https://doi.org/10.5281/zenodo.23654739)) with report-set data and code. Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed; report set retired. Demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | Report mirror for the site; lab page deploy on Keno's go; stage → Published once card and mirror are live | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report](https://doi.org/10.5281/zenodo.23654739) |
 
 ### Coming up
 
@@ -258,6 +258,8 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 ## Lab log
 
 (newest first, keep ~10 entries)
+
+- 2026-10-25 — Synced Gravity from Touch from its STATE.md: stage Report, Zenodo DOI, new card line with report link (old 14% comparison dropped); embodiment README list regenerated. Lab page not deployed (needs Keno's go).
 
 - 2026-10-25 — Rule 6: a private held-out set may be published with its report after its single report run, then retired; the next report set gets a new seed.
 - 2026-10-25 — Planner rulings applied: first-marker note points to the MARKERS.md selection criteria; biological-namesake question and structure line restored; track README list markers now name README.md.
