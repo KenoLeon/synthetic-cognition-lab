@@ -22,6 +22,6 @@ The definitions below are a first pass (October 2026), drawn from an initial sur
 
 ## Experiments
 
-<!-- experiments: generated from LAB.md by scripts/build-lab-page.py (name, stage, Public line); edit LAB.md, not this list -->
+<!-- experiments: generated from README.md by scripts/build-lab-page.py (name, stage, Public line); edit the root README.md, not this list -->
 No public experiments yet.
 <!-- /experiments -->

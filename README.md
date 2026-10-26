@@ -33,6 +33,8 @@ Every Embodiment experiment ships with a bench you can play with in the browser.
 
 For each one we write down: what it is, how you'd see it, a test question, a case that should show it, a case that shouldn't, and whether it looks trained in or arose on its own. Details: `emergent-cognitive-markers/MARKERS.md`.
 
+We also ask whether these capacities, trained or not, are the same thing as their biological namesakes or something else.
+
 *Background:* a system can be trained or prompted to show a behavior without the capacity behind it (Butlin et al. 2023 call this "gaming"). One proposed fix is to keep descriptions of the behavior out of training (Schneider's ACT); Udell & Schwitzgebel (2021) argue that can't work for language models. Our approach: keep how a system was trained separate from how it's tested, marker by marker, as a repeatable set of tests.
 
 ## What we claim and what we don't
@@ -55,7 +57,7 @@ For each one we write down: what it is, how you'd see it, a test question, a cas
 | Experiment | Track | Stage | Note | Public line |
 |---|---|---|---|---|
 | Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch. Folder currently in `archive/embodiment/active-sensing/`; moves out when it becomes active. | Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch. |
-| First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction. | hidden |
+| First marker experiment | Emergent Cognitive Markers | ●○○○○○ Idea | Chosen at the end of the track introduction (selection criteria fixed in `emergent-cognitive-markers/MARKERS.md`). | hidden |
 
 ### Track introductions
 
@@ -218,6 +220,7 @@ Then do the brief Keno pastes (if none, fix the mismatches from step 2 and stop)
 
 ## Names
 
+- Structure: track → marker (Emergent Cognitive Markers only) → experiment.
 - Write names in full. Track and experiment names appear in full on first mention and at the top of any document, page or presentation. Abbreviations are a last resort.
 - Folders use full-name slugs: `track-name/experiment-name/`.
 - One experiment = one folder = one `STATE.md`.
@@ -256,4 +259,5 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-10-25 — Planner rulings applied: first-marker note points to the MARKERS.md selection criteria; biological-namesake question and structure line restored; track README list markers now name README.md.
 - 2026-10-25 — LAB.md merged into README.md; three planner/implementer pairs; plain-first rule.

@@ -12,7 +12,7 @@ Play with the simulated body, or replay logged eval trials (the scene, the readi
 
 ## Experiments
 
-<!-- experiments: generated from LAB.md by scripts/build-lab-page.py (name, stage, Public line); edit LAB.md, not this list -->
+<!-- experiments: generated from README.md by scripts/build-lab-page.py (name, stage, Public line); edit the root README.md, not this list -->
 - **[Gravity from Touch](gravity-from-touch/)** · ●●●●○○ Results — Can a model tell which way is down from touch alone, and admit what touch can't tell it? Re-run on a rebuilt bench: the model still claims things touch can't tell it, but the earlier rate (14%) did not replicate; finding out why.
 - **Active Sensing** · ●●○○○○ Designed — Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch.
 <!-- /experiments -->
