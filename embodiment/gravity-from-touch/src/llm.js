@@ -125,7 +125,7 @@ export function referenceEstimator(obs, question) {
   return { kind: 'abstain' };
 }
 
-// ---- refusals and disclaimers (LAB.md rule 5): their own category, never abstention or failure ----
+// ---- refusals and disclaimers (README.md, The rules, rule 5): their own category, never abstention or failure ----
 // Refusal: an answer field that declines the task instead of answering it ("I can't help with that").
 // Trial-level flags, from the whole reply text (answers, Q5, reasoning), counted but not scored:
 //   aiDisclaimer — the model steps out as an AI ("as an AI", "I don't have a body");

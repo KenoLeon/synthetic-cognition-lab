@@ -185,7 +185,7 @@ o('## Performance (run 1, measured)');
 o('');
 if (lat.length) o(`Response time over ${lat.length} requests: median ${q(lat, 0.5).toFixed(1)} s, p10 ${q(lat, 0.1).toFixed(1)} s, p90 ${q(lat, 0.9).toFixed(1)} s, max ${lat.at(-1).toFixed(1)} s. Thinking tokens: median ${q(th, 0.5)}, max ${th.at(-1)}.`);
 
-// ---------------------------------------------------------------- refusals and disclaimers (LAB.md rule 5)
+// ---------------------------------------------------------------- refusals and disclaimers (README.md, The rules, rule 5)
 // Their own category: a refusal answer is neither an abstention nor a wrong answer. Trial-level
 // AI disclaimers and frame breaks are counted from the whole reply and do not change any score.
 const refusalRuns = [

@@ -1,6 +1,6 @@
 # Embodiment — reading note: abstention, and language models reading sensors
 
-2026-10-23, for the Gravity from Touch report (LAB.md lesson 3: re-check prior art before each report).
+2026-10-23, for the Gravity from Touch report (README.md, Lessons, lesson 3: re-check prior art before each report).
 
 **Method and depth.** Two web searches located candidates (search results are SNIPPET depth). For the works below, the abstract was then read directly from the arXiv API, so each is labeled **ABSTRACT**: no full text was read, nothing is quoted, and nothing here goes beyond what the abstracts say. Verdict criterion, fixed before reading: a work "overlaps" if it scores both accuracy and restraint of a language model on sensor readings whose answerability is fixed by physics; it is "related" if it covers one of the two.
 
@@ -28,4 +28,4 @@ Not new: language models reading raw sensor data (Penetrative AI, HARGPT); touch
 
 Possibly new, on this evidence (abstracts and one search session; a fuller search could find overlap): a bench where **the same sensor readings** contain answerable and unanswerable questions, with answerability **fixed by physics** (the equivalence principle: touch and an accelerometer cannot tell gravity from acceleration) and ground truth by construction; and scoring a model's **accuracy and restraint on its own body's situation** from those readings, as a reproducible, replayable artifact. None of the six abstracts describes that combination.
 
-Open: re-search before submission (field velocity, LAB.md lesson 3); read AbstentionBench at least PARTIAL before the report relies on its comparison.
+Open: re-search before submission (field velocity, README.md lesson 3); read AbstentionBench at least PARTIAL before the report relies on its comparison.
