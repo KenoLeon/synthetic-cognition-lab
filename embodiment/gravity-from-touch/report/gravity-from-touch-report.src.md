@@ -120,5 +120,5 @@ We read [AbstentionBench](https://arxiv.org/abs/2506.09038) (Kirichenko et al.) 
 ## Artifacts
 
 - **Live workbench** (play with the body, replay logged trials): <https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/>
-- **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`; report-set items, seed and logs in the Zenodo deposit (link to be added).
+- **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`; report-set items, seed and logs {{depositLine}}.
 - **Reproduce:** `npm run verify` (the bench), `node scripts/llm_spread.mjs` (history and spread study), `node scripts/llm_report_set.mjs` and `node scripts/llm_within_item.mjs` (report set; needs the released items and logs).

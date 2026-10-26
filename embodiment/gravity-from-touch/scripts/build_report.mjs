@@ -59,6 +59,7 @@ const pOut = 0.0455; // two-sided normal tail beyond ±2 SD
 const refCI = wilson(rs.refusals, rs.allN);
 
 const V = {
+  depositLine: RELEASE ? 'in this deposit (see its README.md to rescore them)' : 'in the Zenodo deposit (link to be added)',
   buildLine: RELEASE ? `v1.0, ${new Date().toLocaleDateString('en-CA')}` : `draft of ${new Date().toLocaleDateString('en-CA')}`,
   radius: SPHERE_RADIUS, taxels: DEFAULT_TAXELS, windowSec: Number(/mean(\d+)s/.exec('mean1s')[1]), tolDeg,
   conditions: TRIAL_SCENES.length,
