@@ -1,9 +1,9 @@
 // Static demo: after `vite build`, copy the replay data into dist/ at the same relative paths the
-// page fetches (src/ui/replay.js). Development items only: the v0.2.1 runs and their replication.
+// page fetches (src/ui/replay.js). Development items only: the v0.2.1 runs and their replication. Also the report mirror (report/).
 // Guards: only files git tracks (nothing untracked, ignored or local), never anything under private/.
 //   npm run build:demo   (= vite build && node scripts/build_demo.mjs)
 import { execSync } from 'node:child_process';
-import { mkdirSync, copyFileSync, existsSync, statSync } from 'node:fs';
+import { mkdirSync, copyFileSync, existsSync, statSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { RUNS, ALL_IDS } from '../src/ui/replay.js';
 
@@ -25,3 +25,17 @@ for (const f of [...files].sort()) {
   copied++; bytes += statSync(f).size;
 }
 console.log(`replay data: ${copied} files, ${(bytes / 1e6).toFixed(1)} MB copied into dist/`);
+
+// Report mirror: the published v1.0 (repo copy, same text as the Zenodo deposit except its link to it) at report/,
+// with a banner naming the version of record. Same guards: tracked files only, nothing under private/.
+const DOI = 'https://doi.org/10.5281/zenodo.23654739';
+const mirror = ['report/gravity-from-touch-report.html', 'report/gravity-from-touch-report.pdf', 'report/img/workbench-replay.png'];
+for (const f of mirror) if (!tracked.has(f)) throw new Error(`refusing untracked file ${f}`);
+mkdirSync('dist/report/img', { recursive: true });
+const banner = `<p style="font:9.5pt system-ui,sans-serif;background:#f3f3f3;padding:6px 10px;border-radius:4px">Mirror of report v1.0. Version of record: <a href="${DOI}">${DOI}</a> · <a href="gravity-from-touch-report.pdf">PDF</a> · <a href="../">workbench</a></p>`;
+const html = readFileSync(mirror[0], 'utf8');
+if (!html.includes('<body>')) throw new Error('report HTML has no <body>');
+writeFileSync('dist/report/index.html', html.replace('<body>', `<body>${banner}`));
+copyFileSync(mirror[1], 'dist/report/gravity-from-touch-report.pdf');
+copyFileSync(mirror[2], 'dist/report/img/workbench-replay.png');
+console.log('report mirror: dist/report/ (index.html, PDF, 1 image)');
