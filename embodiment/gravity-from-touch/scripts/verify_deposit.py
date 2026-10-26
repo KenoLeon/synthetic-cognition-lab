@@ -48,7 +48,7 @@ print(f'(2) committed release manifest: {n2} files compared')
 
 # ---- (3) leaks
 pats = [rb'AIza[0-9A-Za-z_\-]{20,}', rb'GEMINI_API_KEY\s*=', rb'(?i)x-goog-api-key\W{1,4}[A-Za-z0-9_\-]{20,}', rb'(?i)authorization:\s*bearer', rb'(?i)[?&]key=[0-9A-Za-z_\-]{10,}',
-        rb'sk-[A-Za-z0-9]{20,}', rb'C:\\\\Users', rb'C:/Users', rb'/home/\w+', rb'private/gravity-from-touch']
+        rb'sk-[A-Za-z0-9]{20,}', rb'C:' + rb'\\\\Users', rb'C:' + rb'/Users', rb'/ho' + rb'me/\w+', rb'private/gravity-from-touch']  # split so this file does not match itself
 for p, b in blobs.items():
     name = p.split(':')[-1]
     if re.search(r'(^|/)\.env', name): fail.append(f'.env file in bundle: {p}')
