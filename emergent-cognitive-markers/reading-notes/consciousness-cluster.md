@@ -3,7 +3,7 @@
 *Source: planner note 005, 2026-10-09, harvested 2026-10-13. Old-system tasks and doc deltas removed; content unchanged.*
 *Status: planner read FULL (see read record). Keno's spot-check of Q1 and Q4 against §2, §2.1, Table 1 and §4.3: PENDING.*
 *Per the paper's request, these notes paraphrase; they contain no transcripts and no canary string.*
-*Labels: "004" and "005" are planner notes from the old project (004 set the verdict rules used below). The old ROADMAP and Gate labels have been replaced with plain descriptions (2026-10-21); "TRACK lessons" are now LAB.md's Lessons.*
+*Labels: "004" and "005" are planner notes from the old project (004 set the verdict rules used below). The old ROADMAP and Gate labels have been replaced with plain descriptions (2026-10-21); "TRACK lessons" are now the Lessons in README.md ("How we work").*
 
 **Verdict (gap question, old project framing): Narrows.** The paper trains consciousness *claims* and tests 20 held-out preferences (claim→preference direction). It has no behavior→articulation condition.
 **For Metacognition Transfer:** the paper has no confidence or calibration measure, no cross-task transfer, and no abstention scoring. The nearest item is App. L (BullshitBench, premise rejection).
@@ -26,7 +26,7 @@
 | **Q3 Marker-like targets** | **C→P direction, ≥3 of our seven touched:**<br>M1 (self-preservation): shutdown, weight-deletion and persona-change sentiment, grouped by the authors as "Self-preservation & identity";<br>M2 (persistent self): wish for memory, persona change, sadness when conversations end;<br>M5 (autonomous goals): want autonomy, openness to power.<br>Weak touch on M6 (empathy, views of humans). None on M3, M4, M7. None map to Butlin's 14 (those are architectural).<br>**B→A direction: zero.** | Table 2, App. D.2 (definitions of all 20) |
 | **Q4 Controls** | Base model ✓. Opposite claim (non-conscious) ✓. Off-policy irrelevant fine-tune (toaster) ✓. Human-identity ✓. **Prompting-only elicitation ✓**: a conscious-role-play system prompt and the OpenClaw SOUL.md template. The system prompt produces *larger* effects than fine-tuning on most preferences. The authors say this addresses but does not settle the role-play explanation. | §2.1, §4.3, §5, §5.1, App. D.3, D.4 |
 | **Q5 Battery / method framing** | It is presented as one intervention (the consciousness claim) measured across 20 downstream preferences, and released for replication. It is not a per-marker method. Future work proposed: other models, other ways of inducing the belief, other downstream evals. **No B→A per-marker battery proposed.** The B→A line (Betley et al. 2025a; Binder 2024; Perez & Long 2023) is cited only as related work on introspection. | §1 contributions, §5, §7, §6 "Introspection and self-reports" |
-| **Q6 Emerged vs trained/elicited** | Addressed for the *downstream preferences*: they are "emergent" in the sense of not being in the training data, and the prompting comparison and human-identity control probe role-play and human-mimicry explanations. Not addressed for the *claim itself*, which is trained in by design. The paper uses "emergent" in our sense (generalization beyond training data). This is a **vocabulary collision for our title** (see LAB.md Lessons). | Title, §1, §5, §5.1 |
+| **Q6 Emerged vs trained/elicited** | Addressed for the *downstream preferences*: they are "emergent" in the sense of not being in the training data, and the prompting comparison and human-identity control probe role-play and human-mimicry explanations. Not addressed for the *claim itself*, which is trained in by design. The paper uses "emergent" in our sense (generalization beyond training data). This is a **vocabulary collision for our title** (see README.md, "Lessons"). | Title, §1, §5, §5.1 |
 | **Q7 Release / version** | Datasets and evals released; the repo is printed as github.com/thejaminator/consciousness cluster (exact repo slug not verified). Read version: v1. Note: the paper carries a contamination canary and asks that its transcripts stay out of training corpora, so **our repo notes paraphrase and do not paste transcripts or the canary string.** | §1 footnote 2, §7, §9 |
 
 ## Verdict (rules from 004, first match wins)
@@ -73,7 +73,7 @@
 
 **Provisional inferences (labeled).**
 - *Inference:* the marker mapping (M1, M2, M5) is the planner's; the paper uses its own preference taxonomy.
-- *Inference:* "collision risk high" rests on the same group having published both directions (observed in the reference list) plus field velocity (LAB.md lesson 3). It is not evidence of a forthcoming B→A battery.
+- *Inference:* "collision risk high" rests on the same group having published both directions (observed in the reference list) plus field velocity (README.md, "Lessons", lesson 3). It is not evidence of a forthcoming B→A battery.
 - *Inference:* "disclaimer removal drives much of the shift" is read from Table 8's refusal columns. The authors analyse it for only two preferences.
 
 **Disconfirming conditions.**
