@@ -97,7 +97,7 @@ The way we work is an experiment too. These rules change when they stop helping.
 5. **Score both right answers and knowing when to stop.** A system should answer what it can and decline what it can't. Refusals and disclaimers ("I don't have feelings") are scored as their own category, never lumped in with abstaining or failing.
 6. **Keep the tests clean.** *Exact:*
    - items are generated from seeds;
-   - a private held-out set lives in `private/`: git-ignored, never published, never used for tuning;
+   - a private held-out set lives in `private/`: git-ignored, never used for tuning, and not published while in use. Once its single report run is done, it may be published with the report and is then retired; the next report set gets a new seed;
    - a provider adapter with a mock;
    - k samples per item;
    - every item is labeled answerable or not;
@@ -259,5 +259,6 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-10-25 — Rule 6: a private held-out set may be published with its report after its single report run, then retired; the next report set gets a new seed.
 - 2026-10-25 — Planner rulings applied: first-marker note points to the MARKERS.md selection criteria; biological-namesake question and structure line restored; track README list markers now name README.md.
 - 2026-10-25 — LAB.md merged into README.md; three planner/implementer pairs; plain-first rule.
