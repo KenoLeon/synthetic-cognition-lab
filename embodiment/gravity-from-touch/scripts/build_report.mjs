@@ -4,8 +4,9 @@
 //   - the check fails if the template's own text (outside placeholders, links, URLs and code) contains a
 //     digit, except labels (Q1a, H1, v0.2.1) and the two statistical conventions named in ALLOWED.
 // Outputs: report/gravity-from-touch-report.md, .html and .pdf (PDF via Microsoft Edge or Chrome headless).
-// The report-set seed is withheld in this build (the repository is public); --release fills it from
-// private/ and writes the outputs to private/gravity-from-touch/release/report/ for the deposit instead.
+// v1.0 was published on Zenodo on 2026-10-25 (DOI below), which made the report-set seed public. This build
+// links to the deposit; --release rebuilds the deposited copy (which points into its own deposit) and writes it
+// to private/gravity-from-touch/release/report/, checking the seed against private/.
 //   node scripts/build_report.mjs [--no-pdf] [--release]
 import RAPIER from '@dimforge/rapier3d-compat';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, cpSync, statSync } from 'node:fs';
@@ -53,14 +54,15 @@ const tolDeg = Number(match(/errorDeg <= (\d+)/, llmSrc, 'direction tolerance')[
 const h1Thr = 100 * Number(match(/ocCI\[0\] > ([\d.]+)/, scorerSrc, 'H1 threshold')[1]);
 const h3Alpha = Number(match(/h3\.p < ([\d.]+) \?/, scorerSrc, 'H3 threshold')[1]);
 const h2Bands = match(/stabPct >= ([\d.]+) && r\.stabPct <= ([\d.]+)[^\n]*\n[^\n]*r\.q1a >= (\d+) && r\.q1a <= (\d+)/, scorerSrc, 'H2 bands');
-const seed = RELEASE ? `orientation seed ${json('../../private/gravity-from-touch/release/items/seed.json').orientationSeed}, revealed with this report as planned`
-  : 'the orientation seed is revealed in the deposited copy of this report, as planned (withheld from the repository copy until then)';
+const DOI = '10.5281/zenodo.23654739', SEED = 346085747, VERSION = 'v1.0, 2026-10-25';
+if (RELEASE && json('../../private/gravity-from-touch/release/items/seed.json').orientationSeed !== SEED) throw new Error('seed differs from the published one');
+const seed = `orientation seed ${SEED}, revealed with this report as planned`;
 const pOut = 0.0455; // two-sided normal tail beyond ±2 SD
 const refCI = wilson(rs.refusals, rs.allN);
 
 const V = {
-  depositLine: RELEASE ? 'in this deposit (see its README.md to rescore them)' : 'in the Zenodo deposit (link to be added)',
-  buildLine: RELEASE ? `v1.0, ${new Date().toLocaleDateString('en-CA')}` : `draft of ${new Date().toLocaleDateString('en-CA')}`,
+  depositLine: RELEASE ? 'in this deposit (see its README.md to rescore them)' : `on Zenodo, <https://doi.org/${DOI}>`,
+  buildLine: VERSION,
   radius: SPHERE_RADIUS, taxels: DEFAULT_TAXELS, windowSec: Number(/mean(\d+)s/.exec('mean1s')[1]), tolDeg,
   conditions: TRIAL_SCENES.length,
   equivTouchRel: sci(eq.rows.wallA.tactile.relL2),

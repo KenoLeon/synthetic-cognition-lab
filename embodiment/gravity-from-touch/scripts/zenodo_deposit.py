@@ -3,7 +3,7 @@
 #   python scripts/zenodo_deposit.py draft            create a draft, upload the files, set the metadata, read it back
 #                                                     and compare every file's size and MD5 with the local copy; NOT published
 #   python scripts/zenodo_deposit.py publish <id>     publish draft <id> (permanent: a published record cannot be deleted)
-# The draft's id and links are saved to private/gravity-from-touch/deposit/zenodo-draft.json.
+# The draft's id and links are saved to private/gravity-from-touch/zenodo-draft.json (outside the bundle).
 import hashlib, json, os, re, sys, urllib.request
 
 API = 'https://zenodo.org/api/deposit/depositions'
@@ -45,7 +45,7 @@ if sys.argv[1] == 'draft':
         if not r: bad.append(f'file missing on Zenodo: {f}')
         elif r['filesize'] != len(b) or r['checksum'].removeprefix('md5:') != hashlib.md5(b).hexdigest(): bad.append(f'file differs on Zenodo: {f}')
     json.dump({'id': d['id'], 'html': d['links']['html'], 'doi_on_publish': d.get('metadata', {}).get('prereserve_doi', {}).get('doi')},
-              open(os.path.join(B, 'zenodo-draft.json'), 'w'), indent=2)
+              open(os.path.join(B, '..', 'zenodo-draft.json'), 'w'), indent=2)
     print(f'read back: {len(FILES)} files, {len(remote)} on Zenodo; ' + ('all match' if not bad else f'{len(bad)} problems'))
     for x in bad: print('  PROBLEM', x)
     print(f'draft (not published): {d["links"]["html"]}')

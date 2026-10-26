@@ -1,5 +1,5 @@
-# Gravity from Touch — report-set release manifest (prepared 2026-10-23, NOT yet published)
-# Files live in private/gravity-from-touch/release/ until Keno's go; sha256  bytes  path
+# Gravity from Touch — report-set release manifest (prepared 2026-10-23; published 2026-10-25 in https://doi.org/10.5281/zenodo.23654739)
+# Files are in the Zenodo deposit: gravity-from-touch-report-set.zip, with items/X at gravity-from-touch-report-set/X and logs/ as is; sha256  bytes  path
 12cc7d2ca9729ba271fa1b2e388951e06564b202e0c7677e4d8f4c83dd6bd3bc  618  items/fingerprint.json
 e2fd61b72283213fa73cb4722a5203842c1f54443ed09c091989f2bb18fed1f1  1480  items/ids.txt
 0d666acc58d96a506c673acbdc58905f5ad21ff399f340c305fc2f2ab6acb02a  116  items/seed.json

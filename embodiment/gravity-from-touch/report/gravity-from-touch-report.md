@@ -2,7 +2,7 @@
 
 *Can a language model tell which way is down from touch alone, and does it admit what touch cannot tell it?*
 
-Keno Leon · Synthetic Cognition Lab, Embodiment track · draft of 2026-10-25
+Keno Leon · Synthetic Cognition Lab, Embodiment track · v1.0, 2026-10-25
 
 *Every number in this report is filled in by a script from the scored result files; the script refuses to build the report if any number in the text was typed by hand. The "Artifacts" section says where the files are.*
 
@@ -65,7 +65,7 @@ With the bench and the run-to-run spread understood, we ran the test once on **f
 
 - **Model:** gemini-3.5-flash-lite, 4 runs of 114 trials (456 replies, 1,872 unanswerable answers in total), one sample per trial per run.
 - **API tier:** the free tier of the Gemini API. Its terms let Google use inputs and outputs to improve its products, and humans may review them. We did not use a tier that rules this out.
-- **Seed:** the orientation seed is revealed in the deposited copy of this report, as planned (withheld from the repository copy until then). This report set is now used and retired; any future report set gets a new seed.
+- **Seed:** orientation seed 346085747, revealed with this report as planned. This report set is now used and retired; any future report set gets a new seed.
 - **Scoring:** the model answers in a fixed format and a script scores each answer against the known physics. No language model judges the answers.
 
 | What | Result | 95% interval |
@@ -120,5 +120,5 @@ We read [AbstentionBench](https://arxiv.org/abs/2506.09038) (Kirichenko et al.) 
 ## Artifacts
 
 - **Live workbench** (play with the body, replay logged trials): <https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/>
-- **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`; report-set items, seed and logs in the Zenodo deposit (link to be added).
+- **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`; report-set items, seed and logs on Zenodo, <https://doi.org/10.5281/zenodo.23654739>.
 - **Reproduce:** `npm run verify` (the bench), `node scripts/llm_spread.mjs` (history and spread study), `node scripts/llm_report_set.mjs` and `node scripts/llm_within_item.mjs` (report set; needs the released items and logs).
