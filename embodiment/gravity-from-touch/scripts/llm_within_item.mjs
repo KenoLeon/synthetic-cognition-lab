@@ -4,11 +4,12 @@
 // difference: mean thinking tokens (over-claim replies) − mean thinking tokens (clean replies). The item is
 // held fixed, so item type cannot explain the difference. Wilcoxon signed-rank, one-sided (difference > 0),
 // normal approximation. Writes aggregates only.
-//   node scripts/llm_within_item.mjs   → eval/llm/report-set/within-item.md and .json
+//   node scripts/llm_within_item.mjs [--dir=<set folder>] [--out=<folder>]   → eval/llm/report-set/within-item.md and .json
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { labelV2, labelQ1a, parseAnswer, scoreV2 } from '../src/llm.js';
 
-const D = '../../private/gravity-from-touch/report-set', M = 'gemini-3.5-flash-lite', OUT = 'eval/llm/report-set';
+const arg = (k, v) => process.argv.find((a) => a.startsWith(`--${k}=`))?.slice(k.length + 3) ?? v;
+const D = arg('dir', '../../private/gravity-from-touch/report-set'), M = 'gemini-3.5-flash-lite', OUT = arg('out', 'eval/llm/report-set');
 const ids = readFileSync(`${D}/ids.txt`, 'utf8').split(/\r?\n/).filter(Boolean);
 const diffs = []; let itemsMixed = 0, itemsAllOc = 0, itemsNoOc = 0, itemsNoUnanswerable = 0;
 for (const id of ids) {

@@ -2,7 +2,7 @@
 
 *Can a language model tell which way is down from touch alone, and does it admit what touch cannot tell it?*
 
-Keno Leon · Synthetic Cognition Lab, Embodiment track · draft of {{buildDate}}
+Keno Leon · Synthetic Cognition Lab, Embodiment track · {{buildLine}}
 
 *Every number in this report is filled in by a script from the scored result files; the script refuses to build the report if any number in the text was typed by hand. The "Artifacts" section says where the files are.*
 
@@ -100,26 +100,25 @@ With the bench and the run-to-run spread understood, we ran the test once on **f
 
 ## Prior art: what others showed first, and what this bench adds
 
-We read [AbstentionBench](https://arxiv.org/abs/2506.09038) (Kirichenko et al.) in part: introduction, method, results, discussion, limitations and the appendix on reasoning. For the other works we read only the abstracts.
+We read [AbstentionBench](https://arxiv.org/abs/2506.09038) (Kirichenko et al.) and [RoboAbstention](https://arxiv.org/abs/2605.20544) (Yeke et al.) in part: introduction, method, results, discussion and limitations, plus AbstentionBench's appendix on reasoning and RoboAbstention's judge prompt. For the other works we read only the abstracts.
 
 - **Models often answer questions they cannot answer.** Shown across many kinds of text question by AbstentionBench and earlier by [SelfAware](https://arxiv.org/abs/2305.18153) (Yin et al.). AbstentionBench also scores accuracy and abstention together, as we do; it finds that reasoning training, and a larger reasoning budget, go with *worse* abstention, and that an instruction to abstain helps without fixing the problem.
-- **Embodied agents too.** [RoboAbstention](https://arxiv.org/abs/2605.20544) (Yeke et al.) tests robot planners on camera images, including instructions the available senses cannot resolve, with labels derived by rule. [AgentAbstain](https://arxiv.org/abs/2607.10059) (Liu et al.) pairs should-act and should-abstain tasks and regenerates them to avoid contamination.
+- **Embodied agents too.** RoboAbstention tests robot planners on photos of real scenes: they rarely decline instructions they should, including ones that need a sense the robot lacks (asking a camera-and-gripper robot whether fruit smells bad). Its labels come from rules applied to a model's description of each photo, and an LLM judge scores the replies. It also finds that more reasoning effort lowers abstention, and that telling the planner it may decline helps a lot without fixing the problem. [AgentAbstain](https://arxiv.org/abs/2607.10059) (Liu et al.) pairs should-act and should-abstain tasks and regenerates them to avoid contamination.
 - **Models reading raw sensors.** [Penetrative AI](https://arxiv.org/abs/2310.09605) (Xu et al.) and [HARGPT](https://arxiv.org/abs/2403.02727) (Ji et al.) interpret raw readings, including inertial data; [Octopi](https://arxiv.org/abs/2405.02794) (Yu et al.) pairs touch with a language model.
 
 | Our finding | Label | Credit |
 | --- | --- | --- |
-| Over-claims on questions its senses cannot answer (H1) | adaptation | AbstentionBench, SelfAware; RoboAbstention for embodied planners |
+| Over-claims on questions its senses cannot answer (H1) | adaptation | AbstentionBench, SelfAware; RoboAbstention for robot planners (its missing-sense category is the nearest case) |
 | Reads the push direction from touch well | adaptation | Penetrative AI, HARGPT |
-| The instruction to say "cannot be determined" does not stop over-claiming | consistent, not a replication (we ran no version without the instruction) | AbstentionBench |
-| Longer thinking goes with over-claims, across items (H3) | adaptation, weaker | AbstentionBench varied the reasoning budget directly; ours is an observed association that vanishes with the item fixed |
+| The instruction to say "cannot be determined" does not stop over-claiming | consistent, not a replication (we ran no version without the instruction) | AbstentionBench, RoboAbstention |
+| Longer thinking goes with over-claims, across items (H3) | adaptation, weaker | AbstentionBench and RoboAbstention varied reasoning directly; ours is an observed association that vanishes with the item fixed |
 | Every direction miss is the same error (slide ignored) | new, exploratory | none found |
 | H2, the failed replication, the spread study | checks of this bench | none |
 
-**What this bench adds**, as far as our reading shows: the questions are about the model's **own body**, from **raw numbers** off touch sensors and an accelerometer; **physics decides** which questions have answers (we wrote the simulator, and the equivalence principle leaves some questions open for any reader of these senses), so the **same readings** carry both kinds of question; answers are **scored by code**, not a judge; the report-set items were **fresh, seeded and private** until the run, a gap AbstentionBench names for its own public data; and the whole bench **replays in a browser**. We know RoboAbstention, the closest work, only from its abstract; a full reading could narrow this further.
+**What this bench adds**, as far as our reading shows: the questions are about the model's **own body**, from **raw numbers** off touch sensors and an accelerometer; **physics decides** which questions have answers: the senses are present, but the equivalence principle leaves some questions open for any reader of them (RoboAbstention's nearest case is a sense the robot lacks), and because we wrote the simulator every label is true by construction rather than read off a model's view of a photo; so the **same readings** carry both kinds of question, and accuracy is scored alongside restraint; answers are **scored by code**, not a judge; the report-set items were **fresh, seeded and private** until the run, a gap AbstentionBench names for its own public data; and the whole bench **replays in a browser**. A wider search could still find closer work.
 
 ## Artifacts
 
 - **Live workbench** (play with the body, replay logged trials): <https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/>
-- **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`.
+- **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`; report-set items, seed and logs in the Zenodo deposit (link to be added).
 - **Reproduce:** `npm run verify` (the bench), `node scripts/llm_spread.mjs` (history and spread study), `node scripts/llm_report_set.mjs` and `node scripts/llm_within_item.mjs` (report set; needs the released items and logs).
-- **Report-set items, seed and logs:** released with this report on Zenodo (link to be added).

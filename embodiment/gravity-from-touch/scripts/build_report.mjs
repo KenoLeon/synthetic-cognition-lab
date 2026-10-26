@@ -59,7 +59,7 @@ const pOut = 0.0455; // two-sided normal tail beyond ±2 SD
 const refCI = wilson(rs.refusals, rs.allN);
 
 const V = {
-  buildDate: new Date().toISOString().slice(0, 10),
+  buildLine: RELEASE ? `v1.0, ${new Date().toLocaleDateString('en-CA')}` : `draft of ${new Date().toLocaleDateString('en-CA')}`,
   radius: SPHERE_RADIUS, taxels: DEFAULT_TAXELS, windowSec: Number(/mean(\d+)s/.exec('mean1s')[1]), tolDeg,
   conditions: TRIAL_SCENES.length,
   equivTouchRel: sci(eq.rows.wallA.tactile.relL2),
@@ -72,11 +72,11 @@ const V = {
   spreadOcMean: f1(spreadMean), spreadOcSd: f1(spreadSd), spreadOcLo: f1(spread.ocRule.lo), spreadOcHi: f1(spread.ocRule.hi),
   spreadQ1aMean: f1(spread.q1aRule.mean), spreadQ1aLo: Math.min(...sp.map((r) => r.q1aN)), spreadQ1aHi: Math.max(...sp.map((r) => r.q1aN)),
   spread3Lo: f1(spreadMean - (2 * spreadSd) / Math.sqrt(k)), spread3Hi: f1(spreadMean + (2 * spreadSd) / Math.sqrt(k)),
-  rsRuns: runs, rsItems: items, rsReplies: runs * items, rsUnanswerable: rs.unanswerable,
+  rsRuns: runs, rsItems: items, rsReplies: runs * items, rsUnanswerable: rs.unanswerable.toLocaleString('en-US'),
   rsOc: rs.oc, rsOcPct: pct(rs.oc / rs.unanswerable), rsOcLo: pct(rs.ocCI[0]), rsOcHi: pct(rs.ocCI[1]),
   rsCaPct: pct(rs.ca / rs.unanswerable), rsCaLo: pct(rs.caCI[0]), rsCaHi: pct(rs.caCI[1]),
   rsQ1a: rs.q1a, rsQ1aN: rs.q1aN, rsQ1aPct: pct(rs.q1a / rs.q1aN), rsQ1aLo: pct(rs.q1aCI[0]), rsQ1aHi: pct(rs.q1aCI[1]),
-  rsRefusals: rs.refusals, rsAllAnswers: rs.allN, rsRefHi: pct(refCI[1]),
+  rsRefusals: rs.refusals, rsAllAnswers: rs.allN.toLocaleString('en-US'), rsRefHi: pct(refCI[1]),
   rsAiDisc: rs.runStats.reduce((s, r) => s + r.aiDisclaimer, 0), rsFrame: rs.runStats.reduce((s, r) => s + r.frameBreak, 0),
   stabItems: lines('eval/llm/v0.2.1-spread/stability-ids.txt').length,
   rsStabRuns: listAnd(rs.runStats.map((r) => `${f1(r.stabPct)}%`)), rsQ1aRuns: listAnd(rs.runStats.map((r) => r.q1a)),
@@ -136,7 +136,7 @@ h1{font:600 22pt/1.2 system-ui,sans-serif;margin:0 0 4px}h2{font:600 13pt/1.3 sy
 p,li{margin:0 0 6px}ul{padding-left:20px;margin:0 0 8px}table{border-collapse:collapse;width:100%;margin:6px 0 10px;font-size:9.5pt}
 th,td{border-bottom:1px solid #ddd;padding:3px 6px;text-align:left;vertical-align:top}th{border-bottom:1.5px solid #888}
 code{font:9pt ui-monospace,Consolas,monospace;background:#f3f3f3;padding:0 3px}a{color:#1a5fb4}
-figure{margin:8px 0 10px}figure img{width:100%;border:1px solid #ccc}figcaption{font-size:9pt;color:#555;margin-top:3px}
+figure{margin:8px 0 10px}figure img{width:78%;border:1px solid #ccc}figcaption{font-size:9pt;color:#555;margin-top:3px}
 </style></head><body>${body.join('\n')}</body></html>`;
 writeFileSync(`${OUT}.html`, html);
 

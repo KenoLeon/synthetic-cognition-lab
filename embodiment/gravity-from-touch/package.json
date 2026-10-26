@@ -20,7 +20,7 @@
     "build:demo": "vite build && node scripts/build_demo.mjs"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "@dimforge/rapier3d-compat": "^0.21.0",
