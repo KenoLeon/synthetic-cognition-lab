@@ -50,7 +50,7 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●●●○ Report | Report v1.0 published on Zenodo 2026-10-25 ([doi:10.5281/zenodo.23654739](https://doi.org/10.5281/zenodo.23654739)) with report-set data and code. Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed (H3 an association across items only); report set retired. Demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | Report mirror for the site; lab page deploy on Keno's go; stage → Published once card and mirror are live | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report](https://doi.org/10.5281/zenodo.23654739) |
+| Gravity from Touch | Embodiment | ●●●●●● Published | Report v1.0 published on Zenodo 2026-10-25 ([doi:10.5281/zenodo.23654739](https://doi.org/10.5281/zenodo.23654739)) with report-set data and code. Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed (H3 an association across items only); report set retired. Report mirror on the site ([report](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/)); demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/). Published 2026-10-25 | None for this experiment (Keno may add his ORCID to the Zenodo record later) | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) |
 
 ### Coming up
 
@@ -258,6 +258,8 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 ## Lab log
 
 (newest first, keep ~10 entries)
+
+- 2026-10-25 — Gravity from Touch → ●●●●●● Published: card links the DOI, the site mirror and the demo; stage noted in its STATE.md (brief-authorized); site deployed on Keno's go.
 
 - 2026-10-25 — Synced Gravity from Touch from its STATE.md: stage Report, Zenodo DOI, new card line with report link (old 14% comparison dropped); embodiment README list regenerated. Lab page not deployed (needs Keno's go).
 - 2026-10-25 — Sync brief: H3 qualifier added to the Gravity from Touch row; Keno's deploy go recorded in its STATE.md (one line, lab implementer); lab page deployed via the Pages workflow.
