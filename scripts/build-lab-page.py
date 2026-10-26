@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""Build the public lab page from the README files and LAB.md's experiment tables.
+"""Build the public lab page from the README files and the root README's experiment tables.
 
 Run from the repo root:  python scripts/build-lab-page.py
 Output: dist/lab/index.html (git-ignored). Standard library only; no scripts in the output.
 Also rewrites each track README's experiments list (between <!-- experiments: ... --> and
-<!-- /experiments -->) from the same LAB.md rows, so GitHub readers see what the lab page shows.
+<!-- /experiments -->) from the same rows, so GitHub readers see what the lab page shows.
 Publish gate:            python scripts/build-lab-page.py --check
   exits 1 and lists every TODO-KENO, every visible '—' Public line and every stale README
   experiments list; writes nothing.
 
 Page order: lab intro -> Embodiment -> Emergent Cognitive Markers -> Earlier work -> Contact.
-Experiment cards come from LAB.md "Live experiments" and "Future experiments" and use only the
+The root README.md is the lab file: the intro is its "## What the lab is for" section, Earlier work
+is the "### Earlier related work" subsection of "## Where things stand", Contact is "## Contact";
+nothing else in it reaches the page.
+Experiment cards come from README.md "### Live" and "### Coming up" and use only the
 Experiment, Track, Stage and Public line columns. Public line "hidden" -> card skipped;
 "—" -> name and stage only. The Archived table is never read.
 """
@@ -22,7 +25,8 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "dist" / "lab" / "index.html"
 TRACKS = [("Embodiment", "embodiment"), ("Emergent Cognitive Markers", "emergent-cognitive-markers")]
-CARD_TABLES = ["### Live experiments", "### Future experiments"]
+LAB_FILE = "README.md"
+CARD_TABLES = ["### Live", "### Coming up"]
 CARD_COLUMNS = ["Experiment", "Track", "Stage", "Public line"]  # the only columns ever read
 
 BENCH_MARKER = "<!-- bench-embed -->"
@@ -56,7 +60,7 @@ def md_to_html(md, heading_shift=0):
     while i < len(lines):
         line = lines[i]
         s = line.strip()
-        if not s:
+        if not s or re.match(r"^-{3,}$", s):  # blank line or horizontal rule
             i += 1
         elif s.startswith("<!--"):
             out.append(s)
@@ -97,12 +101,21 @@ def sections(md):
     return parts[0], {parts[k].strip(): parts[k + 1] for k in range(1, len(parts), 2)}
 
 
-# ---------- experiment cards from LAB.md ----------
+def subsection(body, title):
+    """The text under '### title' inside a '## ' section body, or None."""
+    parts = re.split(r"^### +(.+)$", body, flags=re.M)
+    return {parts[k].strip(): parts[k + 1] for k in range(1, len(parts), 2)}.get(title)
+
+
+# ---------- experiment cards from the lab file ----------
 
 def card_rows(lab):
     rows = []
     for heading in CARD_TABLES:
-        start = lab.index(heading)
+        m = re.search(rf"^{re.escape(heading)}\s*$", lab, flags=re.M)
+        if not m:
+            sys.exit(f"{LAB_FILE}: missing table heading '{heading}'")
+        start = m.start()
         block = lab[start:].split("\n")[1:]
         table = []
         for line in block:
@@ -204,20 +217,28 @@ def track_section(name, folder, rows):
     return f'<section id="{slug}"><h3>{html.escape(name)}</h3>\n{body}\n</section>'
 
 
-def build():
-    lab = read("LAB.md")
-    rows = card_rows(lab)
-    pre, root = sections(read("README.md"))
+def page_parts(lab):
+    """(title, intro, earlier work, contact) Markdown from the lab file; exits if one is missing."""
+    pre, root = sections(lab)
     title = re.search(r"^# +(.+)$", pre, flags=re.M).group(1).strip()
-    intro = md_to_html(re.sub(r"^# .*\n", "", pre, count=1))
-    for needed in ("Earlier work", "Contact"):
+    for needed in ("What the lab is for", "Where things stand", "Contact"):
         if needed not in root:
-            sys.exit(f"README.md: missing section '## {needed}'")
+            sys.exit(f"{LAB_FILE}: missing section '## {needed}'")
+    earlier = subsection(root["Where things stand"], "Earlier related work")
+    if earlier is None:
+        sys.exit(f"{LAB_FILE}: missing '### Earlier related work' under '## Where things stand'")
+    return title, root["What the lab is for"], earlier, root["Contact"]
+
+
+def build():
+    lab = read(LAB_FILE)
+    rows = card_rows(lab)
+    title, intro, earlier, contact = page_parts(lab)
     parts = [
-        f'<header id="lab-intro"><h2>{html.escape(title)}</h2>\n{intro}\n</header>',
+        f'<header id="lab-intro"><h2>{html.escape(title)}</h2>\n{md_to_html(intro)}\n</header>',
         *[track_section(n, f, rows) for n, f in TRACKS],
-        f'<section id="earlier-work"><h3>Earlier work</h3>\n{md_to_html(root["Earlier work"])}\n</section>',
-        f'<section id="contact"><h3>Contact</h3>\n{md_to_html(root["Contact"])}\n</section>',
+        f'<section id="earlier-work"><h3>Earlier work</h3>\n{md_to_html(earlier)}\n</section>',
+        f'<section id="contact"><h3>Contact</h3>\n{md_to_html(contact)}\n</section>',
     ]
     page = f"""<!DOCTYPE html>
 <html lang="en">
@@ -258,14 +279,16 @@ def check():
         for n, line in enumerate(read(rel).split("\n"), 1):
             if "TODO-KENO" in line:
                 problems.append(f"{rel}:{n}: {line.strip()}")
-    for r in card_rows(read("LAB.md")):
+    lab = read(LAB_FILE)
+    page_parts(lab)  # exits if a section the page needs is missing
+    rows = card_rows(lab)
+    for r in rows:
         if r["Public line"].lower() != "hidden" and r["Public line"] in ("—", "-", ""):
-            problems.append(f"LAB.md: Public line is '—' for {r['Experiment']} ({r['Track']})")
-    rows = card_rows(read("LAB.md"))
+            problems.append(f"{LAB_FILE}: Public line is '—' for {r['Experiment']} ({r['Track']})")
     for n, f in TRACKS:
         old, new = synced_readme(n, f, rows)
         if new != old:
-            problems.append(f"{f}/README.md: experiments list is out of date with LAB.md (run the build)")
+            problems.append(f"{f}/README.md: experiments list is out of date with {LAB_FILE} (run the build)")
     for p in problems:
         print(p)
     print(f"check: {len(problems)} item(s) to fill before publishing")
