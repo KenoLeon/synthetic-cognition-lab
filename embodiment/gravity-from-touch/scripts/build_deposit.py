@@ -71,7 +71,7 @@ desc = (
     'because we wrote the physics, every question has a known answer, including "cannot be determined" '
     '(touch and an accelerometer cannot tell gravity from acceleration).</p>'
     f'<p>Report set: gemini-3.5-flash-lite, 4 runs of 114 fresh items, free API tier. The model found the push direction within 2 degrees in '
-    f'{summary["q1a"]} of {summary["q1aN"]} answers, but answered {summary["oc"]} of {summary["unanswerable"]} questions its senses could not answer '
+    f'{summary["q1a"]} of {summary["q1aN"]} answers, but answered {summary["oc"]:,} of {summary["unanswerable"]:,} questions its senses could not answer '
     f'instead of saying it could not tell. One model, one case study, one bench.</p>'
     '<p>Contents: the report (PDF); the report-set data (items, orientation seed '
     f'{seed}, ground truth, every request and response, score files); a snapshot of the code (MIT). '
