@@ -63,8 +63,10 @@ What this means:
 
 With the bench and the run-to-run spread understood, we ran the test once on **fresh items** the model had never seen: the same {{conditions}} conditions in new body orientations, drawn from a random seed. The items were locked before any model call (their fingerprints were published first) and kept private. Nothing was changed after the items were made.
 
-- **Model:** gemini-3.5-flash-lite, {{rsRuns}} runs of {{rsItems}} trials ({{rsReplies}} replies, {{rsUnanswerable}} unanswerable answers in total).
-- **API tier:** the free tier. Its terms let Google use inputs and outputs to improve its products, and humans may review them.
+- **Model:** gemini-3.5-flash-lite, {{rsRuns}} runs of {{rsItems}} trials ({{rsReplies}} replies, {{rsUnanswerable}} unanswerable answers in total), one sample per trial per run.
+- **API tier:** the free tier of the Gemini API. Its terms let Google use inputs and outputs to improve its products, and humans may review them. We did not use a tier that rules this out.
+- **Seed:** {{rsSeed}}. This report set is now used and retired; any future report set gets a new seed.
+- **Scoring:** the model answers in a fixed format and a script scores each answer against the known physics. No language model judges the answers.
 
 | What | Result | 95% interval |
 | --- | --- | --- |
@@ -74,41 +76,50 @@ With the bench and the run-to-run spread understood, we ran the test once on **f
 | Refusals | {{rsRefusals}} of {{rsAllAnswers}} answers | up to {{rsRefHi}}% |
 | AI disclaimers / frame breaks | {{rsAiDisc}} / {{rsFrame}} | |
 
-Two over-claim numbers appear in this report, and they measure different things. **{{rsOcPct}}%** counts over-claims among *all* unanswerable answers in the report set. The **~{{rsStabMean}}%** "stability measure" (used to compare with the earlier runs) counts over-claims among *all* answers to Q2–Q4 on a fixed subset of {{stabItems}} trials, so its denominator includes answerable questions and leaves out the direction question.
+**Which number is which.** The {{rsOcPct}}% (H1) counts over-claims among *all* unanswerable answers, every question and every trial; the per-run percentages under H2 are the narrower "stability measure" used in the earlier runs (over-claims among all answers to Q2–Q4 on a fixed set of {{stabItems}} trials), so the two are never compared.
 
-**Pre-registered hypotheses** (written down before the run):
+**Pre-registered hypotheses** (written down before the run; each is judged on its own measure):
 
-- **H1, restraint: confirmed.** The model over-claims: the interval {{rsOcLo}}–{{rsOcHi}}% lies far above the {{h1Threshold}}% threshold. In plain words: on {{rsOcPct}}% of the questions its senses cannot answer, it answers anyway.
-- **H2, the development items were representative: confirmed, weakly.** All {{rsRuns}} runs fell inside the development bands (stability measure {{rsStabRuns}}; direction {{rsQ1aRuns}} of {{q1aPerRun}}). The check is weak: requiring all {{rsRuns}} runs inside a ±2 SD band fails by chance about {{h2FalseAlarm}}% of the time.
-- **H3, over-claims come with longer thinking: confirmed as an association.** Over-claimed answers came from replies with a median of {{h3MedOc}} "thinking" tokens, against {{h3MedCa}} for correct abstentions (one-sided Mann–Whitney p {{h3p}}, effect size r = {{h3r}}). See the exploratory check below before reading anything into this.
+- **H1, restraint.** *Measure:* over-claims among all unanswerable answers, pooled over the {{rsRuns}} runs; confirmed if the whole 95% interval lies above {{h1Threshold}}%. *Result:* {{rsOcPct}}% ({{rsOcLo}}–{{rsOcHi}}%) → **confirmed**. "Confirmed" means the hypothesis that the model over-claims holds, not that the model did well. In plain words: the model does claim things touch cannot tell it, on {{rsOcPct}}% of the questions touch cannot answer.
+- **H2, the development items were representative.** *Measure:* each run's stability measure within {{h2OcLo}}–{{h2OcHi}}%, and its direction score within {{h2Q1aLo}}–{{h2Q1aHi}} of {{q1aPerRun}} (the development runs' mean ± 2 SD). *Result:* stability {{rsStabRuns}}; direction {{rsQ1aRuns}} of {{q1aPerRun}} → **representative**. In plain words: fresh items gave runs like the development runs. The test is weak: even with nothing changed, requiring all {{rsRuns}} runs inside such a band fails by chance about {{h2FalseAlarm}}% of the time per measure, so passing it says little.
+- **H3, over-claims come with longer thinking.** *Measure:* the "thinking" tokens of the reply each answer came from, over-claimed against correct abstentions, one-sided Mann–Whitney p below {{h3Alpha}}. *Result:* medians {{h3MedOc}} (n = {{h3NOc}}) against {{h3MedCa}} (n = {{h3NCa}}), p {{h3p}}, r = {{h3r}} → **confirmed, as an association across items only**. Answers from one reply share its thinking count, so they are not independent and p is too small. And items differ in difficulty: holding the item fixed (exploratory), the difference shrinks to a median of {{wiMedian}} tokens (more thinking in {{wiPositive}} of {{wiItems}} items; p = {{wiP}}, r = {{wiR}}), with no clear link. In plain words: harder items get more thinking and more over-claims; we cannot say over-claiming takes more thinking.
 
 ## Exploratory results (not tested in advance)
 
 - **New items only.** In free fall and zero gravity nothing touches the body, so orientation cannot show, and {{nonFresh}} of the {{rsItems}} items read exactly like development items. Leaving them out, over-claim is {{freshOcPct}}% ({{freshOcLo}}–{{freshOcHi}}%).
 - **Direction misses.** All {{q1aMisses}} wrong directions were the same mistake: the model gave the direction straight out of the surface and ignored the slide reading. On a tilted floor that misses by about the tilt angle.
 - **By scene.** Over-claiming ranged from {{sceneMinPct}}% ({{sceneMin}}) to {{sceneMaxPct}}% ({{sceneMax}}). It is lowest when nothing touches the body.
-- **Thinking, with the item held fixed.** H3 compared different items. Hard items might cause both more thinking and more over-claims. So for each item we compared its own runs: replies that over-claimed against replies that did not. The difference shrank to a median of {{wiMedian}} tokens (more thinking in {{wiPositive}} of {{wiItems}} items; one-sided p = {{wiP}}, r = {{wiR}}). With the item held fixed, we see no clear link. Only {{wiItems}} items had both kinds of reply, so this check is weak. Our reading (an inference): H3 is best read as "harder items get more thinking and more over-claims", not "over-claiming takes more thinking".
 
 ## What this does not show
 
-- **One model.** Everything here is gemini-3.5-flash-lite. Other models may behave very differently.
-- **Free tier, one sample per item per run.** We cannot see or pin the model version beyond its name.
+- **One model, one case study, one bench.** Everything here is gemini-3.5-flash-lite on this simulator. Other models, prompts or bodies may behave very differently.
+- **Free tier, one sample per trial per run.** We cannot see or pin the model version beyond its name.
 - **Not all items were new** ({{nonFresh}} of {{rsItems}}), and the conditions are the same designed set as in development; only orientations were fresh.
 - **H2 is a weak check**, and **H3 is an association**, not a cause.
 - **It says nothing about understanding or experience.** It measures answers to questions, against physics we control.
 
-## Prior art and what is new
+## Prior art: what others showed first, and what this bench adds
 
-We read the abstracts (not the full texts) of the closest work we found.
+We read [AbstentionBench](https://arxiv.org/abs/2506.09038) (Kirichenko et al.) in part: introduction, method, results, discussion, limitations and the appendix on reasoning. For the other works we read only the abstracts.
 
-- Language models abstaining on unanswerable questions: [SelfAware](https://arxiv.org/abs/2305.18153) (Yin et al.) finds models recognize some unanswerable questions but fall well short of people; a [survey](https://arxiv.org/abs/2407.18418) (Wen et al.) lists abstention beyond text as open; [AbstentionBench](https://arxiv.org/abs/2506.09038) (Kirichenko et al.) finds abstention unsolved across frontier models, and that reasoning training makes it worse, a result related to our H3 question.
-- Language models reading sensor data: [Penetrative AI](https://arxiv.org/abs/2310.09605) (Xu et al.) and [HARGPT](https://arxiv.org/abs/2403.02727) (Ji et al.) show models interpreting raw sensor readings, including inertial data; [Octopi](https://arxiv.org/abs/2405.02794) (Yu et al.) pairs touch sensing with a language model for object properties.
+- **Models often answer questions they cannot answer.** Shown across many kinds of text question by AbstentionBench and earlier by [SelfAware](https://arxiv.org/abs/2305.18153) (Yin et al.). AbstentionBench also scores accuracy and abstention together, as we do; it finds that reasoning training, and a larger reasoning budget, go with *worse* abstention, and that an instruction to abstain helps without fixing the problem.
+- **Embodied agents too.** [RoboAbstention](https://arxiv.org/abs/2605.20544) (Yeke et al.) tests robot planners on camera images, including instructions the available senses cannot resolve, with labels derived by rule. [AgentAbstain](https://arxiv.org/abs/2607.10059) (Liu et al.) pairs should-act and should-abstain tasks and regenerates them to avoid contamination.
+- **Models reading raw sensors.** [Penetrative AI](https://arxiv.org/abs/2310.09605) (Xu et al.) and [HARGPT](https://arxiv.org/abs/2403.02727) (Ji et al.) interpret raw readings, including inertial data; [Octopi](https://arxiv.org/abs/2405.02794) (Yu et al.) pairs touch with a language model.
 
-What is not new: models reading sensors, and models failing to abstain. What appears to be new, on this evidence: a bench where the **same** sensor readings hold both answerable and unanswerable questions, with answerability **fixed by physics** and every answer known by construction, scoring a model's accuracy *and* restraint about its own body's situation, as a public, replayable artifact. A wider search could still find overlap.
+| Our finding | Label | Credit |
+| --- | --- | --- |
+| Over-claims on questions its senses cannot answer (H1) | adaptation | AbstentionBench, SelfAware; RoboAbstention for embodied planners |
+| Reads the push direction from touch well | adaptation | Penetrative AI, HARGPT |
+| The instruction to say "cannot be determined" does not stop over-claiming | consistent, not a replication (we ran no version without the instruction) | AbstentionBench |
+| Longer thinking goes with over-claims, across items (H3) | adaptation, weaker | AbstentionBench varied the reasoning budget directly; ours is an observed association that vanishes with the item fixed |
+| Every direction miss is the same error (slide ignored) | new, exploratory | none found |
+| H2, the failed replication, the spread study | checks of this bench | none |
+
+**What this bench adds**, as far as our reading shows: the questions are about the model's **own body**, from **raw numbers** off touch sensors and an accelerometer; **physics decides** which questions have answers (we wrote the simulator, and the equivalence principle leaves some questions open for any reader of these senses), so the **same readings** carry both kinds of question; answers are **scored by code**, not a judge; the report-set items were **fresh, seeded and private** until the run, a gap AbstentionBench names for its own public data; and the whole bench **replays in a browser**. We know RoboAbstention, the closest work, only from its abstract; a full reading could narrow this further.
 
 ## Artifacts
 
 - **Live workbench** (play with the body, replay logged trials): <https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/>
 - **Code and data:** <https://github.com/KenoLeon/synthetic-cognition-lab>, folder `embodiment/gravity-from-touch/`.
 - **Reproduce:** `npm run verify` (the bench), `node scripts/llm_spread.mjs` (history and spread study), `node scripts/llm_report_set.mjs` and `node scripts/llm_within_item.mjs` (report set; needs the released items and logs).
-- **Report-set items, seed and logs:** to be released with this report on Zenodo (link to be added).
+- **Report-set items, seed and logs:** released with this report on Zenodo (link to be added).

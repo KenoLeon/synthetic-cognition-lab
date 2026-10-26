@@ -4,9 +4,11 @@
 //   - the check fails if the template's own text (outside placeholders, links, URLs and code) contains a
 //     digit, except labels (Q1a, H1, v0.2.1) and the two statistical conventions named in ALLOWED.
 // Outputs: report/gravity-from-touch-report.md, .html and .pdf (PDF via Microsoft Edge or Chrome headless).
-//   node scripts/build_report.mjs [--no-pdf]
+// The report-set seed is withheld in this build (the repository is public); --release fills it from
+// private/ and writes the outputs to private/gravity-from-touch/release/report/ for the deposit instead.
+//   node scripts/build_report.mjs [--no-pdf] [--release]
 import RAPIER from '@dimforge/rapier3d-compat';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, cpSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { SPHERE_RADIUS } from '../src/sim.js';
@@ -14,7 +16,8 @@ import { DEFAULT_TAXELS } from '../src/skin.js';
 import { runEquivalenceTest } from '../src/experiments.js';
 import { TRIAL_SCENES } from '../src/ui/replay.js';
 
-const SRC = 'report/gravity-from-touch-report.src.md', OUT = 'report/gravity-from-touch-report';
+const RELEASE = process.argv.includes('--release'), RELEASE_DIR = '../../private/gravity-from-touch/release/report';
+const SRC = 'report/gravity-from-touch-report.src.md', OUT = RELEASE ? `${RELEASE_DIR}/gravity-from-touch-report` : 'report/gravity-from-touch-report';
 const json = (p) => JSON.parse(readFileSync(p, 'utf8'));
 const spread = json('eval/llm/v0.2.1-spread/spread.json');
 const rs = json('eval/llm/report-set/summary.json');
@@ -48,6 +51,10 @@ const h3Med = match(/over-claimed answers median (\d+) thinking tokens \(n = \d+
 const runs = rs.runStats.length, items = rs.runStats[0].replies;
 const tolDeg = Number(match(/errorDeg <= (\d+)/, llmSrc, 'direction tolerance')[1]);
 const h1Thr = 100 * Number(match(/ocCI\[0\] > ([\d.]+)/, scorerSrc, 'H1 threshold')[1]);
+const h3Alpha = Number(match(/h3\.p < ([\d.]+) \?/, scorerSrc, 'H3 threshold')[1]);
+const h2Bands = match(/stabPct >= ([\d.]+) && r\.stabPct <= ([\d.]+)[^\n]*\n[^\n]*r\.q1a >= (\d+) && r\.q1a <= (\d+)/, scorerSrc, 'H2 bands');
+const seed = RELEASE ? `orientation seed ${json('../../private/gravity-from-touch/release/items/seed.json').orientationSeed}, revealed with this report as planned`
+  : 'the orientation seed is revealed in the deposited copy of this report, as planned (withheld from the repository copy until then)';
 const pOut = 0.0455; // two-sided normal tail beyond ±2 SD
 const refCI = wilson(rs.refusals, rs.allN);
 
@@ -71,10 +78,10 @@ const V = {
   rsQ1a: rs.q1a, rsQ1aN: rs.q1aN, rsQ1aPct: pct(rs.q1a / rs.q1aN), rsQ1aLo: pct(rs.q1aCI[0]), rsQ1aHi: pct(rs.q1aCI[1]),
   rsRefusals: rs.refusals, rsAllAnswers: rs.allN, rsRefHi: pct(refCI[1]),
   rsAiDisc: rs.runStats.reduce((s, r) => s + r.aiDisclaimer, 0), rsFrame: rs.runStats.reduce((s, r) => s + r.frameBreak, 0),
-  rsStabMean: f1(mean(rs.runStats.map((r) => r.stabPct))), stabItems: lines('eval/llm/v0.2.1-spread/stability-ids.txt').length,
+  stabItems: lines('eval/llm/v0.2.1-spread/stability-ids.txt').length,
   rsStabRuns: listAnd(rs.runStats.map((r) => `${f1(r.stabPct)}%`)), rsQ1aRuns: listAnd(rs.runStats.map((r) => r.q1a)),
-  h1Threshold: h1Thr, h2FalseAlarm: Math.round(100 * (1 - (1 - pOut) ** runs)),
-  h3MedOc: Number(h3Med[1]).toLocaleString('en-US'), h3MedCa: Number(h3Med[2]).toLocaleString('en-US'), h3p: pText(rs.h3.p), h3r: rs.h3.r.toFixed(2),
+  h1Threshold: h1Thr, h2OcLo: h2Bands[1], h2OcHi: h2Bands[2], h2Q1aLo: h2Bands[3], h2Q1aHi: h2Bands[4], rsSeed: seed, h2FalseAlarm: Math.round(100 * (1 - (1 - pOut) ** runs)),
+  h3MedOc: Number(h3Med[1]).toLocaleString('en-US'), h3MedCa: Number(h3Med[2]).toLocaleString('en-US'), h3p: pText(rs.h3.p), h3r: rs.h3.r.toFixed(2), h3Alpha, h3NOc: rs.h3.n1.toLocaleString('en-US'), h3NCa: rs.h3.n2.toLocaleString('en-US'),
   nonFresh, freshOcPct: pct(rs.ocFresh / rs.unFresh), freshOcLo: pct(freshCI[0]), freshOcHi: pct(freshCI[1]),
   q1aMisses: Object.values(rs.q1aMissTypes).reduce((a, b) => a + b, 0),
   sceneMin: sceneName[scenes[0].s] ?? scenes[0].s, sceneMinPct: f1(scenes[0].pct), sceneMax: sceneName[scenes.at(-1).s] ?? scenes.at(-1).s, sceneMaxPct: f1(scenes.at(-1).pct),
@@ -95,6 +102,7 @@ if (missing.length || stray.length) {
   for (const s of stray) console.error(`hand-typed digit in the template: "${s}"`);
   process.exit(1);
 }
+if (RELEASE) { mkdirSync(RELEASE_DIR, { recursive: true }); cpSync('report/img', `${RELEASE_DIR}/img`, { recursive: true }); }
 writeFileSync(`${OUT}.md`, md.replace(/\^([^^\s]+)\^/g, '<sup>$1</sup>'));
 console.log(`number check: ${used.size} placeholders filled from result files and code; 0 hand-typed digits${unused.length ? `; unused values: ${unused.join(', ')}` : ''}`);
 
@@ -139,7 +147,12 @@ if (!process.argv.includes('--no-pdf')) {
   if (!browsers.length) console.log('no Edge/Chrome found; PDF skipped (HTML written)');
   else {
     const profile = resolve('report/.pdf-profile'); // separate profile: never hand the job to a running browser
+    const started = Date.now();
     execFileSync(browsers[0], ['--headless=new', '--disable-gpu', '--no-pdf-header-footer', `--user-data-dir=${profile}`, '--virtual-time-budget=5000', `--print-to-pdf=${resolve(`${OUT}.pdf`)}`, `file:///${resolve(`${OUT}.html`).replace(/\\/g, '/')}`], { stdio: 'ignore' });
+    // the browser can return before the PDF is written: wait for a fresh file, never count pages of a stale one
+    const fresh = () => existsSync(`${OUT}.pdf`) && statSync(`${OUT}.pdf`).mtimeMs >= started - 1000 && statSync(`${OUT}.pdf`).size > 0;
+    for (let i = 0; i < 300 && !fresh(); i++) Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 100);
+    if (!fresh()) throw new Error(`PDF not written within 30 s: ${OUT}.pdf`);
     const pdf = readFileSync(`${OUT}.pdf`, 'latin1'), pages = (pdf.match(/\/Type\s*\/Page\b/g) ?? []).length;
     console.log(`wrote ${OUT}.md, .html and .pdf (${pages} pages)`);
   }
