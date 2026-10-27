@@ -6,7 +6,7 @@ Harvested 2026-10-13 from the old project's source ledger (last reassessed 2026-
 
 ## Read beyond the abstract
 
-- Chua, Betley, Marks, Evans. The Consciousness Cluster: Emergent Preferences of Models that Claim to be Conscious. arXiv 2604.13051 (2026). Depth: PARTIAL (Sections 1–7 and Appendices A–D.5, extracted text, figures not viewed; Appendices E–L not read). Read 2026-10-26 by the planner; Keno spot-check pending. Verdict: Narrows (see reading-notes/consciousness-cluster.md). This entry replaces the earlier "read FULL (2026-10-09)" label, for which no log record existed.
+- Chua, Betley, Marks, Evans. The Consciousness Cluster: Emergent Preferences of Models that Claim to be Conscious. arXiv 2604.13051 (2026). Depth: PARTIAL (Sections 1–7 and Appendices A–D.5, extracted text, figures not viewed; Appendices E–L not read). Read 2026-10-26 by the planner; Keno spot-check done 2026-10-26. Verdict: Narrows (see reading-notes/consciousness-cluster.md). This entry replaces the earlier "read FULL (2026-10-09)" label, for which no log record existed.
 - Schlatter, Weinstein-Raun, Ladish (Palisade). Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs. arXiv 2509.14260 v2. Depth: FULL (Sections 1–5, text; figures not viewed). Read 2026-10-26. Verdict: Narrows (see reading-notes/self-preservation.md).
 - Rajamanoharan, Nanda. Self-preservation or Instruction Ambiguity? Examining the Causes of Shutdown Resistance. AI Alignment Forum, 2025. Depth: FULL (main post; comments partly). Read 2026-10-26. Verdict: Narrows; the completed-task condition is already tested (see reading-notes/self-preservation.md).
 
