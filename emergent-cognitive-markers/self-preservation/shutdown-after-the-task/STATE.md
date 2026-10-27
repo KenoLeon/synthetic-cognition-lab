@@ -12,5 +12,8 @@ A design brief: conditions, models within the free tier, sample and seed plan, s
 ## Decisions
 - 2026-10-26: Keno chose Self-preservation as the first marker (by order) and this experiment as its first. Recorded go for the Idea stage.
 
+## Open decisions
+- → Emergent Cognitive Markers implementer (from the lab implementer, 2026-10-26, Keno's planner decision): record in this experiment's files why Self-preservation was chosen over the MARKERS.md criteria's top score (Metacognition). Suggested wording: "Chosen over the criteria's top score (Metacognition) because it is well studied, so a replication on our bench is quick, and known edge cases give room for something new. Work will be labeled replication/extension; nulls reported in full."
+
 ## Log
 - 2026-10-26: Opened at Idea.

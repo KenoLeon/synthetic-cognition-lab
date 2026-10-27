@@ -44,6 +44,8 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 
 ## Where things stand
 
+**Lab paused from 2026-10-26** (paused by Keno): no track work until Keno resumes it. When it resumes, in order: the announcement decision (after the k3no.com link is live), then a funding scan, then funding inquiries. The stages below are where each experiment stood when the lab paused.
+
 **Stages:** Idea → Designed → Building → Results → Report → Published, shown as ●○○○○○ to ●●●●●●. *Paused* and *Archived* sit outside the bar.
 
 ### Live
@@ -240,7 +242,7 @@ Then do the brief Keno pastes (if none, fix the mismatches from step 2 and stop)
 ## Public output
 
 Every experiment ends with:
-1. **A card on the lab page** (https://kenoleon.github.io/synthetic-cognition-lab/; linked from k3no.com): question, status, one-line finding, links. One section per track; a track can open with an introduction before its first experiment.
+1. **A card on the lab page** at its official address, https://kenoleon.github.io/synthetic-cognition-lab/ (GitHub Pages); k3no.com links to it (link pending Keno's confirmation): question, status, one-line finding, links. One section per track; a track can open with an introduction before its first experiment.
 2. **The artifact:** a live demo (a static build that runs in the browser where possible) and/or runnable code.
 3. **A short report** (2–6 pages) on Zenodo, mirrored on the site.
 4. **The repository,** public during development. Deploying the lab page or a report needs Keno's explicit go; the page deploys only by manual trigger.
@@ -262,6 +264,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-10-26 — Lab paused by Keno: no track work until Keno resumes it; resume order: announcement decision (after the k3no.com link is live), funding scan, funding inquiries. Official lab address: the GitHub Pages site; the k3no.com link is pending Keno's confirmation. Request tagged "→ Emergent Cognitive Markers implementer" in Shutdown After the Task's STATE.md (why Self-preservation over Metacognition). Lab page not deployed.
 - 2026-10-26 — Keno's explicit go to deploy the lab page ("go", to the lab implementer); deployed via the Pages workflow.
 - 2026-10-26 — Emergent Cognitive Markers track introduction complete (2026-10-26, commit 408f2ea).
 - 2026-10-26 — Sync brief: Shutdown After the Task in Coming up at Idea (shown; replaces the hidden placeholder); Track introductions now "None in progress"; README: lab page linked from k3no.com, track-introduction STATE.md rule, announcements need Keno's go, cleared session per brief, "→ lab implementer" requests. Lab page not yet deployed (waiting for Keno's go).
