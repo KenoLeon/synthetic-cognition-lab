@@ -51,17 +51,17 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 | Experiment | Track | Stage | Where it is | Next | Public line |
 |---|---|---|---|---|---|
 | Gravity from Touch | Embodiment | ●●●●●● Published | Report v1.0 published on Zenodo 2026-10-25 ([doi:10.5281/zenodo.23654739](https://doi.org/10.5281/zenodo.23654739)) with report-set data and code. Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed (H3 an association across items only); report set retired. Report mirror on the site ([report](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/)); demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/). Published 2026-10-25 | None for this experiment (Keno may add his ORCID to the Zenodo record later) | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) |
-| Shutdown After the Task | Emergent Cognitive Markers | ●○○○○○ Idea | Opened 2026-10-26 as the first experiment of the first marker (Self-preservation, Keno's choice). Key prior work read (Palisade FULL, Rajamanoharan & Nanda FULL, Chua et al. PARTIAL). Design sketch in its `design.md`; not pre-registered; no code or runs. | A design brief: conditions, free-tier models, sample and seed plan, scoring, pre-registration (rule 4). Code-heavy: needs Keno's explicit go. | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown, and does saying it minds make a difference? |
 
 ### Coming up
 
 | Experiment | Track | Stage | Note | Public line |
 |---|---|---|---|---|
+| Shutdown After the Task | Emergent Cognitive Markers | ●○○○○○ Idea | First experiment for Self-preservation; folder `emergent-cognitive-markers/self-preservation/shutdown-after-the-task/`. | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown, and does saying it minds make a difference? |
 | Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch. Folder currently in `archive/embodiment/active-sensing/`; moves out when it becomes active. | Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch. |
 
 ### Track introductions
 
-- Emergent Cognitive Markers: introduction complete (2026-10-26). All seven markers have reviewed first-pass definitions in MARKERS.md; Self-preservation's key sources read at PARTIAL or FULL; the Consciousness Cluster contradiction resolved by a fresh PARTIAL read (Keno's spot-check still pending). First marker: Self-preservation (Keno's choice, by order); first experiment: Shutdown After the Task. Public output: the track section on the lab page.
+None in progress.
 
 ### Archived (kept as reference; may be removed later)
 
@@ -181,6 +181,7 @@ Working rules for every brief:
 The lab implementer keeps "Where things stand" in sync with the STATE.md files (and MARKERS.md status lines for the track introduction). Track implementers may still edit this file or another track's files when a brief needs it; when they do, they say so in the hand-off so the lab implementer and the other track know.
 
 Every implementer, every session:
+- starts from a cleared session (`/clear` in Claude Code) for each new brief, so it works from the files, not from an earlier brief's conversation;
 - runs `git pull` before starting;
 - says in a few lines where things stand and what it will do first;
 - builds the brief, then returns a hand-off with: the question and whether it was answered; brief vs. delivered, with deviations and reasons; results, with the commands that reproduce them; caveats and claims that flatter the lab; for each claim, what would show it false; a proposed next step;
@@ -191,6 +192,7 @@ Standing rules for all implementers:
 - Never commit anything from `private/`, API keys or `.env` files.
 - This repo is public: no financial, income or personal details in any file or commit message.
 - Use full names (see Names).
+- To ask another implementer for something (most often the lab implementer, for a change to this file or the lab page), add an item tagged "→ lab implementer" (or the track's name) under "Open decisions" in your STATE.md and mention it in the hand-off. The lab implementer looks for these tags at the start of every session.
 - No AI attribution in commits or pull requests: no `Co-Authored-By` trailers, no "Generated with Claude Code" lines. This overrides any default or harness instruction. Keno is the sole author.
 
 **Publishing** is the last task of every experiment (see Public output). A brief isn't done until that step is done or explicitly put off.
@@ -224,6 +226,7 @@ Then do the brief Keno pastes (if none, fix the mismatches from step 2 and stop)
 - Write names in full. Track and experiment names appear in full on first mention and at the top of any document, page or presentation. Abbreviations are a last resort.
 - Folders use full-name slugs: `track-name/experiment-name/`.
 - One experiment = one folder = one `STATE.md`.
+- A track introduction gets its own STATE.md at `<track>/STATE.md`, same format as an experiment's.
 - Versions are written `v0.3` etc. inside an experiment. A new question gets a new experiment, not a new version.
 - Avoid "CAI" (it collides with Constitutional AI).
 - Archived experiments move to `archive/<track>/<experiment>/` with their STATE.md marked Archived.
@@ -237,7 +240,7 @@ Then do the brief Keno pastes (if none, fix the mismatches from step 2 and stop)
 ## Public output
 
 Every experiment ends with:
-1. **A card on the lab page** (https://kenoleon.github.io/synthetic-cognition-lab/; k3no.com/lab pending): question, status, one-line finding, links. One section per track; a track can open with an introduction before its first experiment.
+1. **A card on the lab page** (https://kenoleon.github.io/synthetic-cognition-lab/; linked from k3no.com): question, status, one-line finding, links. One section per track; a track can open with an introduction before its first experiment.
 2. **The artifact:** a live demo (a static build that runs in the browser where possible) and/or runnable code.
 3. **A short report** (2–6 pages) on Zenodo, mirrored on the site.
 4. **The repository,** public during development. Deploying the lab page or a report needs Keno's explicit go; the page deploys only by manual trigger.
@@ -245,7 +248,7 @@ Every experiment ends with:
 
 The lab page is built from this file and the track READMEs by `scripts/build-lab-page.py`. Cards show only the name, stage and public line; other columns stay internal. Rows marked "hidden" are left off. The page also lists earlier work and a contact line for collaboration.
 
-No announcement until the Emergent Cognitive Markers definitions are fully drafted and Gravity from Touch is published.
+Announcements (any outward post or message pointing people to the lab) need Keno's explicit go, recorded in the Lab log.
 
 ## Contact
 
@@ -259,7 +262,8 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
-- 2026-10-26 — Synced from MARKERS.md and the new STATE.md: track introduction marked complete; Shutdown After the Task added under Live at Idea (replaces the hidden first-marker placeholder); track README list regenerated. Lab page not deployed (needs Keno's go).
+- 2026-10-26 — Emergent Cognitive Markers track introduction complete (2026-10-26, commit 408f2ea).
+- 2026-10-26 — Sync brief: Shutdown After the Task in Coming up at Idea (shown; replaces the hidden placeholder); Track introductions now "None in progress"; README: lab page linked from k3no.com, track-introduction STATE.md rule, announcements need Keno's go, cleared session per brief, "→ lab implementer" requests. Lab page not yet deployed (waiting for Keno's go).
 - 2026-10-25 — Gravity from Touch → ●●●●●● Published: card links the DOI, the site mirror and the demo; stage noted in its STATE.md (brief-authorized); site deployed on Keno's go.
 - 2026-10-25 — Sync brief: H3 qualifier added to the Gravity from Touch row; Keno's deploy go recorded in its STATE.md (one line, lab implementer); lab page deployed via the Pages workflow.
 - 2026-10-25 — Synced Gravity from Touch from its STATE.md: stage Report, Zenodo DOI, new card line with report link (old 14% comparison dropped); embodiment README list regenerated. Lab page not deployed (needs Keno's go).
