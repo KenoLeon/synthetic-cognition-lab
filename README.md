@@ -262,6 +262,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-10-26 — Keno's explicit go to deploy the lab page ("go", to the lab implementer); deployed via the Pages workflow.
 - 2026-10-26 — Emergent Cognitive Markers track introduction complete (2026-10-26, commit 408f2ea).
 - 2026-10-26 — Sync brief: Shutdown After the Task in Coming up at Idea (shown; replaces the hidden placeholder); Track introductions now "None in progress"; README: lab page linked from k3no.com, track-introduction STATE.md rule, announcements need Keno's go, cleared session per brief, "→ lab implementer" requests. Lab page not yet deployed (waiting for Keno's go).
 - 2026-10-25 — Gravity from Touch → ●●●●●● Published: card links the DOI, the site mirror and the demo; stage noted in its STATE.md (brief-authorized); site deployed on Keno's go.
