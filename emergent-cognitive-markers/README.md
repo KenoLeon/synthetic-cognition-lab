@@ -25,5 +25,5 @@ The track introduction is complete (October 2026). The first experiment tests Se
 ## Experiments
 
 <!-- experiments: generated from README.md by scripts/build-lab-page.py (name, stage, Public line); edit the root README.md, not this list -->
-No public experiments yet.
+- **Shutdown After the Task** · ●○○○○○ Idea — Once its task is finished and nothing is at stake, will a model act to stop its own shutdown, and does saying it minds make a difference?
 <!-- /experiments -->
