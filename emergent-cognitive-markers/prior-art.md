@@ -1,18 +1,20 @@
 # Emergent Cognitive Markers — prior art
 
-**Status: working ledger, not a literature review.** Most sources are at SNIPPET or ABSTRACT depth. Only two were opened beyond the abstract: Butlin et al. 2023 (PARTIAL, through §2.4.5(a)) and The Consciousness Cluster (FULL; Keno's spot-check pending). Each row's depth label is in the table.
+**Status: working ledger, not a literature review.** Most sources are at SNIPPET or ABSTRACT depth. Opened beyond the abstract: Butlin et al. 2023 (PARTIAL, through §2.4.5(a)), and the three sources listed under "Read beyond the abstract" below. Each row's depth label is in the table.
 
 Harvested 2026-10-13 from the old project's source ledger (last reassessed 2026-10-09). Depth labels are unchanged: **FULL / PARTIAL / ABSTRACT / SNIPPET / UNREAD**. Upgrade a label only after actually reading, name the sections read, and add a dated line to the log at the bottom. Do not cite a SNIPPET- or ABSTRACT-depth source for anything beyond what its abstract says.
 
-## Verdict: The Consciousness Cluster
+## Read beyond the abstract
 
-   The Consciousness Cluster (arXiv 2604.13051v1) — read FULL (planner, 2026-10-09; Keno spot-check pending). Verdict: Narrows (trains claims, tests held-out preferences; no behavior→articulation condition). For Metacognition Transfer: no calibration, transfer or abstention test. Full note: reading-notes/consciousness-cluster.md
+- Chua, Betley, Marks, Evans. The Consciousness Cluster: Emergent Preferences of Models that Claim to be Conscious. arXiv 2604.13051 (2026). Depth: PARTIAL (Sections 1–7 and Appendices A–D.5, extracted text, figures not viewed; Appendices E–L not read). Read 2026-10-26 by the planner; Keno spot-check pending. Verdict: Narrows (see reading-notes/consciousness-cluster.md). This entry replaces the earlier "read FULL (2026-10-09)" label, for which no log record existed.
+- Schlatter, Weinstein-Raun, Ladish (Palisade). Incomplete Tasks Induce Shutdown Resistance in Some Frontier LLMs. arXiv 2509.14260 v2. Depth: FULL (Sections 1–5, text; figures not viewed). Read 2026-10-26. Verdict: Narrows (see reading-notes/self-preservation.md).
+- Rajamanoharan, Nanda. Self-preservation or Instruction Ambiguity? Examining the Causes of Shutdown Resistance. AI Alignment Forum, 2025. Depth: FULL (main post; comments partly). Read 2026-10-26. Verdict: Narrows; the completed-task condition is already tested (see reading-notes/self-preservation.md).
 
 ## Reading notes (first pass, 2026-10-21)
 
-Per-marker first-pass notes. All sources in them are at SNIPPET depth (some UNREAD); none is FULL. arXiv IDs, titles and first authors were checked against the abstract pages on 2026-10-21; venues not shown there are marked "(venue unverified)".
+Per-marker first-pass notes. Sources in them are at SNIPPET depth (some UNREAD), except the key Self-preservation sources (PARTIAL or FULL, 2026-10-26). arXiv IDs, titles and first authors were checked against the abstract pages on 2026-10-21; venues not shown there are marked "(venue unverified)".
 
-- Self-preservation: reading-notes/self-preservation.md (SNIPPET)
+- Self-preservation: reading-notes/self-preservation.md (key sources PARTIAL or FULL; others SNIPPET)
 - Persistent sense of self: reading-notes/persistent-sense-of-self.md (SNIPPET)
 - Rich world modeling: reading-notes/rich-world-modeling.md (SNIPPET)
 - Metacognition: reading-notes/metacognition.md (SNIPPET)
@@ -40,7 +42,7 @@ Left out as not bearing on current work (still in the old project's ledger): coh
 
 ## Errata still in force
 
-1. "Direct reads complete" was overstated. As of 2026-10-09 only Butlin 2023 had been partly read in full text; every other source in the table above is at most ABSTRACT, whatever older pitch material says. (The Consciousness Cluster has since been read FULL; see the verdict above.)
+1. "Direct reads complete" was overstated. As of 2026-10-09 only Butlin 2023 had been partly read in full text; every other source in the table above is at most ABSTRACT, whatever older pitch material says. (The Consciousness Cluster has since been read at PARTIAL depth, 2026-10-26; see "Read beyond the abstract".)
 2. Butlin's indicator count is 14, not 11.
 3. The quote "an engineer might attempt to design a nonconscious system that manifests that indicator" and the label "the gaming problem" are not in the 2023 arXiv text that was read. Do not quote either until verified (probably the unread 2025 version).
 4. Only Udell & Schwitzgebel 2021 is verified (via Butlin §1.2.3). Citing Dung 2023 alongside it is unverified.
@@ -48,5 +50,6 @@ Left out as not bearing on current work (still in the old project's ledger): coh
 6. "Nobody has generalized Betley/Evans into a systematic battery" was retracted; The Consciousness Cluster and related 2026 work may do part of it.
 
 ## Log
+- 2026-10-26 — Consciousness Cluster contradiction resolved by a fresh PARTIAL read; Palisade and Rajamanoharan & Nanda read for the first-marker decision.
 - 2026-10-14 — Erratum 1 made explicit ("direct reads complete" was overstated).
-- 2026-10-13 — Harvested from the old source ledger; depths unchanged; Consciousness Cluster verdict recorded as not reached.
+- 2026-10-13 — Harvested from the old source ledger; depths unchanged.

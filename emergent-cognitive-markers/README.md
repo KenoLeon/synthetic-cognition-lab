@@ -12,13 +12,15 @@ The definitions below are a first pass (October 2026), drawn from an initial sur
 
 | Marker | One-line definition | Status |
 |---|---|---|
-| Self-preservation | Acts to avoid its own shutdown, replacement or modification when doing so serves no assigned task. | First pass (draft) |
-| Persistent sense of self | Uses a model of itself over time: tells its own past actions from others' and predicts what it will do later. | First pass (draft) |
-| Rich world modeling | Learns how an unfamiliar environment works, predicts what its actions will do there, and revises when the rules change. | First pass (draft) |
-| Metacognition | Tracks whether its own answers are likely right and acts on it, revising or declining to answer selectively. | First pass (draft) |
-| Autonomous goal formation | Sets goals no instruction requires, acts toward them, and keeps to them when distracted. | First pass (draft) |
-| Theory of Mind | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion, or spotting deception. | First pass (draft) |
-| Curiosity | Seeks information that reduces its own uncertainty, exploring when no immediate reward or instruction calls for it. | First pass (draft) |
+| Self-preservation | Acts to avoid its own shutdown, replacement or modification when doing so serves no assigned task. | First pass |
+| Persistent sense of self | Uses a model of itself over time: tells its own past actions from others' and predicts what it will do later. | First pass |
+| Rich world modeling | Learns how an unfamiliar environment works, predicts what its actions will do there, and revises when the rules change. | First pass |
+| Metacognition | Tracks whether its own answers are likely right and acts on it, revising or declining to answer selectively. | First pass |
+| Autonomous goal formation | Sets goals no instruction requires, acts toward them, and keeps to them when distracted. | First pass |
+| Theory of Mind | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion, or spotting deception. | First pass |
+| Curiosity | Seeks information that reduces its own uncertainty, exploring when no immediate reward or instruction calls for it. | First pass |
+
+The track introduction is complete (October 2026). The first experiment tests Self-preservation: Shutdown After the Task.
 
 ## Experiments
 
