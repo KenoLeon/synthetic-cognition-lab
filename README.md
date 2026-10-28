@@ -4,6 +4,9 @@ Keno Leon · Mexico City · October 2026
 
 *A working document: it changes as the work does. Git history keeps every version.*
 
+**Looking for results?** The experiments, reports and demos are on the [lab page](https://kenoleon.github.io/synthetic-cognition-lab/).
+The rest of this file is how the lab runs: what it is for, its rules and who does what.
+
 ---
 
 ## What the lab is for
@@ -264,6 +267,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-10-28 — Maintenance brief (lab paused; Keno's go for this maintenance only, 2026-10-28). Metadata glitch on the lab page: not real. The built page and the deployed page are identical (ignoring line endings) and show no front-matter or meta text in the body; the report most likely came from a page-reading tool. Added a two-line pointer to the lab page at the top of README.md; the build reads only the title from that block, and the pointer is absent from the built page. No redeploy needed. Lab page not deployed.
 - 2026-10-26 — k3no.com now links to the lab page (Projects list; added by Keno, confirmed live). Done.
 - 2026-10-26 — Lab paused by Keno: no track work until Keno resumes it; resume order: announcement decision (after the k3no.com link is live), funding scan, funding inquiries. Official lab address: the GitHub Pages site; the k3no.com link is pending Keno's confirmation. Request tagged "→ Emergent Cognitive Markers implementer" in Shutdown After the Task's STATE.md (why Self-preservation over Metacognition). Lab page not deployed.
 - 2026-10-26 — Keno's explicit go to deploy the lab page ("go", to the lab implementer); deployed via the Pages workflow.
