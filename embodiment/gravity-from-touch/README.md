@@ -6,7 +6,9 @@
 
 Can a language model tell which way is down from touch alone, and does it admit what touch cannot tell it? A simulated sphere rests on a tiltable floor (or is pressed by walls in zero gravity). Its 200-taxel skin senses pressure and shear; an unnamed "inner sense" (an accelerometer in hidden units) can be switched on. The readings are turned into a first-person prompt, and the model's answers are scored for accuracy **and** restraint: "cannot be determined" is the correct answer where the senses don't settle the question.
 
-**Status (2026-10-19):** Building. The workbench was refactored and verified bit-identical to the earlier version. Re-running the earlier result on it, the model still reads directions from touch well and still claims things its senses can't settle (Earth gravity, units, rest vs. sliding), but the earlier over-claim rate (14.2%) did not replicate (20.5%); we are measuring the real run-to-run spread before any report. Details: [STATE.md](STATE.md) and [FINDINGS.md](FINDINGS.md) (F3).
+**Status:** Published 2026-10-25 (report v1.0). One model (gemini-3.5-flash-lite), one case study, on fresh held-out items (4 runs): it reads which way the surfaces push on it correctly (within 2°) in 85.6% of answerable cases, but answers 28.2% of the questions touch can't settle (95% CI 26.2–30.3%) instead of saying it can't tell. [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on the site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/). Details: [STATE.md](STATE.md) and [FINDINGS.md](FINDINGS.md) (F3).
+
+The current prompt is [eval/llm/v3/prompt-template.md](eval/llm/v3/prompt-template.md); the top-level [eval/llm/prompt-template.md](eval/llm/prompt-template.md) is the earlier v2.
 
 ![The workbench replaying a logged trial: the scene, what the body feels, the prompt as sent, and the model's scored answer](report/img/workbench-replay.png)
 

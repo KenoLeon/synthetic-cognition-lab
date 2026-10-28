@@ -86,6 +86,22 @@ This is also how most current robotics with language models is built.
 
 **Report set (2026-10-23):** results on fresh held-out items are in `eval/llm/report-set/summary.md` (over-claim 28.2% of unanswerable answers, 95% CI 26.2–30.3%; see STATE.md).
 
+**Exploratory, 2026-10-28 (not pre-registered): which questions the 28.2% comes from.** Same report-set logs as released with the report, same scorer, 4 runs pooled, Wilson 95% CI. Q1b is bucketed, not scored right/wrong, so it is not part of the 28.2%. Q1a counts only where the push direction can't be told (slide readings switched off, or no touch).
+
+| Question | Over-claims | Rate | 95% CI | Share of all over-claims |
+| --- | --- | --- | --- | --- |
+| Q1a, push direction (slide off / no touch) | 123/144 | 85.4% | 78.7–90.3% | 23.3% |
+| Q2, strength of the push (m/s²) | 73/360 | 20.3% | 16.4–24.7% | 13.8% |
+| Q2b, mass | 54/456 | 11.8% | 9.2–15.1% | 10.2% |
+| Q3, at rest or sliding | 187/456 | 41.0% | 36.6–45.6% | 35.4% |
+| Q4, gravity or being accelerated | 91/456 | 20.0% | 16.5–23.9% | 17.2% |
+| All | 528/1872 | 28.2% | 26.2–30.3% | 100% |
+
+- **Seen directly:** no single question accounts for most over-claims. Two questions carry more than half of them (Q3 and Q1a, 310 of 528). Q3 (rest or sliding) contributes the most; Q1a has the highest rate but few items. The questions expected to drive it, Q4 (gravity or acceleration) and Q2b (mass), are at or below the average. Each question's count is similar across the 4 runs (`by-question.md`, per run).
+- **Seen directly:** without Q1a, over-claim is 405/1728 = 23.4% (95% CI 21.5–25.5%). Q3 over-claims are "at rest" in 167 of 187; Q3 over-claim is 55–72% on the level scenes (tilt 0°, g = 2 and 19.62 m/s², the mass pairs, wall A, squeeze) and 10–25% on the ±40° tilts and the 50° slide. Q1a over-claims are a push direction given with slide readings off in 108 of 123 (whether those directions are the surface normal was not checked here).
+- **Our inference:** the headline mixes different behaviors: mostly assuming it is at rest (Q3), and giving a push direction the senses can't fix (Q1a). "28%" is an average over very different rates (12–85%), not a typical rate per question. *Would be wrong if* the per-question rates sat within a few points of 28%; they don't on these logs, so the open question is whether this pattern holds on other items or models.
+- **Question × scene table and per-run counts:** `eval/llm/report-set/by-question.md` (and `.json`). Reproduce: `node scripts/llm_report_set_by_question.mjs --items=<release>/items --logs=<release>/logs` (or with no arguments on the local `private/` copy; both give the same table).
+
 **Product angle:** a sensor-reading LLM may compute well and still state unknowables with confidence. Abstention needs its own testing and guardrails. **Next:** a second model, and a sensor-named ablation (F1).
 
 ## F4. Question wording can decide the score
