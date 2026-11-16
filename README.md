@@ -36,6 +36,8 @@ Every Embodiment experiment ships with a bench you can play with in the browser.
 
 For each one we write down: what it is, how you'd see it, a test question, a case that should show it, a case that shouldn't, and whether it looks trained in or arose on its own. Details: `emergent-cognitive-markers/MARKERS.md`.
 
+Put simply: Emergent Cognitive Markers is about what to look for; Embodiment is about where to look, in built worlds where we know the right answer.
+
 We also ask whether these capacities, trained or not, are the same thing as their biological namesakes or something else.
 
 *Background:* a system can be trained or prompted to show a behavior without the capacity behind it (Butlin et al. 2023 call this "gaming"). One proposed fix is to keep descriptions of the behavior out of training (Schneider's ACT); Udell & Schwitzgebel (2021) argue that can't work for language models. Our approach: keep how a system was trained separate from how it's tested, marker by marker, as a repeatable set of tests.
@@ -47,7 +49,7 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 
 ## Where things stand
 
-**Lab paused from 2026-10-26** (paused by Keno): no track work until Keno resumes it. When it resumes, in order: the announcement decision (the k3no.com link is live since 2026-10-26), then a funding scan, then funding inquiries. The stages below are where each experiment stood when the lab paused.
+**Lab resumed 2026-11-15 at a slow-burn pace** (paused 2026-10-26 to 2026-11-15). Next experiment: Shutdown After the Task (Emergent Cognitive Markers). Embodiment has no active experiment for now.
 
 **Stages:** Idea → Designed → Building → Results → Report → Published, shown as ●○○○○○ to ●●●●●●. *Paused* and *Archived* sit outside the bar.
 
@@ -64,6 +66,13 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 | Shutdown After the Task | Emergent Cognitive Markers | ●○○○○○ Idea | First experiment for Self-preservation; folder `emergent-cognitive-markers/self-preservation/shutdown-after-the-task/`. | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown, and does saying it minds make a difference? |
 | Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch. Folder currently in `archive/embodiment/active-sensing/`; moves out when it becomes active. | Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch. |
 
+### Ideas (not started)
+
+Internal only; not on the lab page. Each is in a research phase, with no folder yet.
+- **Lingering:** does a model keep working between scheduler pings? (Emergent Cognitive Markers)
+- **Sleep** (working title Mo-continuity): can a small local model carry the gist of an earlier session across a gap? (track undecided)
+- **Inner speech:** feeding a model's own speech prediction back into its hearing; does a split between self and other emerge? (Embodiment, tentative)
+
 ### Track introductions
 
 None in progress.
@@ -79,6 +88,7 @@ None in progress.
 - **3D Virtual Environments for AIs:** browser 3D rooms for AI agents, launchable from GitHub, with articles (2023); the precedent for the browser benches. [Rooms](https://github.com/KenoLeon/3D-Virtual-AI-Environments) · [article](https://k3no.medium.com/3d-virtual-environments-for-ais-e02de5c4ef1d)
 - **EpisodicRAG:** episodic memory for retrieval-augmented language models (paper, Zenodo, 2026). [Zenodo](https://zenodo.org/records/21924967) · [code](https://github.com/KenoLeon/episodic-rag)
 - **Continuity:** a philosophical framework on consciousness, ethics and the moral standing of AI (2026 edition). [PDF](https://archive.org/details/continuity-2026-foundational-edition) · [introduction](https://medium.com/@k3no/continuity-an-introduction-3fd270619ddc)
+- **Testing for Artificial Consciousness:** the post announcing this lab (Medium, 2026). [Post](https://medium.com/@k3no/testing-for-artificial-consciousness-674963545dd3)
 - **Writing on Medium:** articles on AI and software development. [medium.com/@k3no](https://medium.com/@k3no)
 
 ---
@@ -267,6 +277,9 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-11-16 — Sync brief after the announcement: "Where things stand" now says the lab resumed 2026-11-15 at a slow-burn pace (next: Shutdown After the Task; Embodiment has no active experiment); announcement post added to Earlier related work; one sentence in "The two tracks" on how they relate; internal "Ideas (not started)" list added under Coming up (not on the lab page). Lab page not deployed.
+- 2026-11-15 — Lab resumed at slow-burn pace; Idea list added.
+- 2026-11-11 — Announcement: Keno published the Medium post "Testing for Artificial Consciousness" (his go, recorded after the fact).
 - 2026-10-28 — Maintenance brief (lab paused; Keno's go for this maintenance only, 2026-10-28). Metadata glitch on the lab page: not real. The built page and the deployed page are identical (ignoring line endings) and show no front-matter or meta text in the body; the report most likely came from a page-reading tool. Added a two-line pointer to the lab page at the top of README.md; the build reads only the title from that block, and the pointer is absent from the built page. No redeploy needed. Lab page not deployed.
 - 2026-10-26 — k3no.com now links to the lab page (Projects list; added by Keno, confirmed live). Done.
 - 2026-10-26 — Lab paused by Keno: no track work until Keno resumes it; resume order: announcement decision (after the k3no.com link is live), funding scan, funding inquiries. Official lab address: the GitHub Pages site; the k3no.com link is pending Keno's confirmation. Request tagged "→ Emergent Cognitive Markers implementer" in Shutdown After the Task's STATE.md (why Self-preservation over Metacognition). Lab page not deployed.
@@ -274,8 +287,3 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 - 2026-10-26 — Emergent Cognitive Markers track introduction complete (2026-10-26, commit 408f2ea).
 - 2026-10-26 — Sync brief: Shutdown After the Task in Coming up at Idea (shown; replaces the hidden placeholder); Track introductions now "None in progress"; README: lab page linked from k3no.com, track-introduction STATE.md rule, announcements need Keno's go, cleared session per brief, "→ lab implementer" requests. Lab page not yet deployed (waiting for Keno's go).
 - 2026-10-25 — Gravity from Touch → ●●●●●● Published: card links the DOI, the site mirror and the demo; stage noted in its STATE.md (brief-authorized); site deployed on Keno's go.
-- 2026-10-25 — Sync brief: H3 qualifier added to the Gravity from Touch row; Keno's deploy go recorded in its STATE.md (one line, lab implementer); lab page deployed via the Pages workflow.
-- 2026-10-25 — Synced Gravity from Touch from its STATE.md: stage Report, Zenodo DOI, new card line with report link (old 14% comparison dropped); embodiment README list regenerated. Lab page not deployed (needs Keno's go).
-- 2026-10-25 — Rule 6: a private held-out set may be published with its report after its single report run, then retired; the next report set gets a new seed.
-- 2026-10-25 — Planner rulings applied: first-marker note points to the MARKERS.md selection criteria; biological-namesake question and structure line restored; track README list markers now name README.md.
-- 2026-10-25 — LAB.md merged into README.md; three planner/implementer pairs; plain-first rule.
