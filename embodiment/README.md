@@ -14,5 +14,4 @@ Play with the simulated body, or replay logged eval trials (the scene, the readi
 
 <!-- experiments: generated from README.md by scripts/build-lab-page.py (name, stage, Public line); edit the root README.md, not this list -->
 - **[Gravity from Touch](gravity-from-touch/)** · ●●●●●● Published — Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/)
-- **Active Sensing** · ●●○○○○ Designed — Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch.
 <!-- /experiments -->

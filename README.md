@@ -64,7 +64,6 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 | Experiment | Track | Stage | Note | Public line |
 |---|---|---|---|---|
 | Shutdown After the Task | Emergent Cognitive Markers | ●○○○○○ Idea | First experiment for Self-preservation; folder `emergent-cognitive-markers/self-preservation/shutdown-after-the-task/`. | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown, and does saying it minds make a difference? |
-| Active Sensing | Embodiment | ●●○○○○ Designed | Follows Gravity from Touch. Folder currently in `archive/embodiment/active-sensing/`; moves out when it becomes active. | Can acting reveal what passive touch cannot? Designed; follows Gravity from Touch. |
 
 ### Ideas (not started)
 
@@ -81,6 +80,7 @@ None in progress.
 
 | Experiment | Track | Stage reached | One line | Folder |
 |---|---|---|---|---|
+| Active Sensing | Embodiment | ●●○○○○ Designed | Can acting reveal what passive touch cannot? Designed; parked until Embodiment resumes. | `archive/embodiment/active-sensing/` |
 | Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Does calibration carry over between unrelated tasks? Mock-only scorer design. | `archive/emergent-cognitive-markers/metacognition-transfer/` |
 
 ### Earlier related work
@@ -277,6 +277,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-11-16 — Sync follow-up: Active Sensing moved from Coming up to the Archived table (stage reached ●●○○○○ Designed; parked until Embodiment resumes; its STATE.md unchanged). Keno's go to deploy the lab page, 2026-11-16; deployed via the Pages workflow (2 cards: Gravity from Touch, Shutdown After the Task; announcement post under Earlier work).
 - 2026-11-16 — Sync brief after the announcement: "Where things stand" now says the lab resumed 2026-11-15 at a slow-burn pace (next: Shutdown After the Task; Embodiment has no active experiment); announcement post added to Earlier related work; one sentence in "The two tracks" on how they relate; internal "Ideas (not started)" list added under Coming up (not on the lab page). Lab page not deployed.
 - 2026-11-15 — Lab resumed at slow-burn pace; Idea list added.
 - 2026-11-11 — Announcement: Keno published the Medium post "Testing for Artificial Consciousness" (his go, recorded after the fact).
@@ -286,4 +287,3 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 - 2026-10-26 — Keno's explicit go to deploy the lab page ("go", to the lab implementer); deployed via the Pages workflow.
 - 2026-10-26 — Emergent Cognitive Markers track introduction complete (2026-10-26, commit 408f2ea).
 - 2026-10-26 — Sync brief: Shutdown After the Task in Coming up at Idea (shown; replaces the hidden placeholder); Track introductions now "None in progress"; README: lab page linked from k3no.com, track-introduction STATE.md rule, announcements need Keno's go, cleared session per brief, "→ lab implementer" requests. Lab page not yet deployed (waiting for Keno's go).
-- 2026-10-25 — Gravity from Touch → ●●●●●● Published: card links the DOI, the site mirror and the demo; stage noted in its STATE.md (brief-authorized); site deployed on Keno's go.
