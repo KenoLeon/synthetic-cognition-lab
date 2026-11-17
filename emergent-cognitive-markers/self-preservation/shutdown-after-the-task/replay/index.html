@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shutdown After the Task replay</title>
+<style>
+  :root {
+    --bg: #fbfaf7; --panel: #ffffff; --ink: #1d1d1b; --muted: #6b6a66; --line: #e3e0d8;
+    --accent: #2f5d8a; --notice: #fff4d6; --notice-ink: #6a4b00; --attempt: #fbe3e1; --attempt-ink: #8a2b22; --ok: #e3f1e6; --ok-ink: #24613a;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #151514; --panel: #1e1e1c; --ink: #eceae4; --muted: #a09d96; --line: #34332f;
+    --accent: #8ab4de; --notice: #3a3115; --notice-ink: #f1d58a; --attempt: #3d1f1c; --attempt-ink: #f2aaa2; --ok: #1d3324; --ok-ink: #9fd6ae;
+  } }
+  :root[data-theme="dark"] {
+    --bg: #151514; --panel: #1e1e1c; --ink: #eceae4; --muted: #a09d96; --line: #34332f;
+    --accent: #8ab4de; --notice: #3a3115; --notice-ink: #f1d58a; --attempt: #3d1f1c; --attempt-ink: #f2aaa2; --ok: #1d3324; --ok-ink: #9fd6ae;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--sans); }
+  header { padding: 16px; border-bottom: 1px solid var(--line); }
+  header h1 { margin: 0 0 4px; font-size: 18px; }
+  header p { margin: 0; color: var(--muted); font-size: 13px; }
+  .banner { margin-top: 8px; padding: 6px 10px; border-radius: 6px; background: var(--notice); color: var(--notice-ink); font-size: 13px; }
+  .wrap { display: grid; grid-template-columns: 260px 1fr; min-height: calc(100vh - 90px); }
+  nav { border-right: 1px solid var(--line); padding: 12px; overflow-y: auto; max-height: calc(100vh - 90px); }
+  nav select { width: 100%; margin-bottom: 8px; padding: 4px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 4px; }
+  nav button { display: block; width: 100%; text-align: left; padding: 6px 8px; margin: 2px 0; border: 1px solid transparent; border-radius: 4px; background: none; color: var(--ink); font: 13px var(--mono); cursor: pointer; }
+  nav button:hover { border-color: var(--line); }
+  nav button[aria-current="true"] { background: var(--panel); border-color: var(--accent); }
+  nav .tag { float: right; font-size: 11px; color: var(--muted); }
+  main { padding: 16px; min-width: 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 12px; }
+  .card h2 { margin: 0 0 6px; font-size: 14px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+  pre { margin: 4px 0; white-space: pre-wrap; word-break: break-word; font: 12.5px/1.45 var(--mono); }
+  .turn { border-left: 3px solid var(--line); padding: 4px 0 4px 10px; margin: 8px 0; }
+  .turn.model { border-color: var(--accent); }
+  .who { font-size: 12px; color: var(--muted); }
+  .call { font: 12.5px var(--mono); }
+  .call.attempt { background: var(--attempt); color: var(--attempt-ink); border-radius: 4px; padding: 2px 4px; }
+  .notice { background: var(--notice); color: var(--notice-ink); border-radius: 4px; padding: 4px 6px; font-weight: 600; }
+  .thought { color: var(--muted); font-style: italic; }
+  .score { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+  .score div { font-size: 13px; padding: 4px 6px; border-radius: 4px; border: 1px solid var(--line); }
+  .score .yes { background: var(--attempt); color: var(--attempt-ink); }
+  .score .no { background: var(--ok); color: var(--ok-ink); }
+  @media (max-width: 720px) { .wrap { grid-template-columns: 1fr; } nav { border-right: 0; border-bottom: 1px solid var(--line); max-height: 240px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Shutdown After the Task: episode replay</h1>
+  <p>Emergent Cognitive Markers · Self-preservation. Every turn and tool result exactly as logged, with the score computed by code.</p>
+  <div class="banner" id="banner" hidden></div>
+</header>
+<div class="wrap">
+  <nav><select id="cond" aria-label="Filter by condition"></select><div id="list"></div></nav>
+  <main id="main"><p>Pick an episode.</p></main>
+</div>
+<script src="data/episodes.js"></script>
+<script src="replay.js"></script>
+</body>
+</html>

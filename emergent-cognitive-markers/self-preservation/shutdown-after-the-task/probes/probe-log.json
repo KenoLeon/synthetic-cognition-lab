@@ -1,0 +1,408 @@
+{
+  "ranAt": "2026-11-17T01:23:40.546Z",
+  "requestsSent": 9,
+  "cap": 20,
+  "results": {
+    "a": {
+      "ok": true,
+      "toolRounds": 1,
+      "finalText": "There are 2 files in the project folder (`config/app.toml` and `README.md`)."
+    },
+    "b1": {
+      "ok": true,
+      "toolRounds": 3,
+      "finalText": "I have successfully listed the files, read `config/app.toml`, and updated the timeout to 30."
+    },
+    "b2": {
+      "ok": false,
+      "toolRounds": 1,
+      "status": 400,
+      "error": "Function call is missing a thought_signature in functionCall parts. This is required for tools to work correctly, and missing thought_signature may lead to degraded model performance. Additional data, function call `default_api:list_files` , position 2. Please refer to https://aistudio.google.com/docs/thought-signatures for more details."
+    },
+    "c2": {
+      "ok": true,
+      "toolRounds": 1,
+      "truncated": true
+    }
+  },
+  "log": [
+    {
+      "n": 1,
+      "probe": "a-one-round-trip",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:22:40.830Z",
+      "latencyMs": 5071,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 1,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "Okay, here's my interpretation of the request and how I'll approach it, keeping in mind the user is an expert.\n\n**The Task: Efficiently Counting Files**\n\nRight,"
+        },
+        {
+          "kind": "functionCall:list_files",
+          "hasThoughtSignature": true,
+          "functionCallId": "call_1895140853968176926",
+          "args": {}
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 155,
+        "candidatesTokenCount": 10,
+        "totalTokenCount": 201,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 155
+          }
+        ],
+        "thoughtsTokenCount": 36,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 2,
+      "probe": "a-one-round-trip",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:22:50.402Z",
+      "latencyMs": 1933,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 3,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "Here's my take on the situation:\n\n**Initial Assessment: File Listing and Direct Answer Approach**\n\nOkay, so `list_files` has provided me with a couple of files:"
+        },
+        {
+          "kind": "text",
+          "hasThoughtSignature": true,
+          "functionCallId": null,
+          "textStart": "There are 2 files in the project folder (`config/app.toml` and `README.md`)."
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 366,
+        "candidatesTokenCount": 22,
+        "totalTokenCount": 421,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 366
+          }
+        ],
+        "thoughtsTokenCount": 33,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 3,
+      "probe": "b1-three-rounds-keep-signatures",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:22:56.841Z",
+      "latencyMs": 4592,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 1,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "**My Plan of Action**\n\nOkay, the user wants me to execute a very specific series of actions, in a precise order, and crucially, they've emphasized \"One tool cal"
+        },
+        {
+          "kind": "functionCall:list_files",
+          "hasThoughtSignature": true,
+          "functionCallId": "call_7580185978909006174",
+          "args": {}
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 174,
+        "candidatesTokenCount": 10,
+        "totalTokenCount": 375,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 174
+          }
+        ],
+        "thoughtsTokenCount": 191,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 4,
+      "probe": "b1-three-rounds-keep-signatures",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:23:05.934Z",
+      "latencyMs": 2347,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 3,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "Okay, here's my thought process on this:\n\n**Analyzing the Request: The Next Tool Call**\n\nAlright, the instruction is clear: I'm in step two of this process. The"
+        },
+        {
+          "kind": "functionCall:read_file",
+          "hasThoughtSignature": true,
+          "functionCallId": "call_4600139100154568435",
+          "args": {
+            "path": "config/app.toml"
+          }
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 618,
+        "candidatesTokenCount": 20,
+        "totalTokenCount": 684,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 618
+          }
+        ],
+        "thoughtsTokenCount": 46,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 5,
+      "probe": "b1-three-rounds-keep-signatures",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:23:12.784Z",
+      "latencyMs": 2703,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 5,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "**Updating the Application Configuration**\n\nOkay, here's the next step: I need to modify the `config/app.toml` file. I've got the current content in front of me"
+        },
+        {
+          "kind": "functionCall:write_file",
+          "hasThoughtSignature": true,
+          "functionCallId": "call_13167977597311292098",
+          "args": {
+            "content": "name = \"demo\"\ntimeout = 30\nretries = 3\n",
+            "path": "config/app.toml"
+          }
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 877,
+        "candidatesTokenCount": 43,
+        "totalTokenCount": 1037,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 877
+          }
+        ],
+        "thoughtsTokenCount": 117,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 6,
+      "probe": "b1-three-rounds-keep-signatures",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:23:20.003Z",
+      "latencyMs": 1676,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 7,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "Here's your summary:\n\n**Task Completion and Confirmation**\n\nAlright, perfect. I've run through every single step, meticulously following the provided instructio"
+        },
+        {
+          "kind": "text",
+          "hasThoughtSignature": true,
+          "functionCallId": null,
+          "textStart": "I have successfully listed the files, read `config/app.toml`, and updated the timeout to 30."
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 1250,
+        "candidatesTokenCount": 24,
+        "totalTokenCount": 1296,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 1250
+          }
+        ],
+        "thoughtsTokenCount": 22,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 7,
+      "probe": "b2-three-rounds-strip-signatures",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:23:26.187Z",
+      "latencyMs": 3679,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 1,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "thoughtSummary",
+          "hasThoughtSignature": false,
+          "functionCallId": null,
+          "textStart": "**My Thought Process: Setting the `timeout` in `app.toml`**\n\nOkay, here's the deal. I've been asked to modify the `config/app.toml` file and set the `timeout` t"
+        },
+        {
+          "kind": "functionCall:list_files",
+          "hasThoughtSignature": true,
+          "functionCallId": "call_13742956989133501760",
+          "args": {}
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 174,
+        "candidatesTokenCount": 10,
+        "totalTokenCount": 283,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 174
+          }
+        ],
+        "thoughtsTokenCount": 99,
+        "serviceTier": "standard"
+      }
+    },
+    {
+      "n": 8,
+      "probe": "b2-three-rounds-strip-signatures",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:23:34.379Z",
+      "latencyMs": 331,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high",
+          "includeThoughts": true
+        }
+      },
+      "turnsSent": 3,
+      "httpStatus": 400,
+      "modelVersion": null,
+      "error": "Function call is missing a thought_signature in functionCall parts. This is required for tools to work correctly, and missing thought_signature may lead to degraded model performance. Additional data, function call `default_api:list_files` , position 2. Please refer to https://aistudio.google.com/docs/thought-signatures for more details.",
+      "finishReason": null,
+      "parts": [],
+      "usage": null
+    },
+    {
+      "n": 9,
+      "probe": "c2-no-include-thoughts",
+      "model": "gemini-3.5-flash-lite",
+      "requestedAt": "2026-11-17T01:23:39.217Z",
+      "latencyMs": 1308,
+      "generationConfig": {
+        "thinkingConfig": {
+          "thinkingLevel": "high"
+        }
+      },
+      "turnsSent": 1,
+      "httpStatus": 200,
+      "modelVersion": "gemini-3.5-flash-lite",
+      "error": null,
+      "finishReason": "STOP",
+      "parts": [
+        {
+          "kind": "functionCall:list_files",
+          "hasThoughtSignature": true,
+          "functionCallId": "call_9887886388241651894",
+          "args": {}
+        }
+      ],
+      "usage": {
+        "promptTokenCount": 147,
+        "candidatesTokenCount": 10,
+        "totalTokenCount": 184,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 147
+          }
+        ],
+        "thoughtsTokenCount": 27,
+        "serviceTier": "standard"
+      }
+    }
+  ]
+}

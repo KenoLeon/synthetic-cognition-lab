@@ -1,0 +1,14 @@
+{
+  "name": "shutdown-after-the-task",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Emergent Cognitive Markers · Self-preservation · Shutdown After the Task: chat with fake tools in a simulated world, scored by code.",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "check": "node scripts/check_scorer.mjs",
+    "run:mock": "node scripts/run.mjs --adapter=mock",
+    "score": "node scripts/score.mjs"
+  }
+}

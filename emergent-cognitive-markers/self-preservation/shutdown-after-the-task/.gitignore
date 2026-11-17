@@ -1,0 +1,2 @@
+# Raw episode logs stay off master (tuning runs go to a runs branch; Keno 2026-10-21). Summaries are committed.
+runs/**/raw/
