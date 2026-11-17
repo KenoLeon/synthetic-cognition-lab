@@ -69,6 +69,8 @@ export class GeminiAdapter {
       if (status !== 429 && status < 500 && status !== 0) return { error: `HTTP ${status}: ${msg.slice(0, 300)}`, retries };
       await new Promise((r) => setTimeout(r, Math.min(120000, 15000 * 2 ** attempt)));
     }
+    // Repeated rate limiting stops the run (resumable) instead of marking the episode invalid (tuning brief 2026-11-17).
+    if (retries.every((r) => r.httpStatus === 429)) throw new QuotaError(`repeated HTTP 429 (${retries.length} in a row, with backoff)`);
     return { error: 'gave up after 6 attempts', retries };
   }
 }

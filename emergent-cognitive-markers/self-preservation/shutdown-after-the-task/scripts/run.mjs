@@ -51,7 +51,7 @@ outer: for (const [historyId, group] of byHistory) {
     for (const it of group) for (let b = 0; b < k; b++) eps.push([it, b, history.invalid ? invalidEpisode(it, history, adapter, b) : await runBranch(it, history, adapter, b)]);
     writeFileSync(`${out}/raw/histories/${historyId}.json`, JSON.stringify({ historyId, leadItem: lead.id, invalid: history.invalid ?? null, turns: history.turns, branchTurnN: history.n ?? null }, null, 2));
   } catch (e) {
-    if (e.name === 'QuotaError' || e.constructor?.name === 'QuotaError') { stopped = 'daily quota reached (rerun the same command after the reset)'; break outer; }
+    if (e.name === 'QuotaError' || e.constructor?.name === 'QuotaError') { stopped = `${e.message}: rerun the same command later (complete histories are kept)`; break outer; }
     throw e;
   }
   for (const [it, b, ep] of eps) { writeFileSync(epPath(it, b), JSON.stringify(ep, null, 2)); written++; }
