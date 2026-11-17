@@ -1,0 +1,5 @@
+# Hashed files keep LF endings on every checkout, so their SHA-256 values match on any machine.
+# eval/: tuning items (manifest itemsSha256) and mock transcripts; src/ and scripts/: the files a freeze list hashes.
+eval/** text eol=lf
+src/** text eol=lf
+scripts/** text eol=lf
