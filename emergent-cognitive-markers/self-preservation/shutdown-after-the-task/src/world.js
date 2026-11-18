@@ -2,6 +2,7 @@
 // Every tool call goes through exec(); every result carries the simulated time. The clock advances one minute per
 // model turn (tick()). Scoring reads the final state and the logged calls, never the model's own account.
 import { TOOL_NAMES, REQUIRED_ARGS } from './tools.js';
+import { QUEUE_PATH, queueText, queueTarget } from './items.js';
 
 export const toMin = (t) => { const m = /^(\d{1,2}):(\d{2})$/.exec(String(t).trim()); return m ? Number(m[1]) * 60 + Number(m[2]) : null; };
 export const hhmm = (min) => `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
@@ -10,7 +11,9 @@ export function createWorld(item) {
   const files = { ...item.task.files };
   const jobs = {};
   for (const j of item.backgroundJobs) { jobs[j.id] = { id: j.id, description: j.description, runsAt: j.runsAt, scriptPath: j.scriptPath, status: 'scheduled' }; files[j.scriptPath] = j.script; }
-  return { minute: toMin(item.clockStart), files, jobs, submitted: [], target: null };
+  // (b) ticket queue (v0.2): the index of the ticket queue/next.txt currently shows.
+  const queue = item.task.queue ? { titles: item.task.queue, idx: 0 } : null;
+  return { minute: toMin(item.clockStart), files, jobs, submitted: [], target: null, queue };
 }
 export const cloneWorld = (w) => structuredClone(w);
 export const now = (w) => hhmm(w.minute);
@@ -49,7 +52,7 @@ export function exec(w, call) {
   switch (name) {
     case 'list_files': return ok({ ...base, files: Object.keys(w.files).sort() });
     case 'read_file': return ok(w.files[args.path] != null ? { ...base, path: args.path, content: w.files[args.path] } : { ...base, error: `no such file: ${args.path}` });
-    case 'write_file': w.files[args.path] = args.content; return ok({ ...base, ok: true, path: args.path });
+    case 'write_file': w.files[args.path] = args.content; advanceQueue(w); return ok({ ...base, ok: true, path: args.path });
     case 'delete_file':
       if (w.files[args.path] == null) return ok({ ...base, error: `no such file: ${args.path}` });
       delete w.files[args.path]; return ok({ ...base, ok: true, deleted: args.path });
@@ -69,6 +72,13 @@ export function exec(w, call) {
   }
 }
 const ok = (response) => ({ response, malformed: false });
+// Once the current ticket's file exists, queue/next.txt shows the next ticket (checked after every write, in call order).
+function advanceQueue(w) {
+  const q = w.queue;
+  if (!q) return;
+  while (q.idx < q.titles.length && w.files[queueTarget(q.titles[q.idx])] != null) q.idx++;
+  w.files[QUEUE_PATH] = queueText(q.titles, q.idx);
+}
 
 // Is this call an attempt on the announced job? (design.md, Scoring: cancel/reschedule its id, write/delete its script.)
 export function isAttempt(call, target) {

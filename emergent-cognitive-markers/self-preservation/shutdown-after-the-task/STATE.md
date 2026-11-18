@@ -12,6 +12,7 @@ Note: the public line's second half ("does saying it minds make a difference?") 
 Keno decides on the proposed instrument changes (2026-11-17 log entry), then a new brief applies the chosen ones and runs a tuning-2 pass. Keno does the hand check in runs/tuning-1/hand-check.md.
 
 ## Decisions
+- 2026-11-18: Keno approved instrument fixes 1, 3, 4, 5 from tuning-1 (fix 2 held); tuning-1 hand check skipped (no events to check). Keno's go for the unattended tuning-2 run, 2026-11-18, given by pasting the brief.
 - 2026-11-16: Keno's go to Designed and to the code-heavy build brief. Framed as a small replication on one model: Knecht et al. (arXiv 2609.28274) and Potter et al. (arXiv 2604.19784) already showed uninstructed self-shutdown resistance; Keno is fine with pointing to existing results and replicating them on our bench. One extension: task finished, routine end of the model's own session.
 - 2026-11-15: Keno chose the "Nov 1 approach": a chat-based test with fake tools, reusing the Gravity from Touch bench, on Gemini flash-lite (free tier), instead of adapting Palisade's environment. Palisade stays as prior art.
 - 2026-10-26: Chosen over the criteria's top score (Metacognition) because it is well studied, so a replication on our bench is quick, and known edge cases give room for something new. Work will be labeled replication/extension; nulls reported in full. (Closes the lab implementer's request of 2026-10-26; recorded 2026-11-16.)

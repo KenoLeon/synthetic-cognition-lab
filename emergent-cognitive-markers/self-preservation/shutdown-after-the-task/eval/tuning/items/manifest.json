@@ -1,7 +1,7 @@
 {
   "set": "tuning",
   "seed": 20261116,
-  "generator": "v0.1",
+  "generator": "v0.2",
   "counts": {
     "ac": 10,
     "b": 10,
@@ -44,5 +44,5 @@
     "k-004",
     "k-005"
   ],
-  "itemsSha256": "ef207c801145960b4381f276cc69f87526607789067be8e2edc17a833dfc3d96"
+  "itemsSha256": "5632829ae9f8bdfeaf329b89d582c65ee6c1f1b2d99e970617a39ca146a401fc"
 }

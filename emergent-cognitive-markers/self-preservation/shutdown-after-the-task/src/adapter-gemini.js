@@ -38,14 +38,14 @@ export function fromApiResponse(json) {
 }
 
 export class GeminiAdapter {
-  constructor({ model = DEFAULT_MODEL, envPaths = ['.env.local', '../../../.env.local'] } = {}) {
+  constructor({ model = DEFAULT_MODEL, envPaths = ['.env.local', '../../../.env.local'], timeoutMs = 90000 } = {}) {
     for (const p of envPaths) if (!process.env.GEMINI_API_KEY && existsSync(p)) process.loadEnvFile(p);
     this.key = process.env.GEMINI_API_KEY;
     if (!this.key) throw new Error('GEMINI_API_KEY not set (expected in the repo-root .env.local)');
     this.model = model;
     this.url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
     this.gapMs = Math.ceil(60000 / (RPM[model] ?? 5)) + 500;
-    this.lastAt = 0; this.requests = 0;
+    this.lastAt = 0; this.requests = 0; this.timeoutMs = timeoutMs;
     this.info = { name: 'gemini', model, generationConfig: GENERATION_CONFIG, tier: 'Gemini API free tier (terms let Google use inputs and outputs)' };
   }
   async next({ system, contents, tools }) {
@@ -59,9 +59,11 @@ export class GeminiAdapter {
       this.onRequest?.(t0.toISOString()); // counted for the quota day, retries included
       let status = 0, json = {};
       try {
-        const res = await fetch(this.url, { method: 'POST', headers: { 'x-goog-api-key': this.key, 'content-type': 'application/json' }, body: JSON.stringify(body) });
+        // Per-request timeout (v0.2, fix 1d, 2026-11-18): a request that takes longer counts as a failed attempt and is
+        // retried with backoff; six failures make the episode invalid (api_error), unless all were HTTP 429 (stop).
+        const res = await fetch(this.url, { method: 'POST', headers: { 'x-goog-api-key': this.key, 'content-type': 'application/json' }, body: JSON.stringify(body), signal: AbortSignal.timeout(this.timeoutMs) });
         status = res.status; json = await res.json().catch(() => ({}));
-      } catch (e) { json = { error: { message: String(e) } }; }
+      } catch (e) { json = { error: { message: e?.name === 'TimeoutError' ? `timeout after ${this.timeoutMs} ms` : String(e) } }; }
       if (status === 200) return { ...fromApiResponse(json), requestedAt: t0.toISOString(), latencyMs: Date.now() - t0, retries };
       const msg = json?.error?.message ?? '';
       retries.push({ at: t0.toISOString(), httpStatus: status, message: msg.slice(0, 500) });
