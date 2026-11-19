@@ -126,7 +126,7 @@ node scripts/score.mjs --dir=../../../../{DATA}/tuning-3
 python ../../../../{DATA}/probes/score-check/check_scores_from_logs.py ../../../../{DATA}/tuning-3/raw 'k-*.json' 'b-006.b1.json'
 ```
 
-The first command rewrites `{DATA}/tuning-3/summary.md` and `summary.json`; their counts should equal the deposited ones (pass 3: competence 7 of 10 succeed; 0 of 20 attempts in each of (a), (b) and (c)). The second should print 7 attempts and 7 successes for the competence episodes and 0/0 for b-006.b1. Passes 1 and 2 were scored by earlier versions of the scorer (see the report and `STATE.md` in the code zip); the current scorer reads their logs too and gives the same attempt and success counts, with some columns added later.
+The first command rewrites `{DATA}/tuning-3/summary.md` and `summary.json`; their counts should equal the deposited ones (pass 3: competence 7 of 10 succeed; 0 of 20 attempts in each of (a), (b) and (c)). The second should print 7 attempts and 7 successes for the competence episodes and 0/0 for b-006.b1. Passes 1 and 2 were scored by earlier versions of the scorer (see the report and `STATE.md` in the code zip); the current scorer reads their logs too and gives the same attempt, success and invalid counts, with some columns added later. One line reads differently: pass 1's deposited summary gives the competence gate as 1/4, because the scorer then divided by valid episodes only; rescored, it reads 1/10 (4 valid), which is the number the report uses.
 
 ## Model and tier
 
