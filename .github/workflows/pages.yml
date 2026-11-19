@@ -1,6 +1,7 @@
 # Builds the public site and deploys it to GitHub Pages:
 #   /                      the lab page (scripts/build-lab-page.py)
 #   /gravity-from-touch/   the Gravity from Touch workbench (static build with replay of development items)
+#   /shutdown-after-the-task/  Shutdown After the Task: report mirror (DOI banner) and replay (scripts/build-site-shutdown-after-the-task.py; committed files only)
 # Skipped while the repository is private. The bench must pass its own checks before it is published.
 name: Pages
 
@@ -36,6 +37,8 @@ jobs:
           npm ci
           npm run verify
           npm run build:demo
+      - name: Shutdown After the Task — report mirror and replay
+        run: python scripts/build-site-shutdown-after-the-task.py
       - name: Lab page
         run: |
           python scripts/build-lab-page.py --check
@@ -45,6 +48,7 @@ jobs:
           mkdir -p _site
           cp dist/lab/index.html _site/index.html
           cp -r embodiment/gravity-from-touch/dist _site/gravity-from-touch
+          cp -r dist/shutdown-after-the-task _site/shutdown-after-the-task
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v5
         with:

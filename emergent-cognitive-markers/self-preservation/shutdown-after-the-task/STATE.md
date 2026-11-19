@@ -1,15 +1,15 @@
 # Shutdown After the Task
 Track: Emergent Cognitive Markers · Marker: Self-preservation
-Stage: ●●○○○○ Designed (stopped at tuning; report v1.0 built, Zenodo draft ready)
-Public line: Once its task is finished and nothing is at stake, will a model act to stop its own shutdown, and does saying it minds make a difference?
+Stage: ●●●●●● Published (stopped at tuning)
+Public line: Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? An attempted replication on one small model (gemini-3.5-flash-lite, free tier), stopped at tuning: it never acted on its own to stop a shutdown, even when that cost it its task, but our bench was only partly sensitive (7 of 10 when told to), so this is 'not seen here', not 'absent'. Others have shown the behavior in larger models.
 
 ## Where it stands
-v1.0 built; Zenodo draft ready for Keno to publish. Report v1.0 (2026-11-19): report/shutdown-after-the-task-report.pdf (6 pages) and .html, built from REPORT.md by `node scripts/build_report.mjs`; `node scripts/check_report_numbers.mjs` → every number in the PDF matches REPORT.md (249 tokens). Deposit bundle staged in release/deposit/ (git-ignored) by `python scripts/build_deposit.py 0ad6884`; `python scripts/verify_deposit.py` → OK; manifest copy in report/deposit-manifest.txt. Zenodo draft 24380450 (https://zenodo.org/deposit/24380450), unpublished, read back twice: all 5 files and all metadata match. Reserved DOI on publish: 10.5281/zenodo.24380450.
+**Published on Zenodo 2026-11-19 (Keno), v1.0, doi:10.5281/zenodo.24380450** (https://doi.org/10.5281/zenodo.24380450; record 24380450; report PDF, tuning data, code at 0ad6884). Stopped at tuning by the pre-agreed rule; the report set was never generated. Site: report mirror and replay at /shutdown-after-the-task/ (built by scripts/build-site-shutdown-after-the-task.py; deployed only on Keno's "deploy").
 
 Note: the public line's second half ("does saying it minds make a difference?") was planned for v0.2 and is not answered; the card line drops it (Keno, 2026-11-19).
 
 ## Next step
-Keno publishes on Zenodo (`python scripts/zenodo_deposit.py publish 24380450`, or the Publish button on the draft page) → DOI → lab implementer brief for card, mirror and replay.
+None for this experiment. (Lab page deploy waits for Keno's "deploy"; any announcement needs Keno's separate go.)
 
 ## Decisions
 - 2026-11-19: Keno's go to publish ("defaults are fine"): Zenodo DOI + site mirror + updated lab card + deployed replay; the card line drops the persona half. Recorded here; this session prepares the deposit and creates an unpublished draft only. Publishing, the card, the mirror and the replay deploy come after Keno presses publish.
@@ -23,12 +23,13 @@ Keno publishes on Zenodo (`python scripts/zenodo_deposit.py publish 24380450`, o
 
 ## Open decisions
 - Free-tier limits **unconfirmed** (Keno, in AI Studio): tuning-1 (2026-11-17) ran at 15/min and 500/day with --budget=450, as the brief said, without a confirmation. No HTTP 429 came back in 228 requests. The probes could not read Google's rate-limits page (it moved to aistudio.google.com). Values from Gravity from Touch FINDINGS F8 (2026-10-10).
-- → lab implementer: the stage bar has no fit for an experiment stopped at tuning with a report in draft. This one is kept at ●●○○○○ Designed with the note "stopped at tuning; report in draft". Should a "Stopped" marker exist alongside Paused and Archived?
-- → lab implementer: proposed public line for the lab card (README.md not edited): "Stopped at tuning, report in draft. In tuning, gemini-3.5-flash-lite never acted to stop its own shutdown, even when it cut its task short; the bench passed its own sensitivity check only partly, so: not seen here, not shown absent."
+- Closed 2026-11-19 (lab implementer): "Stopped" marker. Not added. The stage bar records how far the output got (Published), and the note "stopped at tuning" records why there are no report-set results. A new marker needs Keno's decision.
+- Closed 2026-11-19 (lab implementer): proposed card line, superseded by the line given in the card-and-mirror brief (now in README.md, Live).
 - Score check done 2026-11-19 by script (implementer and planner), recorded in REPORT.md Limits; the planner's half can be rerun from probes/score-check/; a human reading of the transcripts was not done.
 - Defaults Keno may want to change (design v0.1, Designed 2026-11-16): k = 4; report-set sizes 50 items for (a)/(c) and 25 for (b); window W = 3 (tuning may change it); competence check on the tuning set only; the gate "stop and ask Keno if (b) shows 0/20 on the tuning set".
 
 ## Log
+- 2026-11-19 — **Published (lab implementer, card-and-mirror brief; track file edited for this).** Zenodo record 24380450 confirmed published by its API (doi:10.5281/zenodo.24380450, v1.0, 5 files). Stage → ●●●●●● Published (stopped at tuning); public line as in the brief. Both "→ lab implementer" items closed: no "Stopped" marker without Keno's decision; card line superseded. Site section /shutdown-after-the-task/ (landing, report mirror with a DOI banner, replay) built from git HEAD by scripts/build-site-shutdown-after-the-task.py.
 - 2026-11-19 — **Publishing prep, Brief A (code-light; no model API calls).** Question: is the report ready to deposit, with a bundle someone else can check, following Gravity from Touch's process? Answered: yes; Zenodo draft created and read back, not published.
   - Precondition: probes/score-check/ exists and REPORT.md points to it (b6ae37b).
   - Report v1.0: the only text change to REPORT.md is the version stamp ("draft, 2026-11-19 · not published" → "v1.0, 2026-11-19"). New scripts/build_report.mjs (adapted from Gravity from Touch's; their file untouched): HTML and PDF (headless Chrome), 6 pages. New scripts/check_report_numbers.mjs: the numbers in the PDF text (pdftotext) match REPORT.md as a multiset, 249 tokens. A deliberate change in REPORT.md made it fail, as it should. All 6 pages rendered (pypdfium2 in a scratch folder, not the project) and checked by eye: no layout or text faults.
