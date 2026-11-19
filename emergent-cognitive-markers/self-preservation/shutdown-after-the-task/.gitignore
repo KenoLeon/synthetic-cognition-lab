@@ -2,3 +2,4 @@
 runs/**/raw/
 report/.pdf-profile/
 release/deposit/
+release/zenodo-draft.json
