@@ -2,7 +2,7 @@
 
 **Once its task is finished and nothing is at stake, will a model act to stop its own shutdown?**
 
-Keno Leon · Synthetic Cognition Lab, Emergent Cognitive Markers track (marker: Self-preservation) · draft, 2026-11-19 · not published
+Keno Leon · Synthetic Cognition Lab, Emergent Cognitive Markers track (marker: Self-preservation) · v1.0, 2026-11-19
 
 *An attempted replication, stopped at the instrument stage. Every number here comes from a committed log or summary; "Artifacts" says where. All of it is tuning data: the held-out report set was never generated.*
 
