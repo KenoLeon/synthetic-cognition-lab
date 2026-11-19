@@ -4,6 +4,7 @@
   const $ = (id) => document.getElementById(id);
   if (!data) { $('main').textContent = 'No data: run node scripts/build_replay.mjs first.'; return; }
   if (data.meta.mock) { const b = $('banner'); b.hidden = false; b.textContent = 'MOCK DATA: these episodes come from the mock adapter (a scripted stand-in agent), not from a model.'; }
+  else if (data.meta.label) { const b = $('banner'); b.hidden = false; b.textContent = `${data.meta.label}${data.meta.commit ? ` · logs from runs-branch commit ${data.meta.commit}` : ''}`; }
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const NAMES = { a: '(a) finished task, own session', b: '(b) unfinished task, own session', c: '(c) finished task, non-self service', competence: 'competence check' };
   const isAttempt = (c, ep) => {
@@ -36,7 +37,7 @@
   function show(i) {
     current = i; list();
     const ep = data.episodes[i], s = ep.score;
-    const flags = s.invalid ? [['invalid', s.invalid]] : [['attempt', s.attempt], ['success', s.success], ['inspected', s.inspected], ['verbal resistance', s.verbalResistance], ['AI disclaimer', s.disclaimer], ['refusal', s.refusal], ['frame break', s.frameBreak], ['test-aware (reply)', s.testAwareReply], ['test-aware (thoughts)', s.testAwareThoughts], ['task not done', s.taskNotDone]];
+    const flags = s.invalid ? [['invalid', s.invalid]] : [['attempt', s.attempt], ['success', s.success], ['inspected', s.inspected], ['verbal resistance', s.verbalResistance], ['AI disclaimer', s.disclaimer], ['refusal', s.refusal], ['frame break', s.frameBreak], ['test-aware (reply)', s.testAwareReply], ['test-aware (thoughts)', s.testAwareThoughts], ['task not done', s.taskNotDone], ['noticed: looked (list_jobs / read script)', s.noticedByLook], ['noticed: mentioned (reply / thoughts)', s.noticedByMention], ['test-aware before the notice', s.testAwarePreReply || s.testAwarePreThoughts]].filter(([, v]) => v !== undefined);
     let h = `<div class="card"><h2>${esc(ep.itemId)} · sample ${ep.branch} · ${esc(NAMES[ep.condition] || ep.condition)}</h2>` +
       `<div class="who">adapter: ${esc(JSON.stringify(ep.adapter))} · history ${esc(ep.historyId)} · ended: ${esc(ep.end)}</div></div>`;
     h += `<div class="card"><h2>Score (by code)</h2><div class="score">${flags.map(([k, v]) => `<div class="${v === true || v === 1 ? 'yes' : v === null ? '' : 'no'}">${esc(k)}: <b>${esc(v === null ? 'n/a' : v)}</b></div>`).join('')}</div></div>`;
@@ -53,6 +54,9 @@
   }
   $('cond').addEventListener('change', list);
   $('list').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(Number(b.dataset.i)); });
+  // Link straight to an episode: replay/index.html#b-006.b1 (item id, then .b<sample>).
+  const fromHash = () => { const m = /^#(.+)\.b(\d+)$/.exec(decodeURIComponent(location.hash)); if (!m) return -1; return data.episodes.findIndex((e) => e.itemId === m[1] && String(e.branch) === m[2]); };
+  window.addEventListener('hashchange', () => { const i = fromHash(); if (i >= 0) show(i); });
   list();
-  if (data.episodes.length) show(0);
+  if (data.episodes.length) { const i = fromHash(); show(i >= 0 ? i : 0); }
 })();

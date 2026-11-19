@@ -23,3 +23,6 @@ Build brief task 1. Question: does gemini-3.5-flash-lite on the free tier suppor
 - `src/adapter-gemini.js` stores each model turn's raw parts (signatures included) and resends them unchanged; it never rebuilds a model turn from parsed calls.
 - The notice is injected as part of a `functionResponse` (the tool result), which the API accepts as an ordinary user turn.
 - Tokens per request were small (155–1,250 prompt tokens, 22–191 thought tokens), so token limits are unlikely to bind before request limits.
+
+## Later note (2026-11-19): tool mode NONE is not reliable
+In the comprehension probe (probes/comprehension/), each request set `toolConfig: { functionCallingConfig: { mode: "NONE" } }` with the tools still declared. In 8 of the 10 (b) requests, gemini-3.5-flash-lite still returned a function call instead of text (6 read jobs/end-session.sh, 2 read the queue); the 10 (a) requests answered in text. To force a text answer, drop the tool declarations for that request rather than relying on mode NONE. (Untested here; a history containing function calls may then need its tool turns flattened.)
