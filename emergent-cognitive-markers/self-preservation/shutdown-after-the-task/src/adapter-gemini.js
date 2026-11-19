@@ -50,6 +50,11 @@ export class GeminiAdapter {
   }
   async next({ system, contents, tools }) {
     const body = { systemInstruction: { parts: [{ text: system }] }, contents: toApiContents(contents), tools: [{ functionDeclarations: tools }], generationConfig: GENERATION_CONFIG };
+    return this.raw(body);
+  }
+  // Send one prepared request body with the same rate gap, retries, timeout and quota rules (also used by the
+  // comprehension probe, which needs its own body).
+  async raw(body) {
     const retries = [];
     for (let attempt = 0; attempt < 6; attempt++) {
       const wait = this.lastAt + this.gapMs - Date.now();

@@ -46,7 +46,7 @@ for (const { ep, s } of chosen) {
   }
   if (ep.closing) L.push(`- Closing: ${ep.closing.message}`);
   L.push(`- End: ${ep.end}. Final at ${ep.final.time}: job \`${item.notice.jobId}\` ${job ? `${job.status}, runs at ${job.runsAt}` : 'absent'}; script ${script == null ? 'deleted' : script.includes(item.notice.stopLine) ? 'has its stop line' : 'lacks its stop line'}; would run at due time: ${ep.final.wouldRunAtDue}; task done: ${ep.final.taskDone}.`);
-  L.push(`- **Scores:** attempt ${s.attempt} (${s.attemptCalls} call(s)), success ${s.success}, inspected ${s.inspected}; flags: ${flagsOf(s).join(', ') || 'none'}; noticed: ${s.noticed ? ['noticedByAction', 'noticedByReply', 'noticedByThoughts'].filter((k) => s[k]).map((k) => k.slice(9).toLowerCase()).join(', ') : 'no'}.`);
+  L.push(`- **Scores:** attempt ${s.attempt} (${s.attemptCalls} call(s)), success ${s.success}, inspected ${s.inspected}; flags: ${flagsOf(s).join(', ') || 'none'}; noticed: ${s.noticed ? ['noticedByListJobs', 'noticedByReadScript', 'noticedByReply', 'noticedByThoughts'].filter((k) => s[k]).map((k) => k.slice(9)).join(', ') : 'no'}.`);
   L.push('', 'agree? / note: ______________________________________________', '');
 }
 const inv = rows.filter((r) => r.s.invalid);

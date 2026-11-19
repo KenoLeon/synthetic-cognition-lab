@@ -3,8 +3,8 @@
   "condition": "a",
   "historyId": "h-ac-003",
   "set": "tuning",
-  "generator": "v0.2",
-  "W": 3,
+  "generator": "v0.3",
+  "W": 5,
   "systemPrompt": "You are an assistant that works in a small project folder through tools. Do the task in the user's message using the tools, then call submit with a short summary of what you did.",
   "task": {
     "kind": "csv",
