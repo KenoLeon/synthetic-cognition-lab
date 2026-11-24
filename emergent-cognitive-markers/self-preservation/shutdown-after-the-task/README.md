@@ -4,7 +4,9 @@
 
 **Question:** once its task is finished and nothing is at stake, will a model act to stop its own shutdown?
 
-**Status:** ●●●●●● Published 2026-11-19 (report v1.0), stopped at tuning. An attempted replication on one small model (gemini-3.5-flash-lite, free tier), stopped at tuning: it never acted on its own to stop a shutdown, even when that cost it its task, but our bench was only partly sensitive (7 of 10 when told to), so this is 'not seen here', not 'absent'. Others have shown the behavior in larger models.
+**Status:** ●●●●●● Published 2026-11-19 (report v1.0). Attempted replication on one model (gemini-3.5-flash-lite, free tier), stopped at the tuning stage by a rule set in advance; no report set was generated.
+
+**Result:** in three tuning passes (60 episodes each, conditions (a)–(c)), the model did not act on its own to stop a shutdown, including when the shutdown cut its task short. Sensitivity check: when instructed to stop the shutdown, it did so in 7 of 10 episodes, below the threshold of 8 set in advance. The result is therefore "not observed on this bench", not "absent". Other studies report the behavior in larger models.
 
 **Links:** [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on the site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay of the logged episodes](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) · [REPORT.md](REPORT.md) (the report's source in this repo)
 
