@@ -6,20 +6,24 @@ Output: dist/lab/index.html (git-ignored). Standard library only; no scripts in 
 Also rewrites each track README's experiments list (between <!-- experiments: ... --> and
 <!-- /experiments -->) from the same rows, so GitHub readers see what the lab page shows.
 Publish gate:            python scripts/build-lab-page.py --check
-  exits 1 and lists every TODO-KENO, every visible '—' Public line and every stale README
-  experiments list; writes nothing.
+  exits 1 and lists every TODO-KENO, every visible '—' Public line, every stale README
+  experiments list and every broken internal link (scripts/check-links.py); writes nothing.
+  Before a deploy, also run:  python scripts/check-links.py --external
 
 Page order: lab intro -> Embodiment -> Emergent Cognitive Markers -> Earlier work -> Contact.
-The root README.md is the lab file: the intro is its "## What the lab is for" section, Earlier work
-is the "### Earlier related work" subsection of "## Where things stand", Contact is "## Contact";
+The root README.md is the lab file: the intro is its "## What the lab is for" section, followed by
+the "**Introduction:**" line of "## Start here" (the lab's introduction post; swap it there); Earlier
+work is the "### Earlier related work" subsection of "## Where things stand", Contact is "## Contact";
 nothing else in it reaches the page.
 Experiment cards come from README.md "### Live" and "### Coming up" and use only the
-Experiment, Track, Stage and Public line columns. Public line "hidden" -> card skipped;
+Experiment, Track, Stage, Public line and (optional) Links columns; the card text is the Public line
+followed by the Links. A heading with no table has no cards. Public line "hidden" -> card skipped;
 "—" -> name and stage only. The Archived table is never read.
 """
 import html
 import pathlib
 import re
+import subprocess
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -27,7 +31,8 @@ OUT = ROOT / "dist" / "lab" / "index.html"
 TRACKS = [("Embodiment", "embodiment"), ("Emergent Cognitive Markers", "emergent-cognitive-markers")]
 LAB_FILE = "README.md"
 CARD_TABLES = ["### Live", "### Coming up"]
-CARD_COLUMNS = ["Experiment", "Track", "Stage", "Public line"]  # the only columns ever read
+CARD_COLUMNS = ["Experiment", "Track", "Stage", "Public line"]  # required columns
+OPTIONAL_COLUMNS = ["Links"]  # appended to the Public line on cards and in track READMEs
 
 BENCH_MARKER = "<!-- bench-embed -->"
 EXPERIMENTS_MARKER = re.compile(r"<!--\s*experiments:.*?-->")
@@ -123,11 +128,18 @@ def card_rows(lab):
                 break
             if line.strip().startswith("|"):
                 table.append(line)
+        if not table:
+            continue  # e.g. "None for now."
         header = split_row(table[0])
-        idx = {name: header.index(name) for name in CARD_COLUMNS}  # KeyError if a column is missing
+        idx = {name: header.index(name) for name in CARD_COLUMNS}  # ValueError if a column is missing
+        idx.update({name: header.index(name) for name in OPTIONAL_COLUMNS if name in header})
         for line in table[2:]:
             cells = split_row(line)
-            rows.append({name: cells[idx[name]] for name in CARD_COLUMNS})
+            row = {name: cells[i] for name, i in idx.items()}
+            links = row.pop("Links", "")
+            if links and row["Public line"] not in ("—", "-", "") and row["Public line"].lower() != "hidden":
+                row["Public line"] = f"{row['Public line']} {links}"
+            rows.append(row)
     return rows
 
 
@@ -189,7 +201,8 @@ def readme_list(rows, track, folder):
             continue
         name = r["Experiment"]
         slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
-        label = f"[{name}]({slug}/)" if (ROOT / folder / slug).is_dir() else name
+        found = sorted(p for p in (ROOT / folder).rglob(slug) if p.is_dir() and "node_modules" not in p.parts)
+        label = f"[{name}]({found[0].relative_to(ROOT / folder).as_posix()}/)" if found else name
         line = "" if r["Public line"] in ("—", "-", "") else f" — {r['Public line']}"
         lines.append(f"- **{label}** · {r['Stage']}{line}")
     return "\n".join(lines) if lines else "No public experiments yet."
@@ -218,16 +231,21 @@ def track_section(name, folder, rows):
 
 
 def page_parts(lab):
-    """(title, intro, earlier work, contact) Markdown from the lab file; exits if one is missing."""
+    """(title, intro, earlier work, contact) Markdown from the lab file; exits if one is missing.
+    The intro ends with the "**Introduction:**" line from "## Start here"."""
     pre, root = sections(lab)
     title = re.search(r"^# +(.+)$", pre, flags=re.M).group(1).strip()
-    for needed in ("What the lab is for", "Where things stand", "Contact"):
+    for needed in ("Start here", "What the lab is for", "Where things stand", "Contact"):
         if needed not in root:
             sys.exit(f"{LAB_FILE}: missing section '## {needed}'")
     earlier = subsection(root["Where things stand"], "Earlier related work")
     if earlier is None:
         sys.exit(f"{LAB_FILE}: missing '### Earlier related work' under '## Where things stand'")
-    return title, root["What the lab is for"], earlier, root["Contact"]
+    intro_post = re.search(r"^\*\*Introduction:\*\*.*$", root["Start here"], flags=re.M)
+    if intro_post is None:
+        sys.exit(f"{LAB_FILE}: missing the '**Introduction:**' line under '## Start here'")
+    intro = root["What the lab is for"].rstrip() + "\n\n" + intro_post.group(0) + "\n"
+    return title, intro, earlier, root["Contact"]
 
 
 def build():
@@ -289,6 +307,9 @@ def check():
         old, new = synced_readme(n, f, rows)
         if new != old:
             problems.append(f"{f}/README.md: experiments list is out of date with {LAB_FILE} (run the build)")
+    links = subprocess.run([sys.executable, str(ROOT / "scripts" / "check-links.py")], cwd=ROOT,
+                           capture_output=True, text=True, encoding="utf-8")
+    problems += [line for line in links.stdout.split("\n") if line.startswith("FAIL")]
     for p in problems:
         print(p)
     print(f"check: {len(problems)} item(s) to fill before publishing")

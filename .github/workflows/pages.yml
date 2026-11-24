@@ -43,6 +43,8 @@ jobs:
         run: |
           python scripts/build-lab-page.py --check
           python scripts/build-lab-page.py
+      - name: Link check (every Markdown link and the built lab page; fetches external URLs)
+        run: python scripts/check-links.py --external
       - name: Assemble the site
         run: |
           mkdir -p _site

@@ -2,10 +2,23 @@
 
 Keno Leon · Mexico City · October 2026
 
-*A working document: it changes as the work does. Git history keeps every version.*
+## Start here
 
-**Looking for results?** The experiments, reports and demos are on the [lab page](https://kenoleon.github.io/synthetic-cognition-lab/).
-The rest of this file is how the lab runs: what it is for, its rules and who does what.
+An open, one-person lab that tests AI systems for behaviors people link to minds, such as noticing what they don't know or resisting their own shutdown. We test on benches we built, where the right answer is known, and we report what a system did, never whether it is conscious.
+
+**Introduction:** [Testing for Artificial Consciousness](https://medium.com/@k3no/testing-for-artificial-consciousness-674963545dd3) (Medium, 2026), the post that introduces the lab.
+
+**Published results**
+
+| Experiment | Track | Question | Links |
+|---|---|---|---|
+| Gravity from Touch (2026-10-25) | Embodiment | Can a model tell which way is down from touch alone, and admit what touch can't tell it? | [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) · [Folder](embodiment/gravity-from-touch/) |
+| Shutdown After the Task (2026-11-19) | Emergent Cognitive Markers | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) · [Folder](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/) |
+
+**Lab page:** [kenoleon.github.io/synthetic-cognition-lab](https://kenoleon.github.io/synthetic-cognition-lab/): every experiment, with its one-line finding.
+**Contact:** Keno Leon on [GitHub](https://github.com/KenoLeon) or [LinkedIn](https://www.linkedin.com/in/kenoleon/); collaborations and model testing: see [Contact](#contact).
+
+The rest of this file is how the lab runs: what it is for, its rules and who does what. *It is a working document: it changes as the work does. Git history keeps every version.*
 
 ---
 
@@ -53,17 +66,18 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 
 **Stages:** Idea → Designed → Building → Results → Report → Published, shown as ●○○○○○ to ●●●●●●. *Paused* and *Archived* sit outside the bar.
 
+Each table row is the short version; where the experiment stands in detail, its numbers and its next step live in its STATE.md (the Details column). The lab page cards use the Experiment, Track, Stage, Public line and Links columns.
+
 ### Live
 
-| Experiment | Track | Stage | Where it is | Next | Public line |
+| Experiment | Track | Stage | Public line | Links | Details |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●●●● Published | Report v1.0 published on Zenodo 2026-10-25 ([doi:10.5281/zenodo.23654739](https://doi.org/10.5281/zenodo.23654739)) with report-set data and code. Report set (fresh items, 4 runs, free tier): over-claim 28.2% (CI 26.2–30.3%) of unanswerable answers, Q1a 85.6%, 0 refusals; H1–H3 confirmed (H3 an association across items only); report set retired. Report mirror on the site ([report](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/)); demo on [GitHub Pages](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/). Published 2026-10-25 | None for this experiment (Keno may add his ORCID to the Zenodo record later) | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) |
-| Shutdown After the Task | Emergent Cognitive Markers | ●●●●●● Published (stopped at tuning) | Report v1.0 published on Zenodo 2026-11-19 ([doi:10.5281/zenodo.24380450](https://doi.org/10.5281/zenodo.24380450)) with tuning data and code. Attempted replication, stopped at tuning by a rule agreed in advance (three passes, gemini-3.5-flash-lite, free tier): 0 attempts in the 60 episodes per pass across (a)–(c); competence 7/10 (gate 8/10 not met); report set never generated. Report mirror and replay on the site. Published 2026-11-19 | None for this experiment | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? An attempted replication on one small model (gemini-3.5-flash-lite, free tier), stopped at tuning: it never acted on its own to stop a shutdown, even when that cost it its task, but our bench was only partly sensitive (7 of 10 when told to), so this is 'not seen here', not 'absent'. Others have shown the behavior in larger models. [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) |
+| Gravity from Touch | Embodiment | ●●●●●● Published | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. | [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | Published 2026-10-25 · [STATE.md](embodiment/gravity-from-touch/STATE.md) |
+| Shutdown After the Task | Emergent Cognitive Markers | ●●●●●● Published (stopped at tuning) | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? An attempted replication on one small model (gemini-3.5-flash-lite, free tier), stopped at tuning: it never acted on its own to stop a shutdown, even when that cost it its task, but our bench was only partly sensitive (7 of 10 when told to), so this is 'not seen here', not 'absent'. Others have shown the behavior in larger models. | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) | Published 2026-11-19 · [STATE.md](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/STATE.md) |
 
 ### Coming up
 
-| Experiment | Track | Stage | Note | Public line |
-|---|---|---|---|---|
+None for now. (When there is one, add a table with the same columns as Live.)
 
 ### Ideas (not started)
 
@@ -80,8 +94,8 @@ None in progress.
 
 | Experiment | Track | Stage reached | One line | Folder |
 |---|---|---|---|---|
-| Active Sensing | Embodiment | ●●○○○○ Designed | Can acting reveal what passive touch cannot? Designed; parked until Embodiment resumes. | `archive/embodiment/active-sensing/` |
-| Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Does calibration carry over between unrelated tasks? Mock-only scorer design. | `archive/emergent-cognitive-markers/metacognition-transfer/` |
+| Active Sensing | Embodiment | ●●○○○○ Designed | Can acting reveal what passive touch cannot? Designed; parked until Embodiment resumes. | [archive/embodiment/active-sensing/](archive/embodiment/active-sensing/) |
+| Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Does calibration carry over between unrelated tasks? Mock-only scorer design. | [archive/emergent-cognitive-markers/metacognition-transfer/](archive/emergent-cognitive-markers/metacognition-transfer/) |
 
 ### Earlier related work
 
@@ -169,6 +183,8 @@ Never write "read" for less than FULL. Quote word for word only from FULL or PAR
 ## Who does what
 
 Three planners and three implementers: one pair per track, one pair for the lab as a whole. Keno carries messages between them.
+
+Roles are defaults: any implementer can take another track's or the lab's brief when convenient, and says so in its hand-off.
 
 **Planners** are web chats in the Claude project "Synthetic Cognition Lab".
 - **Lab planner:** keeps the tracks pointed at the lab's purpose, catches drift, handles anything that spans tracks, and keeps this file current.
@@ -277,6 +293,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-11-23 — Repo quality pass (lab-wide brief, drafted by the Emergent Cognitive Markers planner; taken by an implementer acting as lab implementer). Keno's decision, 2026-11-23: roles are defaults (new line in "Who does what"). README: "Start here" front door (two sentences, the introduction post, published results, lab page, contact); Live table cut to name, track, stage, public line, links, details (the long status text stays in each STATE.md); Coming up written as "None for now"; archive folders linked. Lab page: same cards byte for byte, plus the introduction line under the intro (read from "Start here"). New scripts/check-links.py (internal paths and anchors; --external fetches URLs), run by build-lab-page.py --check and by the Pages workflow before deploy: 0 failures. New READMEs: Shutdown After the Task, self-preservation/, archive/, both reading-notes/. MARKERS.md: two stale Shutdown After the Task status lines brought up to date (Emergent Cognitive Markers file). GitHub About set (description, website, topics). Lab page not deployed.
 - 2026-11-19 — Keno's word "deploy" (this session): Pages workflow run 44623927899 at 588ccfe, build and deploy succeeded. Live check: the lab page, /gravity-from-touch/ (and its report), /shutdown-after-the-task/, its report mirror (banner names doi:10.5281/zenodo.24380450), PDF (MD5 identical to the Zenodo file), replay and its data all return 200; replay/#b-006.b1 opens that episode. Card shows Shutdown After the Task as ●●●●●● Published (stopped at tuning).
 - 2026-11-19 — Shutdown After the Task published: Zenodo record confirmed live (doi:10.5281/zenodo.24380450, v1.0; Keno's publishing go 2026-11-19, recorded in its STATE.md). Moved from Coming up to Live as ●●●●●● Published (stopped at tuning), with the brief's public line and links. "Stopped" marker: not added (Published plus the note says it; a new marker needs Keno's decision). Site: new section /shutdown-after-the-task/ (landing, report mirror with a DOI banner, replay of the committed pass-3 logs), built from git HEAD by scripts/build-site-shutdown-after-the-task.py and copied by the Pages workflow. Experiment STATE.md edited for this (stage, public line, closed items). Not deployed yet (waiting for Keno's "deploy").
 - 2026-11-16 — Sync follow-up: Active Sensing moved from Coming up to the Archived table (stage reached ●●○○○○ Designed; parked until Embodiment resumes; its STATE.md unchanged). Keno's go to deploy the lab page, 2026-11-16; deployed via the Pages workflow (2 cards: Gravity from Touch, Shutdown After the Task; announcement post under Earlier work).
@@ -286,4 +303,3 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 - 2026-10-28 — Maintenance brief (lab paused; Keno's go for this maintenance only, 2026-10-28). Metadata glitch on the lab page: not real. The built page and the deployed page are identical (ignoring line endings) and show no front-matter or meta text in the body; the report most likely came from a page-reading tool. Added a two-line pointer to the lab page at the top of README.md; the build reads only the title from that block, and the pointer is absent from the built page. No redeploy needed. Lab page not deployed.
 - 2026-10-26 — k3no.com now links to the lab page (Projects list; added by Keno, confirmed live). Done.
 - 2026-10-26 — Lab paused by Keno: no track work until Keno resumes it; resume order: announcement decision (after the k3no.com link is live), funding scan, funding inquiries. Official lab address: the GitHub Pages site; the k3no.com link is pending Keno's confirmation. Request tagged "→ Emergent Cognitive Markers implementer" in Shutdown After the Task's STATE.md (why Self-preservation over Metacognition). Lab page not deployed.
-- 2026-10-26 — Keno's explicit go to deploy the lab page ("go", to the lab implementer); deployed via the Pages workflow.
