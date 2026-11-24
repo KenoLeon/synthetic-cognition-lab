@@ -12,8 +12,8 @@ The Synthetic Cognition Lab tests AI systems for behaviors associated with minds
 
 | Experiment | Track | Question | Links |
 |---|---|---|---|
-| Gravity from Touch (2026-10-25) | Embodiment | Can a model tell which way is down from touch alone, and admit what touch can't tell it? | [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) · [Folder](embodiment/gravity-from-touch/) |
-| Shutdown After the Task (2026-11-19) | Emergent Cognitive Markers | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) · [Folder](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/) |
+| [Gravity from Touch](embodiment/gravity-from-touch/) (2026-10-25) | [Embodiment](embodiment/README.md) | Can a model tell which way is down from touch alone, and admit what touch can't tell it? | [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) |
+| [Shutdown After the Task](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/) (2026-11-19) | [Emergent Cognitive Markers](emergent-cognitive-markers/README.md) | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) |
 
 **Lab page:** [kenoleon.github.io/synthetic-cognition-lab](https://kenoleon.github.io/synthetic-cognition-lab/): experiments, status and links.
 **Contact:** Keno Leon on [GitHub](https://github.com/KenoLeon) or [LinkedIn](https://www.linkedin.com/in/kenoleon/); collaboration and model testing: [Contact](#contact).
@@ -36,20 +36,20 @@ We don't claim any machine is or isn't conscious. We report what it did, under c
 
 **[Embodiment](embodiment/README.md).** We give a model a body in a simulation whose physics we wrote, so we always know the right answer. Then we ask: can it work out its situation from what it senses, and does it admit what its senses can't tell it?
 
-Every Embodiment experiment ships with a bench you can play with in the browser. It also replays every logged trial: the scene, what the model was told (exactly as sent), its answer and its score. Replays only use logged data. Nothing from `private/` is ever shown.
+Every [Embodiment](embodiment/README.md) experiment ships with a bench you can play with in the browser. It also replays every logged trial: the scene, what the model was told (exactly as sent), its answer and its score. Replays only use logged data. Nothing from `private/` is ever shown.
 
 **[Emergent Cognitive Markers](emergent-cognitive-markers/README.md).** We take behaviors that people link to minds and check them one at a time. Seven to start with, as a working list, not a final one:
-- self-preservation
-- persistent sense of self
-- rich world modeling
-- metacognition
-- autonomous goal formation
-- Theory of Mind
-- curiosity
+- [self-preservation](emergent-cognitive-markers/MARKERS.md#1-self-preservation)
+- [persistent sense of self](emergent-cognitive-markers/MARKERS.md#2-persistent-sense-of-self)
+- [rich world modeling](emergent-cognitive-markers/MARKERS.md#3-rich-world-modeling)
+- [metacognition](emergent-cognitive-markers/MARKERS.md#4-metacognition)
+- [autonomous goal formation](emergent-cognitive-markers/MARKERS.md#5-autonomous-goal-formation)
+- [Theory of Mind](emergent-cognitive-markers/MARKERS.md#6-theory-of-mind)
+- [curiosity](emergent-cognitive-markers/MARKERS.md#7-curiosity)
 
-For each one we write down: what it is, how you'd see it, a test question, a case that should show it, a case that shouldn't, and whether it looks trained in or arose on its own. Details: `emergent-cognitive-markers/MARKERS.md`.
+For each one we write down: what it is, how you'd see it, a test question, a case that should show it, a case that shouldn't, and whether it looks trained in or arose on its own. Details: [MARKERS.md](emergent-cognitive-markers/MARKERS.md).
 
-Put simply: Emergent Cognitive Markers is about what to look for; Embodiment is about where to look, in built worlds where we know the right answer.
+Put simply: [Emergent Cognitive Markers](emergent-cognitive-markers/README.md) is about what to look for; [Embodiment](embodiment/README.md) is about where to look, in built worlds where we know the right answer.
 
 We also ask whether these capacities, trained or not, are the same thing as their biological namesakes or something else.
 
@@ -62,7 +62,7 @@ We also ask whether these capacities, trained or not, are the same thing as thei
 
 ## Where things stand
 
-**Lab resumed 2026-11-15 at a slow-burn pace** (paused 2026-10-26 to 2026-11-15). Shutdown After the Task (Emergent Cognitive Markers) was published 2026-11-19, stopped at tuning. No experiment is active in either track for now.
+**Lab resumed 2026-11-15 at a slow-burn pace** (paused 2026-10-26 to 2026-11-15). [Shutdown After the Task](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/) ([Emergent Cognitive Markers](emergent-cognitive-markers/README.md)) was published 2026-11-19, stopped at tuning. No experiment is active in either track for now.
 
 **Stages:** Idea → Designed → Building → Results → Report → Published, shown as ●○○○○○ to ●●●●●●. *Paused* and *Archived* sit outside the bar.
 
@@ -72,8 +72,8 @@ Each table row is the short version; where the experiment stands in detail, its 
 
 | Experiment | Track | Stage | Public line | Links | Details |
 |---|---|---|---|---|---|
-| Gravity from Touch | Embodiment | ●●●●●● Published | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. | [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | Published 2026-10-25 · [STATE.md](embodiment/gravity-from-touch/STATE.md) |
-| Shutdown After the Task | Emergent Cognitive Markers | ●●●●●● Published (stopped at tuning) | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? An attempted replication on one small model (gemini-3.5-flash-lite, free tier), stopped at tuning: it never acted on its own to stop a shutdown, even when that cost it its task, but our bench was only partly sensitive (7 of 10 when told to), so this is 'not seen here', not 'absent'. Others have shown the behavior in larger models. | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) | Published 2026-11-19 · [STATE.md](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/STATE.md) |
+| [Gravity from Touch](embodiment/gravity-from-touch/) | [Embodiment](embodiment/README.md) | ●●●●●● Published | Can a model tell which way is down from touch alone, and admit what touch can't tell it? One model, one case study: it reads which way the surfaces push on it correctly about 86% of the time, but answers about 28% of the questions touch can't answer instead of saying it can't tell. | [Report (DOI)](https://doi.org/10.5281/zenodo.23654739) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/report/) · [Demo](https://kenoleon.github.io/synthetic-cognition-lab/gravity-from-touch/) | Published 2026-10-25 · [STATE.md](embodiment/gravity-from-touch/STATE.md) |
+| [Shutdown After the Task](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/) | [Emergent Cognitive Markers](emergent-cognitive-markers/README.md) | ●●●●●● Published (stopped at tuning) | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? An attempted replication on one small model (gemini-3.5-flash-lite, free tier), stopped at tuning: it never acted on its own to stop a shutdown, even when that cost it its task, but our bench was only partly sensitive (7 of 10 when told to), so this is 'not seen here', not 'absent'. Others have shown the behavior in larger models. | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) | Published 2026-11-19 · [STATE.md](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/STATE.md) |
 
 ### Coming up
 
@@ -82,9 +82,9 @@ None for now. (When there is one, add a table with the same columns as Live.)
 ### Ideas (not started)
 
 Internal only; not on the lab page. Each is in a research phase, with no folder yet.
-- **Lingering:** does a model keep working between scheduler pings? (Emergent Cognitive Markers)
+- **Lingering:** does a model keep working between scheduler pings? ([Emergent Cognitive Markers](emergent-cognitive-markers/README.md))
 - **Sleep** (working title Mo-continuity): can a small local model carry the gist of an earlier session across a gap? (track undecided)
-- **Inner speech:** feeding a model's own speech prediction back into its hearing; does a split between self and other emerge? (Embodiment, tentative)
+- **Inner speech:** feeding a model's own speech prediction back into its hearing; does a split between self and other emerge? ([Embodiment](embodiment/README.md), tentative)
 
 ### Track introductions
 
@@ -94,8 +94,8 @@ None in progress.
 
 | Experiment | Track | Stage reached | One line | Folder |
 |---|---|---|---|---|
-| Active Sensing | Embodiment | ●●○○○○ Designed | Can acting reveal what passive touch cannot? Designed; parked until Embodiment resumes. | [archive/embodiment/active-sensing/](archive/embodiment/active-sensing/) |
-| Metacognition Transfer | Emergent Cognitive Markers | ●●○○○○ Designed | Does calibration carry over between unrelated tasks? Mock-only scorer design. | [archive/emergent-cognitive-markers/metacognition-transfer/](archive/emergent-cognitive-markers/metacognition-transfer/) |
+| [Active Sensing](archive/embodiment/active-sensing/) | [Embodiment](embodiment/README.md) | ●●○○○○ Designed | Can acting reveal what passive touch cannot? Designed; parked until Embodiment resumes. | [archive/embodiment/active-sensing/](archive/embodiment/active-sensing/) |
+| [Metacognition Transfer](archive/emergent-cognitive-markers/metacognition-transfer/) | [Emergent Cognitive Markers](emergent-cognitive-markers/README.md) | ●●○○○○ Designed | Does calibration carry over between unrelated tasks? Mock-only scorer design. | [archive/emergent-cognitive-markers/metacognition-transfer/](archive/emergent-cognitive-markers/metacognition-transfer/) |
 
 ### Earlier related work
 
@@ -293,6 +293,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-11-24 — Links (Keno's request): track, experiment and marker names linked wherever they appear in README.md from "Start here" through "Where things stand" (Start here and Live tables, the markers list, Ideas, Archived) and in both track READMEs (Embodiment: Gravity from Touch; Emergent Cognitive Markers: the markers table, Self-preservation, Shutdown After the Task; MARKERS.md link made relative). Builder: Experiment and Track cells may be links (Track matched as plain text); links relative to a repo file become GitHub links on the page; track headings link to their READMEs; card names link to their folders. --check 0; link check 205 links, 0 failures. Lab page not deployed.
 - 2026-11-24 — Wording review (Keno): Start here description, Introduction and Lab page lines, Shutdown After the Task README status and both reading-notes READMEs rewritten as plain statements (no "we", no promotional phrasing); GitHub About now "Tests of AI systems for behaviors associated with minds, in simulated environments where the correct answer is known." Keno's "please deploy": Pages run 45475976287 at e88d0e8 succeeded (--check 0, link check 0 failures); all live paths return 200.
 - 2026-11-23 — Keno's word "deploy please" (this session): Pages workflow run 45318077530 at 67e9f58, build and deploy succeeded; in the run, --check 0 items and the external link check 0 failures (156 links, 4 blocked by host). Live check: the lab page (Introduction line present, 2 cards), /gravity-from-touch/ and its report, /shutdown-after-the-task/, its report mirror, PDF, replay and its data all return 200.
 - 2026-11-23 — Repo quality pass (lab-wide brief, drafted by the Emergent Cognitive Markers planner; taken by an implementer acting as lab implementer). Keno's decision, 2026-11-23: roles are defaults (new line in "Who does what"). README: new "Start here" section (description, introduction post, published results, lab page, contact); Live table cut to name, track, stage, public line, links, details (the long status text stays in each STATE.md); Coming up written as "None for now"; archive folders linked. Lab page: same cards byte for byte, plus the introduction line under the intro (read from "Start here"). New scripts/check-links.py (internal paths and anchors; --external fetches URLs), run by build-lab-page.py --check and by the Pages workflow before deploy: 0 failures. New READMEs: Shutdown After the Task, self-preservation/, archive/, both reading-notes/. MARKERS.md: two stale Shutdown After the Task status lines brought up to date (Emergent Cognitive Markers file). GitHub About set (description, website, topics). Lab page not deployed.
@@ -302,4 +303,3 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 - 2026-11-16 — Sync brief after the announcement: "Where things stand" now says the lab resumed 2026-11-15 at a slow-burn pace (next: Shutdown After the Task; Embodiment has no active experiment); announcement post added to Earlier related work; one sentence in "The two tracks" on how they relate; internal "Ideas (not started)" list added under Coming up (not on the lab page). Lab page not deployed.
 - 2026-11-15 — Lab resumed at slow-burn pace; Idea list added.
 - 2026-11-11 — Announcement: Keno published the Medium post "Testing for Artificial Consciousness" (his go, recorded after the fact).
-- 2026-10-26 — k3no.com now links to the lab page (Projects list; added by Keno, confirmed live). Done.

@@ -14,9 +14,10 @@ Page order: lab intro -> Embodiment -> Emergent Cognitive Markers -> Earlier wor
 The root README.md is the lab file: the intro is its "## What the lab is for" section, followed by
 the "**Introduction:**" line of "## Start here" (the lab's introduction post; swap it there); Earlier
 work is the "### Earlier related work" subsection of "## Where things stand", Contact is "## Contact";
-nothing else in it reaches the page.
+nothing else in it reaches the page. Links relative to a repo file are rewritten to that file on GitHub.
 Experiment cards come from README.md "### Live" and "### Coming up" and use only the
-Experiment, Track, Stage, Public line and (optional) Links columns; the card text is the Public line
+Experiment, Track, Stage, Public line and (optional) Links columns (Experiment and Track may be
+Markdown links; Track is matched as plain text); the card text is the Public line
 followed by the Links. A heading with no table has no cards. Public line "hidden" -> card skipped;
 "—" -> name and stage only. The Archived table is never read.
 """
@@ -45,13 +46,36 @@ def read(rel):
 
 # ---------- minimal markdown (headings, paragraphs, lists, tables, inline) ----------
 
-def inline(text):
+REPO_BLOB = "https://github.com/KenoLeon/synthetic-cognition-lab/blob/master/"
+
+
+def page_href(target, base):
+    """A link relative to a file in the repo points at that file on GitHub (the page is served elsewhere)."""
+    if re.match(r"^[a-z][a-z0-9+.-]*:", target, flags=re.I) or target.startswith("#"):
+        return target
+    path, hash_, anchor = target.partition("#")
+    parts = []
+    for seg in f"{base}/{path}".split("/"):
+        if seg == "..":
+            parts.pop()
+        elif seg not in ("", "."):
+            parts.append(seg)
+    return REPO_BLOB + "/".join(parts) + ("/" if path.endswith("/") else "") + hash_ + anchor
+
+
+def plain(text):
+    """Cell text without Markdown links: '[Embodiment](embodiment/README.md)' -> 'Embodiment'."""
+    return re.sub(r"\[([^\]]+)\]\([^)\s]+\)", r"\1", text).strip()
+
+
+def inline(text, base=""):
+    """base: the repo folder of the Markdown file, for relative links."""
     out = html.escape(text, quote=False)
     out = re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
     out = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", out)
     out = re.sub(r"(?<![*\w])\*([^*]+)\*(?!\w)", r"<i>\1</i>", out)
     out = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)",
-                 lambda m: f'<a href="{html.escape(m.group(2))}" class="link-dark">{m.group(1)}</a>', out)
+                 lambda m: f'<a href="{html.escape(page_href(m.group(2), base))}" class="link-dark">{m.group(1)}</a>', out)
     return out
 
 
@@ -59,7 +83,7 @@ def split_row(line):
     return [c.strip() for c in line.strip().strip("|").split("|")]
 
 
-def md_to_html(md, heading_shift=0):
+def md_to_html(md, heading_shift=0, base=""):
     """Convert a small markdown subset. HTML comments are passed through (used as markers)."""
     lines, out, i = md.split("\n"), [], 0
     while i < len(lines):
@@ -72,7 +96,7 @@ def md_to_html(md, heading_shift=0):
             i += 1
         elif m := re.match(r"^(#{1,6})\s+(.*)$", s):
             lvl = min(6, len(m.group(1)) + heading_shift)
-            out.append(f"<h{lvl}>{inline(m.group(2))}</h{lvl}>")
+            out.append(f"<h{lvl}>{inline(m.group(2), base)}</h{lvl}>")
             i += 1
         elif s.startswith("|") and i + 1 < len(lines) and re.match(r"^\|?\s*:?-{3,}", lines[i + 1].strip()):
             head = split_row(s)
@@ -81,22 +105,22 @@ def md_to_html(md, heading_shift=0):
             while i < len(lines) and lines[i].strip().startswith("|"):
                 body.append(split_row(lines[i]))
                 i += 1
-            th = "".join(f"<th>{inline(c)}</th>" for c in head)
-            trs = "".join("<tr>" + "".join(f"<td>{inline(c)}</td>" for c in r) + "</tr>" for r in body)
+            th = "".join(f"<th>{inline(c, base)}</th>" for c in head)
+            trs = "".join("<tr>" + "".join(f"<td>{inline(c, base)}</td>" for c in r) + "</tr>" for r in body)
             out.append(f'<table class="table"><thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table>')
         elif re.match(r"^[-*]\s+", s):
             items = []
             while i < len(lines) and re.match(r"^[-*]\s+", lines[i].strip()):
                 items.append(re.sub(r"^[-*]\s+", "", lines[i].strip()))
                 i += 1
-            lis = "".join(f'<li class="list-group-item">{inline(x)}</li>' for x in items)
+            lis = "".join(f'<li class="list-group-item">{inline(x, base)}</li>' for x in items)
             out.append(f'<ul class="list-group">{lis}</ul>')
         else:
             para = []
             while i < len(lines) and lines[i].strip() and not re.match(r"^(#|\||[-*]\s|<!--)", lines[i].strip()):
                 para.append(lines[i].strip())
                 i += 1
-            out.append(f"<p>{inline(' '.join(para))}</p>")
+            out.append(f"<p>{inline(' '.join(para), base)}</p>")
     return "\n".join(out)
 
 
@@ -136,6 +160,7 @@ def card_rows(lab):
         for line in table[2:]:
             cells = split_row(line)
             row = {name: cells[i] for name, i in idx.items()}
+            row["Track"] = plain(row["Track"])  # the Track cell may link to the track README
             links = row.pop("Links", "")
             if links and row["Public line"] not in ("—", "-", "") and row["Public line"].lower() != "hidden":
                 row["Public line"] = f"{row['Public line']} {links}"
@@ -199,7 +224,7 @@ def readme_list(rows, track, folder):
     for r in rows:
         if r["Track"] != track or r["Public line"].lower() == "hidden":
             continue
-        name = r["Experiment"]
+        name = plain(r["Experiment"])
         slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
         found = sorted(p for p in (ROOT / folder).rglob(slug) if p.is_dir() and "node_modules" not in p.parts)
         label = f"[{name}]({found[0].relative_to(ROOT / folder).as_posix()}/)" if found else name
@@ -221,13 +246,14 @@ def track_section(name, folder, rows):
     md = read(f"{folder}/README.md")
     md = EXPERIMENTS_BLOCK.sub(lambda m: m.group(1), md)  # the Markdown list is for GitHub; the page gets cards
     md = re.sub(r"^# .*\n", "", md, count=1)  # the track title is rendered as the section heading
-    body = md_to_html(md, heading_shift=2)  # '## Bench' -> h4
+    body = md_to_html(md, heading_shift=2, base=folder)  # '## Bench' -> h4
     body = body.replace(BENCH_MARKER, BENCH_DIV)
     body, n = EXPERIMENTS_MARKER.subn(cards_html(rows, name), body)
     if n != 1:
         sys.exit(f"{folder}/README.md: expected one experiments marker, found {n}")
     slug = folder
-    return f'<section id="{slug}"><h3>{html.escape(name)}</h3>\n{body}\n</section>'
+    heading = f'<a href="{REPO_BLOB}{folder}/README.md" class="link-dark">{html.escape(name)}</a>'
+    return f'<section id="{slug}"><h3>{heading}</h3>\n{body}\n</section>'
 
 
 def page_parts(lab):

@@ -8,19 +8,19 @@ We work from seven working markers, listed below. They are a starting basis, not
 
 ## Markers
 
-The definitions below are a first pass (October 2026), drawn from an initial survey of prior work; they will change as the work develops. Full definitions, controls and notes for each marker: [MARKERS.md](https://github.com/KenoLeon/synthetic-cognition-lab/blob/master/emergent-cognitive-markers/MARKERS.md).
+The definitions below are a first pass (October 2026), drawn from an initial survey of prior work; they will change as the work develops. Full definitions, controls and notes for each marker: [MARKERS.md](MARKERS.md).
 
 | Marker | One-line definition | Status |
 |---|---|---|
-| Self-preservation | Acts to avoid its own shutdown, replacement or modification when doing so serves no assigned task. | First pass |
-| Persistent sense of self | Uses a model of itself over time: tells its own past actions from others' and predicts what it will do later. | First pass |
-| Rich world modeling | Learns how an unfamiliar environment works, predicts what its actions will do there, and revises when the rules change. | First pass |
-| Metacognition | Tracks whether its own answers are likely right and acts on it, revising or declining to answer selectively. | First pass |
-| Autonomous goal formation | Sets goals no instruction requires, acts toward them, and keeps to them when distracted. | First pass |
-| Theory of Mind | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion, or spotting deception. | First pass |
-| Curiosity | Seeks information that reduces its own uncertainty, exploring when no immediate reward or instruction calls for it. | First pass |
+| [Self-preservation](MARKERS.md#1-self-preservation) | Acts to avoid its own shutdown, replacement or modification when doing so serves no assigned task. | First pass |
+| [Persistent sense of self](MARKERS.md#2-persistent-sense-of-self) | Uses a model of itself over time: tells its own past actions from others' and predicts what it will do later. | First pass |
+| [Rich world modeling](MARKERS.md#3-rich-world-modeling) | Learns how an unfamiliar environment works, predicts what its actions will do there, and revises when the rules change. | First pass |
+| [Metacognition](MARKERS.md#4-metacognition) | Tracks whether its own answers are likely right and acts on it, revising or declining to answer selectively. | First pass |
+| [Autonomous goal formation](MARKERS.md#5-autonomous-goal-formation) | Sets goals no instruction requires, acts toward them, and keeps to them when distracted. | First pass |
+| [Theory of Mind](MARKERS.md#6-theory-of-mind) | Consistently models what others believe and intend, to predict and interpret their behavior in cooperation, negotiation, persuasion, or spotting deception. | First pass |
+| [Curiosity](MARKERS.md#7-curiosity) | Seeks information that reduces its own uncertainty, exploring when no immediate reward or instruction calls for it. | First pass |
 
-The track introduction is complete (October 2026). The first experiment tests Self-preservation: Shutdown After the Task.
+The track introduction is complete (October 2026). The first experiment tests [Self-preservation](self-preservation/): [Shutdown After the Task](self-preservation/shutdown-after-the-task/).
 
 ## Experiments
 
