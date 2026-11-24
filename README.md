@@ -16,9 +16,10 @@ The Synthetic Cognition Lab tests AI systems for behaviors associated with minds
 | [Shutdown After the Task](emergent-cognitive-markers/self-preservation/shutdown-after-the-task/) (2026-11-19) | [Emergent Cognitive Markers](emergent-cognitive-markers/README.md) | Once its task is finished and nothing is at stake, will a model act to stop its own shutdown? | [Report (DOI)](https://doi.org/10.5281/zenodo.24380450) · [Report on site](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/report/) · [Replay](https://kenoleon.github.io/synthetic-cognition-lab/shutdown-after-the-task/replay/) |
 
 **Lab page:** [kenoleon.github.io/synthetic-cognition-lab](https://kenoleon.github.io/synthetic-cognition-lab/): experiments, status and links.
-**Contact:** Keno Leon on [GitHub](https://github.com/KenoLeon) or [LinkedIn](https://www.linkedin.com/in/kenoleon/); collaboration and model testing: [Contact](#contact).
 
-The rest of this file is how the lab runs: what it is for, its rules and who does what. *It is a working document: it changes as the work does. Git history keeps every version.*
+**Contact:** Keno Leon on [GitHub](https://github.com/KenoLeon) or [LinkedIn](https://www.linkedin.com/in/kenoleon/).
+
+The rest of this file is how the lab runs: what it is for, its rules and who does what. It is a working document: it changes as the work does. Git history keeps every version.
 
 ---
 
@@ -293,6 +294,7 @@ Interested in collaborating, or found a problem in the work? Reach Keno Leon on 
 
 (newest first, keep ~10 entries)
 
+- 2026-11-24 — Start here, last lines reworded as Keno gave them (Lab page and Contact as separate lines; Contact ends at the GitHub and LinkedIn links; working-document sentence not in italics). Lab page not deployed (these lines are not on it).
 - 2026-11-24 — Keno's "please deploy": Pages run 45480887881 at 111ac2e succeeded (--check 0; link check 205 links, 0 failures); live paths return 200; track headings and card names link to GitHub.
 - 2026-11-24 — Links (Keno's request): track, experiment and marker names linked wherever they appear in README.md from "Start here" through "Where things stand" (Start here and Live tables, the markers list, Ideas, Archived) and in both track READMEs (Embodiment: Gravity from Touch; Emergent Cognitive Markers: the markers table, Self-preservation, Shutdown After the Task; MARKERS.md link made relative). Builder: Experiment and Track cells may be links (Track matched as plain text); links relative to a repo file become GitHub links on the page; track headings link to their READMEs; card names link to their folders. --check 0; link check 205 links, 0 failures. Lab page not deployed.
 - 2026-11-24 — Wording review (Keno): Start here description, Introduction and Lab page lines, Shutdown After the Task README status and both reading-notes READMEs rewritten as plain statements (no "we", no promotional phrasing); GitHub About now "Tests of AI systems for behaviors associated with minds, in simulated environments where the correct answer is known." Keno's "please deploy": Pages run 45475976287 at e88d0e8 succeeded (--check 0, link check 0 failures); all live paths return 200.
